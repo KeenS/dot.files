@@ -1,0 +1,2 @@
+setxkbmap dvorak
+xmodmap ~/.Xmodmap
