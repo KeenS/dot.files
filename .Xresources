@@ -1,0 +1,59 @@
+URxvt.depth:                32
+URxvt.transparent:          false
+URxvt.fading:               0
+! URxvt.urgentOnBell:         true
+! URxvt.visualBell:           true
+URxvt.loginShell:           true
+URxvt.saveLines:            5000
+URxvt.internalBorder:       0
+URxvt.lineSpace:            0
+
+! Fonts
+URxvt.allow_bold:           false
+URxvt*font: xft:Monospace:pixelsize=18
+
+! Fix font space
+!URxvt*letterSpace: -1
+
+! Scrollbar
+URxvt.scrollStyle:          rxvt
+URxvt.scrollBar:            false
+
+! Perl extensions
+URxvt.perl-ext-common:      default,tabbedex
+URxvt.matcher.button:       1
+URxvt.urlLauncher:          google-chrome
+URxvt.keysym.M-t:           perl:tabbedex:new_tab
+URxvt.tabbed.no-tabbedex-keys: true
+
+! Cursor
+URxvt.cursorBlink:          true
+URxvt.cursorColor:          #657b83
+URxvt.cursorUnderline:      false
+
+! Pointer
+URxvt.pointerBlank:         true
+
+Xft.dpi:                    96
+Xft.antialias:              true
+Xft.rgba:                   rgb
+Xft.hinting:                true
+Xft.hintstyle:              hintslight
+URxvt.foreground: white
+URxvt.background: #111114
+!URxvt.color0:
+URxvt.color1: #FF6D6D
+URxvt.color2: #14D514
+URxvt.color3: #F5F59B
+URxvt.color4: #1E82F0
+URxvt.color5: #DE90DE
+URxvt.color6: #00FFFF
+!URxvt.color7:
+!URxvt.color8:
+URxvt.color9: #FD2A2A
+URxvt.color10: #3EF43E
+URxvt.color11: #FAFA3C
+URxvt.color12: #1E90FF
+URxvt.color13: #FF8CFF
+URxvt.color14: #5EF5F5
+!URxvt.color15:

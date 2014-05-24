@@ -1,0 +1,43 @@
+;; -*- mode:common-lisp; eval:(stumpwm-mode) -*-
+(run-shell-command "setxkbmap dvorak")
+(defcommand firefox () () "Start Firefox or switch to it, if it is
+  already running."  (run-or-raise "firefox" '(:class "Firefox")))
+  (define-key *root-map* (kbd "f") "firefox")
+
+;; run an `urxvt' terminal (instead of `xterm')
+;; TODO Install `rxvt-unicode'
+;; FIXME If urxvt is not installed, let default keybinding
+(defcommand urxvt () ()
+  "Start an urxvt instance or switch to it, if it is already running."
+  (run-or-raise "urxvt" '(:instance "urxvt")))
+(define-key *root-map* (kbd "c") "urxvt")
+(defcommand Thunderbird () ()
+  "Start an urxvt instance or switch to it, if it is already running."
+  (run-or-raise "thunderbird" '(:instance "Thunderbird")))
+(define-key *root-map* (kbd "b") "thunderbird")
+
+(load-module "swm-emacs")
+(defparameter *start-menu*
+  '(("Twitter" "firefox https://twitter.com")
+    ("Facebook" "firefox facebook.com")
+    ("Thunderbird" "thunderbird")
+    ("Skype"     "skype")
+    ("Firefox"   "firefox")))
+
+(defcommand menu () ()
+  "docstring"
+  (labels ((pick (options)
+                 (let ((selection (stumpwm::select-from-menu
+                                   (current-screen) options "")))
+                   (cond
+                    ((null selection)
+                     (throw 'stumpwm::error "Abort."))
+                    ((stringp (second selection))
+                     (second selection))
+                    (t
+                     (pick (cdr selection)))))))
+    (let ((choice (pick *start-menu*)))
+      (run-shell-command choice))))
+
+(define-key *root-map* (kbd ".") "menu")
+(run-shell-command "xmodmap /home/kim/.Xmodmap")
