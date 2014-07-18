@@ -10,10 +10,12 @@
 (defcommand urxvt () ()
   "Start an urxvt instance or switch to it, if it is already running."
   (run-or-raise "urxvt" '(:instance "urxvt")))
-(define-key *root-map* (kbd "c") "urxvt")
-(defcommand Thunderbird () ()
+(defcommand thunderbird () ()
   "Start an urxvt instance or switch to it, if it is already running."
   (run-or-raise "thunderbird" '(:instance "Thunderbird")))
+
+(define-key *root-map* (kbd "c") "urxvt")
+(define-key *root-map* (kbd "C-c") "")
 (define-key *root-map* (kbd "b") "thunderbird")
 
 (load-module "swm-emacs")
