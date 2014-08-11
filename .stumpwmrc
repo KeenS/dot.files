@@ -24,7 +24,7 @@
     ("Facebook" "firefox facebook.com")
     ("Thunderbird" "thunderbird")
     ("Skype"     "skype")
-    ("Firefox"   "firefox")))
+    ("Github"   "firefox https://github.com")))
 
 (defcommand menu () ()
   "docstring"
