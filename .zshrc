@@ -1,10 +1,10 @@
-if [[ -z "$TMUX" && ! -z "$PS1" ]];then
-    if tmux list-sessions >& /dev/null; then
-        exec tmux a
-    else
-        exec tmux
-    fi
-fi
+# if [[ -z "$TMUX" && ! -z "$PS1" ]];then
+#     if tmux list-sessions >& /dev/null; then
+#         exec tmux a
+#     else
+#         exec tmux
+#     fi
+# fi
 
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
@@ -118,12 +118,23 @@ route () {
   echo 'Use `ip r`'
 }
 
-alias smlsharp='sudo docker.io run -i -t mzpi/smlsharp smlsharp'
+alias smlsharp_docker='sudo docker.io run -v /home/kim/Sml:/mnt -i -t mzpi/smlsharp bash'
+alias ec='emacsclient'
+alias ls='ls --color'
+export LEIN_JAVA_CMD=drip
+export PATH=~/bin:$PATH
 
 CIM_HOME=/home/kim/.cim; [ -s '/home/kim/.cim/init.sh' ] && . '/home/kim/.cim/init.sh'
-export PATH=~/bin:$PATH
 
 # OPAM configuration
 . /home/kim/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
+export NVM_DIR="/home/kim/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
+
+PERL_MB_OPT="--install_base \"/home/kim/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/home/kim/perl5"; export PERL_MM_OPT;
+
+
+SHELLY_HOME=/home/kim/.shelly; [ -s "$SHELLY_HOME/lib/shelly/init.sh" ] && . "$SHELLY_HOME/lib/shelly/init.sh"
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
