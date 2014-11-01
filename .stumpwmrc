@@ -1,30 +1,45 @@
 ;; -*- mode:common-lisp; eval:(stumpwm-mode) -*-
 (run-shell-command "setxkbmap dvorak")
-(defcommand firefox () () "Start Firefox or switch to it, if it is
-  already running."  (run-or-raise "firefox" '(:class "Firefox")))
-  (define-key *root-map* (kbd "f") "firefox")
-
-;; run an `urxvt' terminal (instead of `xterm')
-;; TODO Install `rxvt-unicode'
-;; FIXME If urxvt is not installed, let default keybinding
-(defcommand urxvt () ()
-  "Start an urxvt instance or switch to it, if it is already running."
-  (run-or-raise "urxvt" '(:instance "urxvt")))
-(defcommand thunderbird () ()
-  "Start an urxvt instance or switch to it, if it is already running."
-  (run-or-raise "thunderbird" '(:instance "Thunderbird")))
-
-(define-key *root-map* (kbd "c") "urxvt")
-(define-key *root-map* (kbd "C-c") "")
-(define-key *root-map* (kbd "b") "thunderbird")
-
 (load-module "swm-emacs")
+;(load-module "ttf-fonts")
+(load-module "amixer")
+(load-module "stumptray")
+(run-shell-command "xmodmap /home/kim/.Xmodmap")
+
+
+(define-key *root-map* (kbd "c") "gnome-terminal")
+(undefine-key *root-map* (kbd "C-c"))
+(define-key *root-map* (kbd "b") "thunderbird")
+(define-key *root-map* (kbd "f") "firefox")
+(define-key *root-map* (kbd ".") "menu")
+(define-key *root-map* (kbd "M-w") "kill-ring-save")
+(define-key *root-map* (kbd "C-y") "yank")
+
 (defparameter *start-menu*
   '(("Twitter" "firefox https://twitter.com")
     ("Facebook" "firefox facebook.com")
     ("Thunderbird" "thunderbird")
     ("Skype"     "skype")
     ("Github"   "firefox https://github.com")))
+
+(define-key *top-map* (kbd "XF86AudioLowerVolume") "amixer-Master-1-")
+(define-key *top-map* (kbd "XF86AudioRaiseVolume") "amixer-Master-1+")
+(define-key *top-map* (kbd "XF86AudioMute") nil #+nil"amixer-Master-toggle")
+
+(define-key *top-map* (kbd "Print") "exec gnome-screenshot")
+(define-key *top-map* (kbd "M-Print") "exec gnome-screenshot -w")
+
+(define-key *input-map* (kbd "C-h") 'stumpwm::input-delete-backward-char)
+
+(defcommand firefox () ()
+  "Start Firefox or switch to it, if it is already running."
+  (run-or-pull "firefox" '(:class "Firefox")))
+(defcommand gnome-terminal () ()
+  "Start an gnome-terminal instance or switch to it, if it is already running."
+  (run-or-pull "gnome-terminal" '(:instance "gnome-terminal")))
+(defcommand thunderbird () ()
+  "Start an Thunderbird instance or switch to it, if it is already running."
+  (run-or-pull "thunderbird" '(:instance "Thunderbird")))
 
 (defcommand menu () ()
   "docstring"
@@ -41,5 +56,18 @@
     (let ((choice (pick *start-menu*)))
       (run-shell-command choice))))
 
-(define-key *root-map* (kbd ".") "menu")
-(run-shell-command "xmodmap /home/kim/.Xmodmap")
+(defvar *kill-ring* ())
+(defcommand kill-ring-save () ()
+   (let ((str (get-x-selection)))
+     (setf *kill-ring* str)
+     (set-x-selection str)))
+(defcommand yank () ()
+  (if *kill-ring*
+      (window-send-string *kill-ring*)))
+
+(setf *window-border-width* :tight)
+
+(stumptray:add-mode-line-hooks)
+(run-shell-command "nm-applet &")
+                                        ;(load-module "battery-portable")
+
