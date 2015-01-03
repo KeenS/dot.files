@@ -89,40 +89,42 @@ net_tools_deprecated_message () {
   echo -n 'net-tools commands are obsolete. '
 }
 
-arp () {
-  net_tools_deprecated_message
-  echo 'Use `ip n`'
-}
-ifconfig () {
-  net_tools_deprecated_message
-  echo 'Use `ip a`, `ip link`, `ip -s link`'
-}
-iptunnel () {
-  net_tools_deprecated_message
-  echo 'Use `ip tunnel`'
-}
-iwconfig () {
-  echo -n 'iwconfig is obsolete. '
-  echo 'Use `iw`'
-}
-nameif () {
-  net_tools_deprecated_message
-  echo 'Use `ip link`, `ifrename`'
-}
-netstat () {
-  net_tools_deprecated_message
-  echo 'Use `ss`, `ip route` (for netstat -r), `ip -s link` (for netstat -i), `ip maddr` (for netstat -g)'
-}
-route () {
-  net_tools_deprecated_message
-  echo 'Use `ip r`'
-}
+# arp () {
+#   net_tools_deprecated_message
+#   echo 'Use `ip n`'
+# }
+# ifconfig () {
+#   net_tools_deprecated_message
+#   echo 'Use `ip a`, `ip link`, `ip -s link`'
+# }
+# iptunnel () {
+#   net_tools_deprecated_message
+#   echo 'Use `ip tunnel`'
+# }
+# iwconfig () {
+#   echo -n 'iwconfig is obsolete. '
+#   echo 'Use `iw`'
+# }
+# nameif () {
+#   net_tools_deprecated_message
+#   echo 'Use `ip link`, `ifrename`'
+# }
+# netstat () {
+#   net_tools_deprecated_message
+#   echo 'Use `ss`, `ip route` (for netstat -r), `ip -s link` (for netstat -i), `ip maddr` (for netstat -g)'
+# }
+# route () {
+#   net_tools_deprecated_message
+#   echo 'Use `ip r`'
+# }
 
 alias smlsharp_docker='sudo docker.io run -v /home/kim/Sml:/mnt -i -t mzpi/smlsharp bash'
 alias ec='emacsclient'
-alias ls='ls --color'
+alias ls='ls -G'
 export LEIN_JAVA_CMD=drip
 export PATH=~/bin:$PATH
+export MANPATH=/usr/local/share/man:/usr/share/man/
+export LANG=ja_JP.UTF-8
 
 CIM_HOME=/home/kim/.cim; [ -s '/home/kim/.cim/init.sh' ] && . '/home/kim/.cim/init.sh'
 
@@ -132,9 +134,7 @@ export NVM_DIR="/home/kim/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
 
-PERL_MB_OPT="--install_base \"/home/kim/perl5\""; export PERL_MB_OPT;
-PERL_MM_OPT="INSTALL_BASE=/home/kim/perl5"; export PERL_MM_OPT;
-
 
 SHELLY_HOME=/home/kim/.shelly; [ -s "$SHELLY_HOME/lib/shelly/init.sh" ] && . "$SHELLY_HOME/lib/shelly/init.sh"
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+eval $(ssh-agent) >> /dev/null
+ssh-add -l >/dev/null || alias ssh='ssh-add -l >/dev/null || ssh-add && unalias ssh; ssh'
