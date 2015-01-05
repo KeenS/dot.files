@@ -1,3 +1,4 @@
+#!/usr/local/bin/zsh
 # if [[ -z "$TMUX" && ! -z "$PS1" ]];then
 #     if tmux list-sessions >& /dev/null; then
 #         exec tmux a
@@ -121,20 +122,10 @@ net_tools_deprecated_message () {
 alias smlsharp_docker='sudo docker.io run -v /home/kim/Sml:/mnt -i -t mzpi/smlsharp bash'
 alias ec='emacsclient'
 alias ls='ls -G'
-export LEIN_JAVA_CMD=drip
 export PATH=~/bin:$PATH
 export MANPATH=/usr/local/share/man:/usr/share/man/
-export LANG=ja_JP.UTF-8
 
 CIM_HOME=/home/kim/.cim; [ -s '/home/kim/.cim/init.sh' ] && . '/home/kim/.cim/init.sh'
 
 # OPAM configuration
 . /home/kim/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
-export NVM_DIR="/home/kim/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-
-
-
-SHELLY_HOME=/home/kim/.shelly; [ -s "$SHELLY_HOME/lib/shelly/init.sh" ] && . "$SHELLY_HOME/lib/shelly/init.sh"
-eval $(ssh-agent) >> /dev/null
-ssh-add -l >/dev/null || alias ssh='ssh-add -l >/dev/null || ssh-add && unalias ssh; ssh'
