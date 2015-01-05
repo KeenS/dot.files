@@ -1,6 +1,6 @@
 #!/bin/sh
 
-files="Xmodmap Xresources stumpwmrc tmux.conf xinitrc zshrc xprofile hgrc gdbinit"
+files="Xmodmap Xresources stumpwmrc tmux.conf xinitrc zshrc xprofile hgrc gdbinit gemrc"
 
 verbose(){
 	echo "$@"
