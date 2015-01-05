@@ -9,4 +9,5 @@ export QT_IM_MODULE=uim
 /usr/local/bin/uim-toolbar-gtk &
 
 export XMODIFIERS="@im=uim"
+[ -f ~/.xprofile ] && . ~/.xprofile
 exec /usr/local/bin/startkde4

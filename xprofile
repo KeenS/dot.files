@@ -1,0 +1,15 @@
+#!/bin/sh
+
+export LANG=ja_JP.UTF-8
+export LC_CTYPE=ja_JP.UTF-8
+export LANG=ja_JP.UTF-8
+export XIM="uim"
+export GTK_IM_MODULE=uim
+export QT_IM_MODULE=uim
+export XMODIFIERS='@im=uim'
+export SSH_ASKPASS=/usr/local/bin/ksshaskpass
+eval $(ssh-agent) >> /dev/null
+# /usr/local/bin/uim-xim &
+# /usr/bin/ssh-add < /dev/null
+true
+
