@@ -122,10 +122,21 @@ net_tools_deprecated_message () {
 alias smlsharp_docker='sudo docker.io run -v /home/kim/Sml:/mnt -i -t mzpi/smlsharp bash'
 alias ec='emacsclient'
 alias ls='ls -G'
-export PATH=~/bin:$PATH
+ANDROID_HOME="/Users/a13987/Library/Android/sdk"
+export PATH=~/bin:$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
 export MANPATH=/usr/local/share/man:/usr/share/man/
 
 CIM_HOME=/home/kim/.cim; [ -s '/home/kim/.cim/init.sh' ] && . '/home/kim/.cim/init.sh'
 
 # OPAM configuration
-. /home/kim/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
+. /Users/a13987/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
+
+#THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
+[[ -s "/Users/a13987/.gvm/bin/gvm-init.sh" ]] && source "/Users/a13987/.gvm/bin/gvm-init.sh"
+
+PERL_MB_OPT="--install_base \"/Users/a13987/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/Users/a13987/perl5"; export PERL_MM_OPT;
+export GOPATH=/Users/a13987/Go
+export PATH=$PATH:$GOPATH/bin
+eval "$(rbenv init -)"
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_79.jdk/Contents/Home
