@@ -13,5 +13,5 @@ pager = LESS='FRX' less
 # (see "hg help extensions" for more info)
 #
 pager = 
-# progress =
-# color =
+progress =
+color =
