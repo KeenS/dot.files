@@ -90,6 +90,10 @@ net_tools_deprecated_message () {
   echo -n 'net-tools commands are obsolete. '
 }
 
+romaji() {
+    echo "$1" |  kakasi -iutf8 -Ha -Ja -Ka -Ea -ka | tr -c '[0-9a-zA-Z\n]' _ 
+}
+
 # arp () {
 #   net_tools_deprecated_message
 #   echo 'Use `ip n`'
@@ -119,13 +123,12 @@ net_tools_deprecated_message () {
 #   echo 'Use `ip r`'
 # }
 
-alias smlsharp_docker='sudo docker.io run -v /home/kim/Sml:/mnt -i -t mzpi/smlsharp bash'
 alias ec='emacsclient'
-alias ls='ls -G'
-export PATH=~/bin:$PATH
-export MANPATH=/usr/local/share/man:/usr/share/man/
-
-CIM_HOME=/home/kim/.cim; [ -s '/home/kim/.cim/init.sh' ] && . '/home/kim/.cim/init.sh'
+alias ls='ls --color'
+export PATH=/usr/local/bin/:~/bin:$PATH
+export XDG_CONFIG_DIRS=$HOME/.config
+export XDG_DATA_DIRS=/usr/local/share/:/usr/share/
+{ CIM_HOME=$HOME/.cim; [ -s "$CIM_HOME/init.sh" ] && . "$CIM_HOME/init.sh" } || true
 
 # OPAM configuration
 . /home/kim/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
