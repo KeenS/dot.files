@@ -130,5 +130,11 @@ export XDG_CONFIG_DIRS=$HOME/.config
 export XDG_DATA_DIRS=/usr/local/share/:/usr/share/
 { CIM_HOME=$HOME/.cim; [ -s "$CIM_HOME/init.sh" ] && . "$CIM_HOME/init.sh" } || true
 
+ATS_VERSION=0.2.5
+
+export PATSHOME=~/compile/ATS2-Postiats-$ATS_VERSION/
+export PATH=$PATSHOME/bin:$PATH
+export PATSHOMERELOC=~/compile/ATS2-Postiats-contrib-$ATS_VERSION
+
 # OPAM configuration
 . /home/kim/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
