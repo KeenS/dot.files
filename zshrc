@@ -44,7 +44,7 @@ function check-status {
         echo "$(colorize red :\$\?) $1 "
     else
         echo ""
-    fi    
+    fi
 }
 
 function branch-status-check {
@@ -94,34 +94,47 @@ romaji() {
     echo "$1" |  kakasi -iutf8 -Ha -Ja -Ka -Ea -ka | tr -c '[0-9a-zA-Z\n]' _ 
 }
 
-# arp () {
-#   net_tools_deprecated_message
-#   echo 'Use `ip n`'
-# }
-# ifconfig () {
-#   net_tools_deprecated_message
-#   echo 'Use `ip a`, `ip link`, `ip -s link`'
-# }
-# iptunnel () {
-#   net_tools_deprecated_message
-#   echo 'Use `ip tunnel`'
-# }
-# iwconfig () {
-#   echo -n 'iwconfig is obsolete. '
-#   echo 'Use `iw`'
-# }
-# nameif () {
-#   net_tools_deprecated_message
-#   echo 'Use `ip link`, `ifrename`'
-# }
-# netstat () {
-#   net_tools_deprecated_message
-#   echo 'Use `ss`, `ip route` (for netstat -r), `ip -s link` (for netstat -i), `ip maddr` (for netstat -g)'
-# }
-# route () {
-#   net_tools_deprecated_message
-#   echo 'Use `ip r`'
-# }
+drill-start() {
+    ~/compile/zookeeper-3.4.8/bin/zkServer.sh start
+    drillbit.sh start
+}
+
+drill-cli() {
+    sqlline -u jdbc:drill:zk=localhost:2181
+}
+
+drill-web() {
+   firefox http://localhost:8047
+}
+
+arp () {
+  net_tools_deprecated_message
+  echo 'Use `ip n`'
+}
+ifconfig () {
+  net_tools_deprecated_message
+  echo 'Use `ip a`, `ip link`, `ip -s link`'
+}
+iptunnel () {
+  net_tools_deprecated_message
+  echo 'Use `ip tunnel`'
+}
+iwconfig () {
+  echo -n 'iwconfig is obsolete. '
+  echo 'Use `iw`'
+}
+nameif () {
+  net_tools_deprecated_message
+  echo 'Use `ip link`, `ifrename`'
+}
+netstat () {
+  net_tools_deprecated_message
+  echo 'Use `ss`, `ip route` (for netstat -r), `ip -s link` (for netstat -i), `ip maddr` (for netstat -g)'
+}
+route () {
+  net_tools_deprecated_message
+  echo 'Use `ip r`'
+}
 
 alias ec='emacsclient'
 alias ls='ls --color'
@@ -135,6 +148,8 @@ ATS_VERSION=0.2.5
 export PATSHOME=~/compile/ATS2-Postiats-$ATS_VERSION/
 export PATH=$PATSHOME/bin:$PATH
 export PATSHOMERELOC=~/compile/ATS2-Postiats-contrib-$ATS_VERSION
+
+export PATH=$PATH:~/.multirust/toolchains/stable/cargo/bin
 
 # OPAM configuration
 . /home/kim/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
