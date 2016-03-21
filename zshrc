@@ -21,7 +21,7 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 PROMPT="("
-RPROMPT='$(check-status $?)$(branch-status-check)$(colorize red :cwd) %~)'
+RPROMPT='$(check-status $?)$(branch-status-check)$(stash-count)$(colorize red :cwd) %~)'
 setopt prompt_subst
 
 # {{{ methods for RPROMPT
@@ -45,6 +45,13 @@ function check-status {
     else
         echo ""
     fi
+}
+
+function stash-count {
+  local COUNT=$(git stash list 2>/dev/null | wc -l | tr -d ' ')
+  if [ "$COUNT" -gt 0 ]; then
+    echo "$(colorize red :stashes) $COUNT "
+  fi
 }
 
 function branch-status-check {
@@ -97,6 +104,10 @@ romaji() {
 drill-start() {
     ~/compile/zookeeper-3.4.8/bin/zkServer.sh start
     drillbit.sh start
+}
+
+drill-stop() {
+    drillbit.sh stop
 }
 
 drill-cli() {
