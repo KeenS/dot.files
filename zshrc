@@ -217,3 +217,7 @@ export PATH=$PATH:~/.multirust/toolchains/stable/cargo/bin
 
 # OPAM configuration
 . /home/kim/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
+
+
+export GOPATH=~/Go
+export PATH=$GOPATH/bin:$PATH
