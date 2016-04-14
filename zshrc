@@ -179,7 +179,7 @@ main() {
             --help) usage; exit 0;;
             --verbose) set -x;;
             --) break;;
-            -*) 
+            -*)
                 OPTIND=1
                 while getopts h OPT "$ARG"; do
                     case "$OPT" in
