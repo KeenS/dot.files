@@ -355,11 +355,11 @@ key.setViewKey([["M->"], ["G"]], function (ev) {
                 goDoCommand("cmd_scrollBottom");
             }, 'ページ末尾へ移動', true);
 
-key.setViewKey('l', function (ev) {
+key.setViewKey([["M-f"], ['l']], function (ev) {
                 getBrowser().mTabContainer.advanceSelectedTab(1, true);
             }, 'ひとつ右のタブへ', false);
 
-key.setViewKey('h', function (ev) {
+key.setViewKey([["M-b"], ['h']], function (ev) {
                 getBrowser().mTabContainer.advanceSelectedTab(-1, true);
             }, 'ひとつ左のタブへ', false);
 
@@ -390,6 +390,22 @@ key.setViewKey('f', function (ev) {
 key.setViewKey('M-p', function (ev) {
                 command.walkInputElement(command.elementsRetrieverButton, true, true);
             }, '次のボタンへフォーカスを当てる', false);
+
+key.setViewKey('C-M-u', function (ev) {
+                command.setClipboardText(ev.target.ownerDocument.location.href, true);
+            }, 'URLをクリップボードにコピー', false);
+
+key.setViewKey('C-M-t', function (ev) {
+                command.setClipboardText(ev.target.ownerDocument.title, true);
+            }, 'タイトルをクリップボードにコピー', false);
+
+key.setViewKey('C-M-b', function (ev) {
+                command.setClipboardText(ev.target.ownerDocument.title + '\n' + ev.target.ownerDocument.location.href, true);
+            }, 'タイトルとURLをクリップボードにコピー', false);
+
+key.setViewKey('C-M-m', function (ev) {
+                command.setClipboardText('[' + ev.target.ownerDocument.title + '](' + ev.target.ownerDocument.location.href + ')', true);
+            }, 'タイトルとURLをMarkdown形式でクリップボードにコピー', false);
 
 key.setViewKey('M-n', function (ev) {
                 command.walkInputElement(command.elementsRetrieverButton, false, true);
