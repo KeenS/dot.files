@@ -174,7 +174,7 @@ key.setEditKey('C-o', function (ev) {
                 command.openLine(ev);
             }, '行を開く (Open line)', false);
 
-key.setEditKey([["C-x", "u"], ["C-_"]], function (ev) {
+key.setEditKey([["C-x", "u"], ["C-_"], ["C-/"]], function (ev) {
                 display.echoStatusBar("Undo!", 2000);
                 goDoCommand("cmd_undo");
             }, 'アンドゥ', false);
@@ -323,23 +323,23 @@ key.setEditKey('M-p', function (ev) {
                 command.walkInputElement(command.elementsRetrieverTextarea, false, true);
             }, '前のテキストエリアへフォーカス', false);
 
-key.setViewKey([["C-n"], ["j"]], function (ev) {
+key.setViewKey([["C-n"]], function (ev) {
                 key.generateKey(ev.originalTarget, KeyEvent.DOM_VK_DOWN, true);
             }, '一行スクロールダウン', false);
 
-key.setViewKey([["C-p"], ["k"]], function (ev) {
+key.setViewKey([["C-p"]], function (ev) {
                 key.generateKey(ev.originalTarget, KeyEvent.DOM_VK_UP, true);
             }, '一行スクロールアップ', false);
 
-key.setViewKey([["C-f"], ["."]], function (ev) {
+key.setViewKey([["C-f"]], function (ev) {
                 key.generateKey(ev.originalTarget, KeyEvent.DOM_VK_RIGHT, true);
             }, '右へスクロール', false);
 
-key.setViewKey([["C-b"], [","]], function (ev) {
+key.setViewKey([["C-b"]], function (ev) {
                 key.generateKey(ev.originalTarget, KeyEvent.DOM_VK_LEFT, true);
             }, '左へスクロール', false);
 
-key.setViewKey([["M-v"], ["b"]], function (ev) {
+key.setViewKey([["M-v"]], function (ev) {
                 goDoCommand("cmd_scrollPageUp");
             }, '一画面分スクロールアップ', false);
 
@@ -347,7 +347,7 @@ key.setViewKey('C-v', function (ev) {
                 goDoCommand("cmd_scrollPageDown");
             }, '一画面スクロールダウン', false);
 
-key.setViewKey([["M-<"], ["g"]], function (ev) {
+key.setViewKey([["M-<"]], function (ev) {
                 goDoCommand("cmd_scrollTop");
             }, 'ページ先頭へ移動', true);
 
@@ -355,11 +355,11 @@ key.setViewKey([["M->"], ["G"]], function (ev) {
                 goDoCommand("cmd_scrollBottom");
             }, 'ページ末尾へ移動', true);
 
-key.setViewKey([["M-f"], ['l']], function (ev) {
+key.setViewKey([["M-f"]], function (ev) {
                 getBrowser().mTabContainer.advanceSelectedTab(1, true);
             }, 'ひとつ右のタブへ', false);
 
-key.setViewKey([["M-b"], ['h']], function (ev) {
+key.setViewKey([["M-b"]], function (ev) {
                 getBrowser().mTabContainer.advanceSelectedTab(-1, true);
             }, 'ひとつ左のタブへ', false);
 
