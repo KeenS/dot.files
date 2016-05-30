@@ -1,11 +1,11 @@
 #!/usr/local/bin/zsh
-# if [[ -z "$TMUX" && ! -z "$PS1" ]];then
-#     if tmux list-sessions >& /dev/null; then
-#         exec tmux a
-#     else
-#         exec tmux
-#     fi
-# fi
+if [ -z "$TMUX" ] && [ -z "$STY" ] ;then
+    if tmux list-sessions >& /dev/null; then
+        exec tmux a
+    else
+        exec tmux
+    fi
+fi
 
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
@@ -102,7 +102,7 @@ romaji() {
 }
 
 drill-start() {
-    ~/compile/zookeeper-3.4.8/bin/zkServer.sh start
+    sudo ~/compile/zookeeper-3.4.8/bin/zkServer.sh start
     drillbit.sh start
 }
 
