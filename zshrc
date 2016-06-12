@@ -213,7 +213,7 @@ export PATSHOME=~/compile/ATS2-Postiats-$ATS_VERSION/
 export PATH=$PATSHOME/bin:$PATH
 export PATSHOMERELOC=~/compile/ATS2-Postiats-contrib-$ATS_VERSION
 
-export PATH=$PATH:~/.multirust/toolchains/stable/cargo/bin
+export PATH="$HOME/.cargo/bin:$PATH"
 
 # OPAM configuration
 . /home/kim/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
