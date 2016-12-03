@@ -215,6 +215,27 @@ SHELLSCRIPT
     chmod +x "$1"
 }
 
+nomad_log() {
+    if [ $# = 3 ]; then
+        if [ "$1" = err ]; then
+            set - stderr "$2" "$3"
+        elif [ "$1" = out ]; then
+            set - stdout "$2" "$3"
+        else
+            echo "Unknown output type" >&2
+            return 1
+        fi
+    else
+        set - stdout "$1" "$2"
+    fi
+        nomad status "$2" |
+            grep Allocations -A 2 |
+            tail -n 1 |
+            awk '{print $1}' |
+            xargs -I@ nomad fs cat @ "alloc/logs/${3}.${1}.0"
+}
+
+
 alias ec='emacsclient'
 alias ls='ls --color'
 alias smlsharp='rlwrap smlsharp'
