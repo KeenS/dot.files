@@ -98,7 +98,23 @@ net_tools_deprecated_message () {
 }
 
 romaji() {
-    echo "$1" |  kakasi -iutf8 -Ha -Ja -Ka -Ea -ka | tr -c '[0-9a-zA-Z\n]' _ 
+    echo "$1" |  kakasi -iutf8 -Ha -Ja -Ka -Ea -ka | tr -c '[0-9a-zA-Z\n]' _
+}
+
+new_post() {
+    local title="$1"
+    local title_roman="$(romaji "$title")"
+    local file="post/${title_roman}.md"
+    hugo new "$file"
+    sed -i "s/$title_roman/$title/" "content/$file"
+}
+
+new_slide() {
+    local title="$1"
+    local title_roman="$(romaji "$title")"
+    local file="slide/${title_roman}.md"
+    hugo new "$file"
+    sed -i "s/$title_roman/$title/;s/{{ .Page.Titile }}/$title/" "content/$file"
 }
 
 drill-start() {
@@ -201,6 +217,8 @@ SHELLSCRIPT
 
 alias ec='emacsclient'
 alias ls='ls --color'
+alias smlsharp='rlwrap smlsharp'
+alias rust='run-cargo-script'
 export PATH=/usr/local/bin/:~/bin:$PATH
 export XDG_CONFIG_DIRS=$HOME/.config
 export XDG_DATA_DIRS=/usr/local/share/:/usr/share/
