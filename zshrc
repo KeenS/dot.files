@@ -260,3 +260,7 @@ export PATH="$HOME/.cargo/bin:$PATH"
 
 export GOPATH=~/Go
 export PATH=$GOPATH/bin:$PATH
+
+
+# use uutils for dog fooding
+export PATH=/opt/uutils/bin/:$PATH
