@@ -107,6 +107,7 @@ new_post() {
     local file="post/${title_roman}.md"
     hugo new "$file"
     sed -i "s/$title_roman/$title/" "content/$file"
+    emacsclient --no-wait "content/$file"
 }
 
 new_slide() {
@@ -115,6 +116,7 @@ new_slide() {
     local file="slide/${title_roman}.md"
     hugo new "$file"
     sed -i "s/$title_roman/$title/;s/{{ .Page.Titile }}/$title/" "content/$file"
+    emacsclient --no-wait "content/$file"
 }
 
 drill-start() {
