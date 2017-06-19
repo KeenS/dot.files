@@ -168,6 +168,7 @@ route () {
 new-script() {
     cat <<'SHELLSCRIPT' > "$1"
 #!/bin/sh
+# templated by http://qiita.com/blackenedgold/items/c9e60e089974392878c8
 usage() {
     cat <<HELP
 NAME:
@@ -192,19 +193,21 @@ HELP
 main() {
     SCRIPT_DIR="$(cd $(dirname "$0"); pwd)"
 
-    for ARG; do
-        case "$ARG" in
+    while [ $# -gt 0 ]; do
+        case "$1" in
             --help) usage; exit 0;;
-            --verbose) set -x;;
-            --) break;;
+            --verbose) set -x; shift;;
+            --) shift; break;;
             -*)
                 OPTIND=1
-                while getopts h OPT "$ARG"; do
+                while getopts h OPT "$1"; do
                     case "$OPT" in
                         h) usage; exit 0;;
                     esac
                 done
+                shift
                 ;;
+            *) break;;
         esac
     done
 
