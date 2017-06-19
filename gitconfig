@@ -1,3 +1,6 @@
 [user]
 	email = 3han5chou7@gmail.com
 	name = Sunrin SHIMURA (keen)
+	signingkey = 0DB75EDC93CA52CB
+[credential]
+    helper = seahorse
