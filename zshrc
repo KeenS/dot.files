@@ -257,7 +257,7 @@ export PATSHOME=~/compile/ATS2-Postiats-$ATS_VERSION/
 export PATH=$PATSHOME/bin:$PATH
 export PATSHOMERELOC=~/compile/ATS2-Postiats-contrib-$ATS_VERSION
 
-export PATH="$HOME/.cargo/bin:$PATH"
+source $HOME/.cargo/env
 
 # OPAM configuration
 . /home/kim/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
@@ -265,7 +265,7 @@ export PATH="$HOME/.cargo/bin:$PATH"
 
 export GOPATH=~/Go
 export PATH=$GOPATH/bin:$PATH
-
+export PATH=$HOME/.local/bin:$PATH
 
 # use uutils for dog fooding
-export PATH=/opt/uutils/bin/:$PATH
+#export PATH=/opt/uutils/bin/:$PATH
