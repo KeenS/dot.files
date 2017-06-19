@@ -1,6 +1,6 @@
 #!/bin/sh
 
-files="Xmodmap Xresources stumpwmrc tmux.conf xinitrc zshrc xprofile hgrc gdbinit gdb-dashboard gemrc gitconfig keysnail.js"
+files="Xmodmap Xresources alacritty.yml stumpwmrc tmux.conf xinitrc zshrc xprofile hgrc gdbinit gdb-dashboard gemrc gitconfig keysnail.js"
 
 verbose(){
 	echo "$@"
