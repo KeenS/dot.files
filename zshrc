@@ -273,7 +273,7 @@ alias ec='emacsclient'
 alias ls='ls --color'
 alias smlsharp='rlwrap smlsharp'
 alias rust='run-cargo-script'
-export PATH=/usr/local/bin/:~/bin:$PATH
+export PATH=/usr/local/bin/:~/bin:~/.cabal/bin:$PATH
 export XDG_CONFIG_DIRS=$HOME/.config
 export XDG_DATA_DIRS=/usr/local/share/:/usr/share/
 export EDITOR=vi
@@ -296,4 +296,6 @@ export PATH=$GOPATH/bin:$PATH
 export PATH=$HOME/.local/bin:$PATH
 
 # use uutils for dog fooding
-#export PATH=/opt/uutils/bin/:$PATH
+#export PATH=/opt/uutils/bin:$PATH
+
+export PYTHONPATH=$env:"/opt/movidius/caffe/python":$PYTHONPATH
