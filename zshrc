@@ -252,6 +252,23 @@ nomad_log() {
 }
 
 
+c() {
+    local tmp st
+    tmp=$(mktemp)
+
+    gcc -o "$tmp" "$@"
+    st="$?"
+    if [ "$st" != 0 ]; then
+        rm "$tmp"
+        return "$st"
+    fi
+
+    "$tmp"
+    st="$?"
+    rm "$tmp"
+    return "$st"
+}
+
 alias ec='emacsclient'
 alias ls='ls --color'
 alias smlsharp='rlwrap smlsharp'
