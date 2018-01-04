@@ -20,8 +20,19 @@ zstyle :compinstall filename '/home/kim/.zshrc'
 autoload -Uz compinit
 compinit
 # End of lines added by compinstall
-PROMPT="("
-RPROMPT='$(check-status $?)$(branch-status-check)$(stash-count)$(colorize red :cwd) %~)'
+
+prompt_default() {
+    PROMPT="("
+    RPROMPT='$(check-status $?)$(branch-status-check)$(stash-count)$(colorize red :cwd) %~)'
+}
+
+prompt_demo() {
+    PROMPT="$ "
+    unset RPROMPT
+}
+
+prompt_default
+
 setopt prompt_subst
 
 # {{{ methods for RPROMPT
