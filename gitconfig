@@ -4,3 +4,5 @@
 	signingkey = 0DB75EDC93CA52CB
 [credential]
     helper = seahorse
+[commit]
+	gpgsign = true
