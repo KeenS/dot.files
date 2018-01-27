@@ -252,6 +252,16 @@ nomad_log() {
 }
 
 
+rust() {
+    local toolchain=+stable
+
+    if [[ "$1" =~ "\+.+" ]]; then
+        toolchain="$1"
+        shift
+    fi
+    cargo "$toolchain" script "$@"
+}
+
 c() {
     local tmp st
     tmp=$(mktemp)
@@ -272,7 +282,6 @@ c() {
 alias ec='emacsclient'
 alias ls='ls --color'
 alias smlsharp='rlwrap smlsharp'
-alias rust='run-cargo-script'
 export PATH=/usr/local/bin/:~/bin:~/.cabal/bin:$PATH
 export XDG_CONFIG_DIRS=$HOME/.config
 export XDG_DATA_DIRS=/usr/local/share/:/usr/share/
