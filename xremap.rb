@@ -1,4 +1,4 @@
-['slack', 'Mail', 'Navigator'].each do |klass|
+['slack', 'Mail'].each do |klass|
   window class_only: klass do
     remap 'C-b', to: 'Left'
     remap 'C-f', to: 'Right'
@@ -29,4 +29,14 @@ end
 window class_only: 'Mail' do
     remap 'C-m', to: 'KP_Enter'
     remap 'C-o', to: ['KP_Enter', 'Left']
+end
+
+window class_only: 'Navigator' do
+    remap 'C-n', to: 'Down'
+
+    remap 'M-b', to: 'Ctrl-Left'
+    remap 'M-f', to: 'Ctrl-Right'
+
+    remap 'C-d', to: 'Delete'
+    remap 'M-d', to: 'Ctrl-Delete'
 end
