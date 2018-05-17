@@ -15,7 +15,7 @@ unsetopt beep
 bindkey -e
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
-zstyle :compinstall filename '/home/kim/.zshrc'
+zstyle :compinstall filename "$HOME/.zshrc"
 
 autoload -Uz compinit
 compinit
@@ -297,7 +297,7 @@ export PATSHOMERELOC=~/compile/ATS2-Postiats-contrib-$ATS_VERSION
 source $HOME/.cargo/env
 
 # OPAM configuration
-. /home/kim/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
+. $HOME/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
 
 
 export GOPATH=~/Go
