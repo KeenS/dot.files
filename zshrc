@@ -288,6 +288,8 @@ export XDG_DATA_DIRS=/usr/local/share/:/usr/share/
 export EDITOR=vi
 { CIM_HOME=$HOME/.cim; [ -s "$CIM_HOME/init.sh" ] && . "$CIM_HOME/init.sh" } || true
 
+export PATH=$HOME/.smackage/bin:$PATH
+
 ATS_VERSION=0.2.5
 
 export PATSHOME=~/compile/ATS2-Postiats-$ATS_VERSION/
