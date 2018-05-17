@@ -117,7 +117,7 @@ new_post() {
     local title_roman="$(romaji "$title")"
     local file="post/${title_roman}.md"
     hugo new "$file"
-    sed -i "s/$title_roman/$title/" "content/$file"
+    sed -i "s/$title_roman/$title/I" "content/$file"
     emacsclient --no-wait "content/$file"
 }
 
@@ -126,7 +126,7 @@ new_slide() {
     local title_roman="$(romaji "$title")"
     local file="slide/${title_roman}.md"
     hugo new "$file"
-    sed -i "s/$title_roman/$title/;s/{{ .Page.Titile }}/$title/" "content/$file"
+    sed -i "s/$title_roman/$title/I;s/{{ .Page.Titile }}/$title/I" "content/$file"
     emacsclient --no-wait "content/$file"
 }
 
