@@ -32,11 +32,8 @@ window class_only: 'Mail' do
 end
 
 window class_only: 'Navigator' do
+    remap 'C-q', to: 'Ctrl-Tab'
+
     remap 'C-n', to: 'Down'
-
-    remap 'M-b', to: 'Ctrl-Left'
-    remap 'M-f', to: 'Ctrl-Right'
-
-    remap 'C-d', to: 'Delete'
     remap 'M-d', to: 'Ctrl-Delete'
 end
