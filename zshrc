@@ -112,13 +112,21 @@ romaji() {
     echo "$1" |  kakasi -iutf8 -Ha -Ja -Ka -Ea -ka | tr -c '[0-9a-zA-Z\n]' _
 }
 
+open_in_emacs() {
+    # try emacs client
+    emacsclient --no-wait "$1" ||
+        # fallback to start up emacs if emacs is down
+        setsid emacs "$1"
+
+}
+
 new_post() {
     local title="$1"
     local title_roman="$(romaji "$title")"
     local file="post/${title_roman}.md"
     hugo new "$file"
     sed -i "s/$title_roman/$title/I" "content/$file"
-    emacsclient --no-wait "content/$file"
+    open_in_emacs "content/$file"
 }
 
 new_slide() {
@@ -127,7 +135,7 @@ new_slide() {
     local file="slide/${title_roman}.md"
     hugo new "$file"
     sed -i "s/$title_roman/$title/I;s/{{ .Page.Titile }}/$title/I" "content/$file"
-    emacsclient --no-wait "content/$file"
+    open_in_emacs "content/$file"
 }
 
 drill-start() {
