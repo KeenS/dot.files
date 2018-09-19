@@ -92,16 +92,16 @@ font:
   bold:
     family: Ubuntu Mono # should be "Menlo" or something on macOS.
     # Style can be specified to pick a specific face.
-    # style: Bold
+    style: Bold
 
   # The italic font face
   italic:
     family: Ubuntu Mono # should be "Menlo" or something on macOS.
     # Style can be specified to pick a specific face.
-    # style: Italic
+    style: Italic
 
   # Point size of the font
-  size: 15.0
+  size: 9.0
 
   # Offset is the extra space around each character. offset.y can be thought of
   # as modifying the linespacing, and offset.x as modifying the letter spacing.
@@ -206,7 +206,7 @@ visual_bell:
   duration: 0
 
 # Background opacity
-background_opacity: 1.0
+background_opacity: 0.7
 
 # Mouse bindings
 #
