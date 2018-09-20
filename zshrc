@@ -295,7 +295,7 @@ export PATH=/usr/local/bin/:~/bin:~/.cabal/bin:$PATH
 export XDG_CONFIG_DIRS=$HOME/.config
 export XDG_DATA_DIRS=/usr/local/share/:/usr/share/
 export EDITOR=vi
-{ CIM_HOME=$HOME/.cim; [ -s "$CIM_HOME/init.sh" ] && . "$CIM_HOME/init.sh" } || true
+# { CIM_HOME=$HOME/.cim; [ -s "$CIM_HOME/init.sh" ] && . "$CIM_HOME/init.sh" } || true
 
 export PATH=$HOME/.smackage/bin:$PATH
 
