@@ -271,6 +271,8 @@ rust() {
     cargo "$toolchain" script "$@"
 }
 
+alias rusti="evcxr"
+
 c() {
     local tmp st
     tmp=$(mktemp)
