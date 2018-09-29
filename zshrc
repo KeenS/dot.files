@@ -319,7 +319,8 @@ export PATH=$GOPATH/bin:$PATH
 export PATH=$HOME/.local/bin:$PATH
 
 # use uutils for dog fooding
-#export PATH=/opt/uutils/bin:$PATH
+# export PATH=/opt/uutils/bin:$PATH
+# export MAHTPATH=/opt/uutils/man:$(manpath)
 
 export PYTHONPATH=$env:"/opt/movidius/caffe/python":$PYTHONPATH
 
