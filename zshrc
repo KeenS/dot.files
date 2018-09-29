@@ -115,7 +115,7 @@ romaji() {
 
 open_in_emacs() {
     # try emacs client
-    emacsclient --no-wait "$1" ||
+    emacsclient --no-wait "$1" 2> /dev/null ||
         # fallback to start up emacs if emacs is down
         setsid emacs "$1"
 
@@ -290,9 +290,10 @@ c() {
     return "$st"
 }
 
-alias ec='emacsclient'
+alias ec='open_in_emacs'
 alias ls='ls --color'
 alias smlsharp='rlwrap smlsharp'
+alias sml='rlwrap sml'
 export PATH=/usr/local/bin/:~/bin:~/.cabal/bin:$PATH
 export XDG_CONFIG_DIRS=$HOME/.config
 export XDG_DATA_DIRS=/usr/local/share/:/usr/share/
