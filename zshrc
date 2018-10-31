@@ -290,6 +290,11 @@ c() {
     return "$st"
 }
 
+aws_from_file() {
+    export AWS_ACCESS_KEY_ID="$(cat "$1" | sed 1d | cut -d, -f1 )"
+    export AWS_SECRET_ACCESS_KEY="$(cat "$1" | sed 1d | cut -d, -f2 )"
+}
+
 alias ec='open_in_emacs'
 alias ls='ls --color'
 alias smlsharp='rlwrap smlsharp'
