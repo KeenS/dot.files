@@ -47,11 +47,11 @@ setopt list_packed
 setopt hist_ignore_dups
 setopt share_history
 
-function colorize {
+colorize() {
     echo "%{${fg[$1]}%}$2%{${reset_color}%}"
 }
 
-function check-status {
+check-status() {
     if [ ! $1 -eq 0 ];then
         echo "$(colorize red :\$\?) $1 "
     else
@@ -59,14 +59,14 @@ function check-status {
     fi
 }
 
-function stash-count {
+stash-count() {
   local COUNT=$(git stash list 2>/dev/null | wc -l | tr -d ' ')
   if [ "$COUNT" -gt 0 ]; then
     echo "$(colorize red :stashes) $COUNT "
   fi
 }
 
-function branch-status-check {
+branch-status-check() {
     local prefix branchname suffix
     # .gitの中だから除外
     if [[ "$PWD" =~ '/\.git(/.*)?$' ]]; then
@@ -81,11 +81,11 @@ function branch-status-check {
     suffix='%{'${reset_color}'%}'
     echo "$(colorize red :branch) ${prefix}${branchname}${suffix} "
 }
-function get-branch-name {
+get-branch-name() {
     # gitディレクトリじゃない場合のエラーは捨てます
     echo `git rev-parse --abbrev-ref HEAD 2> /dev/null`
 }
-function get-branch-status {
+get-branch-status() {
     local res color workdir index
     git diff --quiet
     workdir=$?
