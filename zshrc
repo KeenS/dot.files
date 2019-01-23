@@ -24,7 +24,7 @@ fpath+=~/.zfunc
 
 prompt_default() {
     PROMPT="("
-    RPROMPT='$(check-status $?)$(branch-status-check)$(stash-count)$(colorize red :cwd) %~)'
+    RPROMPT='$(check-status $?)$(vcs-stuff)$(colorize red :cwd) %~)'
 }
 
 prompt_demo() {
@@ -59,33 +59,42 @@ check-status() {
     fi
 }
 
-stash-count() {
+vcs-stuff() {
+    if is-git-repo; then
+        echo "$(colorize red :vcs) git $(git-branch-status-check)$(git-stash-count)"
+    elif is-hg-repo; then
+        echo "$(colorize red :vcs) hg $(hg-branch-status-check)"
+    fi
+}
+
+is-git-repo() {
+    git remote >& /dev/null
+}
+
+is-hg-repo() {
+     hg root >& /dev/null
+}
+
+
+git-stash-count() {
   local COUNT=$(git stash list 2>/dev/null | wc -l | tr -d ' ')
   if [ "$COUNT" -gt 0 ]; then
     echo "$(colorize red :stashes) $COUNT "
   fi
 }
 
-branch-status-check() {
+git-branch-status-check() {
     local prefix branchname suffix
-    # .gitの中だから除外
-    if [[ "$PWD" =~ '/\.git(/.*)?$' ]]; then
-        return
-    fi
-    branchname=`get-branch-name`
+    branchname="$(git rev-parse --abbrev-ref HEAD 2> /dev/null)"
     # ブランチ名が無いので除外
     if [[ -z $branchname ]]; then
         return
     fi
-    prefix=`get-branch-status` #色だけ返ってくる
+    prefix=`git-get-branch-status` #色だけ返ってくる
     suffix='%{'${reset_color}'%}'
     echo "$(colorize red :branch) ${prefix}${branchname}${suffix} "
 }
-get-branch-name() {
-    # gitディレクトリじゃない場合のエラーは捨てます
-    echo `git rev-parse --abbrev-ref HEAD 2> /dev/null`
-}
-get-branch-status() {
+git-get-branch-status() {
     local res color workdir index
     git diff --quiet
     workdir=$?
@@ -104,6 +113,36 @@ get-branch-status() {
     # echo ${color}${res}'%{'${reset_color}'%}'
     echo ${color} # 色だけ返す
 }
+
+hg-branch-status-check() {
+    local prefix branchname suffix
+    branchname="$(hg branch 2> /dev/null)"
+    # ブランチ名が無いので除外
+    if [[ -z $branchname ]]; then
+        return
+    fi
+    prefix=`hg-get-branch-status` #色だけ返ってくる
+    suffix='%{'${reset_color}'%}'
+    echo "$(colorize red :branch) ${prefix}${branchname}${suffix} "
+}
+hg-get-branch-status() {
+    local res color workdir index
+    workdir="$(hg status -m -d | wc -l)"
+    index="$(hg status -a -r | wc -l)"
+    if [ "$workdir" = 0 ] && [ "$index" = 0 ]; then
+        res=':' # status Clean
+        color='%{'${fg[white]}'%}'
+    elif [ "$workdir" = 1 ]; then
+        res='M:' # Modified
+        color='%{'${fg[red]}'%}'
+    else # implies $index = 1 
+        res='A:' # Added to commit
+        color='%{'${fg[green]}'%}'
+    fi
+    # echo ${color}${res}'%{'${reset_color}'%}'
+    echo ${color} # 色だけ返す
+}
+
 
 net_tools_deprecated_message () {
   echo -n 'net-tools commands are obsolete. '
