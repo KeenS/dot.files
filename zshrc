@@ -101,16 +101,12 @@ git-get-branch-status() {
     git diff --cached --quiet
     index=$?
     if [ "$workdir" = 0 ] && [ "$index" = 0 ]; then
-        res=':' # status Clean
         color='%{'${fg[white]}'%}'
     elif [ "$workdir" = 1 ]; then
-        res='M:' # Modified
         color='%{'${fg[red]}'%}'
     else # implies $index = 1 
-        res='A:' # Added to commit
         color='%{'${fg[green]}'%}'
     fi
-    # echo ${color}${res}'%{'${reset_color}'%}'
     echo ${color} # 色だけ返す
 }
 
@@ -130,16 +126,12 @@ hg-get-branch-status() {
     workdir="$(hg status -m -d | wc -l)"
     index="$(hg status -a -r | wc -l)"
     if [ "$workdir" = 0 ] && [ "$index" = 0 ]; then
-        res=':' # status Clean
         color='%{'${fg[white]}'%}'
     elif [ "$workdir" = 1 ]; then
-        res='M:' # Modified
         color='%{'${fg[red]}'%}'
     else # implies $index = 1 
-        res='A:' # Added to commit
         color='%{'${fg[green]}'%}'
     fi
-    # echo ${color}${res}'%{'${reset_color}'%}'
     echo ${color} # 色だけ返す
 }
 
