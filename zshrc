@@ -3,7 +3,7 @@ if [ -z "$TMUX" ] && [ -z "$STY" ] ;then
     if tmux list-sessions >& /dev/null; then
         exec tmux a
     else
-        exec tmux
+        exec tmux new -s main
     fi
 fi
 
