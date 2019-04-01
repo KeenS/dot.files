@@ -1,4 +1,4 @@
-#!/usr/local/bin/zsh
+#!/usr/bin/zsh
 if [ -z "$TMUX" ] && [ -z "$STY" ] ;then
     if tmux list-sessions >& /dev/null; then
         exec tmux a
@@ -330,7 +330,7 @@ alias ec='open_in_emacs'
 alias ls='ls --color'
 alias smlsharp='rlwrap smlsharp'
 alias sml='rlwrap sml'
-export PATH=/usr/local/bin/:~/bin:~/.cabal/bin:$PATH
+export PATH=/usr/local/bin:~/bin:~/.cabal/bin:$PATH
 export XDG_CONFIG_DIRS=$HOME/.config
 export XDG_DATA_DIRS=/usr/local/share/:/usr/share/
 export EDITOR=vi
