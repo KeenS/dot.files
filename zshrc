@@ -14,13 +14,13 @@ SAVEHIST=1000000
 unsetopt beep
 bindkey -e
 # End of lines configured by zsh-newuser-install
+fpath+=~/.zfunc
 # The following lines were added by compinstall
 zstyle :compinstall filename "$HOME/.zshrc"
 
 autoload -Uz compinit
 compinit
 # End of lines added by compinstall
-fpath+=~/.zfunc
 
 prompt_default() {
     PROMPT="("
