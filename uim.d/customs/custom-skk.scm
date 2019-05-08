@@ -2,7 +2,7 @@
 (define skk-commit-candidate-by-label-key? #t)
 (define skk-candidate-selection-style 'ddskk-like)
 (define skk-use-manual-candwin-setting? #t)
-(define skk-candidate-op-count 5)
+(define skk-candidate-op-count 3)
 (define skk-nr-candidate-max 7)
 (define skk-widgets '(widget_skk_input_mode widget_skk_kana_input_method))
 (define default-widget_skk_input_mode 'action_skk_latin)
