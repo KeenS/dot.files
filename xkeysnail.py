@@ -28,71 +28,102 @@ define_modmap({
 
 # Keybindings for Firefox/Chrome
 define_keymap(re.compile("Firefox|Google-chrome"), {
-    K("M-f"): K("C-TAB"),
-    K("M-b"): K("C-Shift-TAB"),
+    # M-f
+    K("M-y"): K("C-TAB"),
+    # M-b
+    K("M-n"): K("C-Shift-TAB"),
 }, "Firefox and Chrome")
 
 # Emacs-like keybindings in non-Emacs applications
 define_keymap(lambda wm_class: wm_class not in ("Emacs", "Remacs", "URxvt", "Gnome-terminal", "Alacritty", "Inkscape"), {
     # Cursor
-    K("C-b"): with_mark(K("left")),
-    K("C-f"): with_mark(K("right")),
-    K("C-p"): with_mark(K("up")),
-    K("C-n"): with_mark(K("down")),
-    K("C-h"): with_mark(K("backspace")),
+    # C-b
+    K("C-n"): with_mark(K("left")),
+    # C-f
+    K("C-y"): with_mark(K("right")),
+    # C-p
+    K("C-r"): with_mark(K("up")),
+    # C-n
+    K("C-l"): with_mark(K("down")),
+    # C-h
+    K("C-j"): with_mark(K("backspace")),
     # Forward/Backward word
-    K("M-b"): with_mark(K("C-left")),
-    K("M-f"): with_mark(K("C-right")),
+    # M-b
+    K("M-n"): with_mark(K("C-left")),
+    # C-f
+    K("M-y"): with_mark(K("C-right")),
     # Beginning/End of line
+    # C-a
     K("C-a"): with_mark(K("home")),
-    K("C-e"): with_mark(K("end")),
+    # C-e
+    K("C-d"): with_mark(K("end")),
     # Page up/down
-    K("M-v"): with_mark(K("page_up")),
-    K("C-v"): with_mark(K("page_down")),
+    # M-v
+    K("M-dot"): with_mark(K("page_up")),
+    # C-v
+    K("C-dot"): with_mark(K("page_down")),
     # Beginning/End of file
-    K("M-Shift-comma"): with_mark(K("C-home")),
-    K("M-Shift-dot"): with_mark(K("C-end")),
+    # M-<
+    K("M-Shift-w"): with_mark(K("C-home")),
+    # M->
+    K("M-Shift-e"): with_mark(K("C-end")),
     # Newline
+    # C-m
     K("C-m"): K("enter"),
-    K("C-j"): K("enter"),
-    K("C-o"): [K("enter"), K("left")],
+    # C-j
+    K("C-c"): K("enter"),
+    # C-o
+    K("C-s"): [K("enter"), K("left")],
     # Copy
-    K("C-w"): [K("C-x"), set_mark(False)],
-    K("M-w"): [K("C-c"), set_mark(False)],
-    K("C-y"): [K("C-v"), set_mark(False)],
+    # C-w
+    K("C-comma"): [K("C-b"), set_mark(False)],
+    # M-w
+    K("M-comma"): [K("C-i"), set_mark(False)],
+    # C-y
+    K("C-t"): [K("C-dot"), set_mark(False)],
     # Delete
-    K("C-d"): [K("delete"), set_mark(False)],
-    K("M-d"): [K("C-delete"), set_mark(False)],
+    # C-d
+    K("C-h"): [K("delete"), set_mark(False)],
+    # C-d
+    K("M-h"): [K("C-delete"), set_mark(False)],
     # Kill line
-    K("C-k"): [K("Shift-end"), K("C-x"), set_mark(False)],
+    # C-k
+    K("C-v"): [K("Shift-end"), K("C-b"), set_mark(False)],
     # Undo
-    K("C-slash"): [K("C-z"), set_mark(False)],
-    K("C-Shift-ro"): K("C-z"),
+#    K("C-atmark"): [K("C-z"), set_mark(False)],
+    # C-/
+    K("C-left_brace"): K("C-slash"),
     # Mark
+    # C-SPC
     K("C-space"): set_mark(True),
     # Search
-    K("C-s"): K("F3"),
-    K("C-r"): K("Shift-F3"),
-    K("M-Shift-key_5"): K("C-h"),
+    # C-s
+    K("C-semicolon"): K("F3"),
+    # C-r
+    K("C-o"): K("Shift-F3"),
+    # M-%
+    K("M-Shift-key_5"): K("C-j"),
     # Cancel
-    K("C-g"): [K("esc"), set_mark(False)],
+    # C-g
+    K("C-u"): [K("esc"), set_mark(False)],
     # Escape
-    K("C-q"): escape_next_key,
+    # C-q
+    K("C-x"): escape_next_key,
     # C-x YYY
-    K("C-x"): {
+    K("C-b"): {
         # C-x h (select all)
-        K("h"): [K("C-home"), K("C-a"), set_mark(True)],
+        K("j"): [K("C-home"), K("C-a"), set_mark(True)],
         # C-x C-f (open)
-        K("C-f"): K("C-o"),
+        K("C-y"): K("C-s"),
         # C-x C-s (save)
-        K("C-s"): K("C-s"),
+        K("C-semicolon"): K("C-semicolon"),
         # C-x k (kill tab)
-        K("k"): K("C-f4"),
+        K("v"): K("C-f4"),
         # C-x C-c (exit)
-        K("C-c"): K("C-q"),
+        K("C-i"): K("C-x"),
         # cancel
-        K("C-g"): pass_through_key,
+        K("C-u"): pass_through_key,
         # C-x u (undo)
-        K("u"): [K("C-z"), set_mark(False)],
+        K("f"): [K("C-slash"), set_mark(False)],
     }
 }, "Emacs-like keys")
