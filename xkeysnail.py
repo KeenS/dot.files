@@ -35,7 +35,7 @@ define_keymap(re.compile("Firefox|Google-chrome"), {
 }, "Firefox and Chrome")
 
 # Emacs-like keybindings in non-Emacs applications
-define_keymap(lambda wm_class: wm_class not in ("Emacs", "Remacs", "URxvt", "Gnome-terminal", "Alacritty", "Inkscape"), {
+define_keymap(lambda wm_class: wm_class not in ("Emacs", "Remacs", "URxvt", "Gnome-terminal", "Alacritty", "Inkscape", "Blender"), {
     # Cursor
     # C-b
     K("C-n"): with_mark(K("left")),
