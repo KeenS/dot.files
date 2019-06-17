@@ -11,3 +11,6 @@ for f in $files; do
 	verbose ln -sf $(pwd)/$f ~/.$f 
 done
 
+cat versions | while read name version; do
+    ./install_${name}.sh $version
+done
