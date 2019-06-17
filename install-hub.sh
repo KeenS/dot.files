@@ -59,7 +59,7 @@ main() {
         (cd hub-linux-amd64-${VERSION} && sudo ./install)
         rm -rf hub-linux-amd64-${VERSION}.tgz
         hub-linux-amd64-${VERSION}
-        echo "installing hub ${VERSION} done"
+        echo "installation of hub ${VERSION} done"
     else
         echo "hub is up to date. do nothing."
     fi

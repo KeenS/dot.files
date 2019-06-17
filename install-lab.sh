@@ -58,7 +58,7 @@ main() {
         tar xzf "lab_${VERSION}_linux_amd64.tar.gz" -C "lab_${VERSION}_linux_amd64"
         cp "lab_${VERSION}_linux_amd64/lab" ~/bin
         rm -rf "lab_${VERSION}_linux_amd64" "lab_${VERSION}_linux_amd64.tar.gz"
-        echo "installing lab ${VERSION} done"
+        echo "installation of lab ${VERSION} done"
     else
         echo "lab is up to date. do nothing."
     fi
