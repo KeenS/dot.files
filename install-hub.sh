@@ -57,8 +57,7 @@ main() {
         wget https://github.com/github/hub/releases/download/v${VERSION}/hub-linux-amd64-${VERSION}.tgz
         tar xzf hub-linux-amd64-${VERSION}.tgz
         (cd hub-linux-amd64-${VERSION} && sudo ./install)
-        rm -rf hub-linux-amd64-${VERSION}.tgz
-        hub-linux-amd64-${VERSION}
+        rm -rf hub-linux-amd64-${VERSION}.tgz hub-linux-amd64-${VERSION}
         echo "installation of hub ${VERSION} done"
     else
         echo "hub is up to date. do nothing."
