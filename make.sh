@@ -9,8 +9,8 @@ verbose(){
 }
 
 for f in $files; do
-	echo "installing $f"
-	verbose ln -sf $(pwd)/$f ~/.$f 
+    echo "installing $f"
+    verbose ln -sf $(pwd)/$f ~/.$f
 done
 
 cat versions | while read name version; do
