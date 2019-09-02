@@ -13,6 +13,9 @@ for f in $files; do
     verbose ln -Tsf $(pwd)/$f ~/.$f
 done
 
+verbose mkdir -p ~/.config/Code/User
+verbose ln -Tsf $(pwd)/settings.json ~/.config/Code/User/settings.json
+
 cat versions | while read name version; do
     echo "installing $name"
     ./install-${name}.sh $version

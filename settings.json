@@ -1,0 +1,8 @@
+{
+    "rust.build_on_save": true,
+    "rust.clippy_preference": "on",
+    "editor.formatOnPaste": true,
+    "editor.formatOnSave": true,
+    "diffEditor.ignoreTrimWhitespace": false,
+    "git.autofetch": true
+}
