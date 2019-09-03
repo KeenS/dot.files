@@ -4,5 +4,6 @@
     "editor.formatOnPaste": true,
     "editor.formatOnSave": true,
     "diffEditor.ignoreTrimWhitespace": false,
-    "git.autofetch": true
+    "git.autofetch": true,
+    "vim.useSystemClipboard": true
 }
