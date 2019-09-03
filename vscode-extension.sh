@@ -55,7 +55,7 @@ main() {
     case $1 in
         backup) backup_extensions ;;
         restore) restore_extensions ;;
-        *) echo "unknown subcommand given: $1" > &2 ;;
+        *) echo "unknown subcommand given: $1" >&2 ;;
     esac
 }
 
