@@ -24,6 +24,7 @@ alacritty_version() {
 
 main() {
     SCRIPT_DIR="$(cd $(dirname "$0"); pwd)"
+    : ${PREFIX:=~/compile}
 
     while [ $# -gt 0 ]; do
         case "$1" in
@@ -52,14 +53,14 @@ main() {
     echo "current version = $(alacritty_version) , required version = ${VERSION}"
     if [ "$(alacritty_version)" != "${VERSION}" ]; then
         echo "start installing $VERSION"
-        if ! [ -d ~/compile/alacritty/ ]; then
+        if ! [ -d "$PREFIX/alacritty/" ]; then
             (
-                mkdir -p ~/compile
-                cd ~/compile
+                mkdir -p "$PREFIX"
+                cd "$PREFIX"
                 git clone https://github.com/jwilm/alacritty.git
             )
         fi
-        cd ~/compile/alacritty/
+        cd "$PREFIX/alacritty/"
         git fetch -a
         git checkout "v${VERSION}"
         cargo install cargo-deb

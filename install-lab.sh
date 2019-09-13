@@ -25,6 +25,7 @@ lab_version() {
 
 main() {
     SCRIPT_DIR="$(cd $(dirname "$0"); pwd)"
+    : ${PREFIX=~/bin}
 
     while [ $# -gt 0 ]; do
         case "$1" in
@@ -56,7 +57,7 @@ main() {
         wget "https://github.com/zaquestion/lab/releases/download/v${VERSION}/lab_${VERSION}_linux_amd64.tar.gz"
         mkdir "lab_${VERSION}_linux_amd64"
         tar xzf "lab_${VERSION}_linux_amd64.tar.gz" -C "lab_${VERSION}_linux_amd64"
-        cp "lab_${VERSION}_linux_amd64/lab" ~/bin
+        cp "lab_${VERSION}_linux_amd64/lab" "$PREFIX"
         rm -rf "lab_${VERSION}_linux_amd64" "lab_${VERSION}_linux_amd64.tar.gz"
         echo "installation of lab ${VERSION} done"
     else
