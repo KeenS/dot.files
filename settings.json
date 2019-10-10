@@ -5,6 +5,5 @@
     "editor.formatOnSave": true,
     "diffEditor.ignoreTrimWhitespace": false,
     "git.autofetch": true,
-    "vim.useSystemClipboard": true,
-    "window.restoreWindows": "none"
+    "vim.useSystemClipboard": true
 }
