@@ -1,2 +1,2 @@
 (define xkb-save-map? #f)
-(define xkb-map-path "/home/kim/.uim.d/xkb-map")
+(define xkb-map-path "/home/shun/.uim.d/xkb-map")

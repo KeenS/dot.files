@@ -6,5 +6,5 @@
 (define skk-skkserv-portnum 1178)
 (define skk-skkserv-address-family 'unspecified)
 (define skk-dic-file-name "/usr/share/skk/SKK-JISYO")
-(define skk-personal-dic-filename "/home/kim/.skk-jisyo")
-(define skk-uim-personal-dic-filename "/home/kim/.skk-uim-jisyo")
+(define skk-personal-dic-filename "/home/shun/.skk-jisyo")
+(define skk-uim-personal-dic-filename "/home/shun/.skk-uim-jisyo")
