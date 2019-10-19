@@ -8,6 +8,10 @@ verbose(){
 	"$@"
 }
 
+firefox_pref_relpath() {
+    python3 -c "import configparser;c = configparser.ConfigParser();c.read('$firefox_home/profiles.ini');[print(c[s]['Path']) for s in c.sections() if 'Default' in c[s] and c[s]['Default'] == '1' ]"
+}
+
 install_link() {
     if ! [ -s $2 ]; then
         echo "installing $(basename "$1")"
@@ -21,6 +25,11 @@ done
 
 verbose mkdir -p ~/.config/Code/User
 install_link "$(pwd)/settings.json" ~/.config/Code/User/settings.json
+
+firefox_home="$HOME/.mozilla/firefox"
+firefox_prefdir="$firefox_home/$(firefox_pref_relpath)"
+
+install_link "$(pwd)/user.js" "$firefox_prefdir"/user.js
 
 
 mkdir -p ~/bin
