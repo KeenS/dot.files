@@ -8,15 +8,23 @@ verbose(){
 	"$@"
 }
 
+install_link() {
+    if ! [ -s $2 ]; then
+        echo "installing $(basename "$1")"
+        verbose ln -Tsf "$1" "$2"
+    fi
+}
+
 for f in $files; do
-    echo "installing $f"
-    verbose ln -Tsf $(pwd)/$f ~/.$f
+    install_link "$(pwd)/$f" "~/.$f"
 done
 
 verbose mkdir -p ~/.config/Code/User
-verbose ln -Tsf $(pwd)/settings.json ~/.config/Code/User/settings.json
+install_link "$(pwd)/settings.json" ~/.config/Code/User/settings.json
+
 
 mkdir -p ~/bin
+
 cat versions | while read name version; do
     echo "installing $name"
     ./install-${name}.sh $version
