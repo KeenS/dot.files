@@ -1,2 +1,2 @@
 (define uim-xim-use-xft-font? #t)
-(define uim-xim-xft-font-name "Monospace")
+(define uim-xim-xft-font-name "NotoSansCJK")
