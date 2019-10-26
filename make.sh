@@ -20,7 +20,7 @@ install_link() {
 }
 
 for f in $files; do
-    install_link "$(pwd)/$f" "~/.$f"
+    install_link "$(pwd)/$f" "$HOME/.$f"
 done
 
 verbose mkdir -p ~/.config/Code/User
