@@ -107,9 +107,6 @@ define_keymap(lambda wm_class: wm_class not in ("Emacs", "Remacs", "URxvt", "Gno
     # Cancel
     # C-g
     K("C-u"): [K("esc"), set_mark(False)],
-    # Escape
-    # C-q
-    K("C-x"): escape_next_key,
     # C-x YYY
     K("C-b"): {
         # C-x h (select all)
