@@ -26,6 +26,10 @@ done
 verbose mkdir -p ~/.config/Code/User
 install_link "$(pwd)/settings.json" ~/.config/Code/User/settings.json
 
+verbose mkdir -p ~/.docker
+install_link "$(pwd)/docker_config.json" ~/.docker/config.json
+
+
 firefox_home="$HOME/.mozilla/firefox"
 firefox_prefdir="$firefox_home/$(firefox_pref_relpath)"
 
