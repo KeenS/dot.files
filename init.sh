@@ -16,6 +16,6 @@ uinput
 EOF
 
 sudo tee /etc/sudoers.d/10-installer <<EOF
-$(USER) ALL=(ALL) ALL,\
+$USER ALL=(ALL) ALL,\
          (xkeysnail) NOPASSWD: /usr/local/bin/xkeysnail
 EOF
