@@ -35,7 +35,7 @@ prompt_demo() {
 prompt_default
 
 setopt prompt_subst
-
+setopt transient_rprompt
 # {{{ methods for RPROMPT
 # fg[color]表記と$reset_colorを使いたい
 # @see https://wiki.archlinux.org/index.php/zsh
