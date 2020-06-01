@@ -6,7 +6,7 @@
 (define skk-use-look? #t)
 (define skk-look-dict "/usr/share/dict/words")
 (define skk-show-annotation? #t)
-(define skk-show-annotation-in-preedit? #t)
+(define skk-show-annotation-in-preedit? #f)
 (define skk-use-with-vi? #f)
 (define skk-egg-like-newline? #t)
 (define skk-commit-newline-explicitly? #f)
