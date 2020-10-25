@@ -6,3 +6,5 @@
     helper = seahorse
 [commit]
     gpgsign = true
+[pull]
+	ff = only
