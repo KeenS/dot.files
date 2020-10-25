@@ -35,6 +35,9 @@ firefox_prefdir="$firefox_home/$(firefox_pref_relpath)"
 
 install_link "$(pwd)/user.js" "$firefox_prefdir"/user.js
 
+verbose mkdir -p ~/.config/inkscape/
+install_link "$(pwd)/preferences.xml" ~/.config/inkscape/preferences.xml
+
 
 mkdir -p ~/bin
 
