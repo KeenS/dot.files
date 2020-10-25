@@ -174,8 +174,8 @@
          start="0"
          usecurrent="1"
          open="0"
-         rx="58.7134"
-         ry="58.7134" />
+         rx="221.909"
+         ry="221.909" />
       <eventcontext
          id="star"
          magnitude="3"
@@ -683,7 +683,7 @@
     <group
        id="preferences"
        state="1"
-       page="44"
+       page="48"
        panel_size="1"
        panel_ratio="100"
        panel_mode="1"
@@ -692,7 +692,9 @@
        y="0"
        w="1360"
        h="717"
-       panel_border="0" />
+       panel_border="0"
+       visible="0"
+       placement="1" />
     <group
        id="gradienteditor" />
     <group
@@ -728,7 +730,7 @@
        placement="5">
       <group
          id="exportarea"
-         value="drawing" />
+         value="page" />
       <group
          id="defaultxdpi"
          value="258.46" />
@@ -1228,7 +1230,7 @@
        value="1" />
     <group
        id="threading"
-       numthreads="1" />
+       numthreads="2" />
     <group
        id="rendering" />
     <group
@@ -1257,7 +1259,9 @@
      org.inkscape.effect.filter.ImageBlur.dilat="6"
      org.inkscape.effect.filter.ImageBlur.erosion="2"
      org.inkscape.effect.filter.ImageBlur.opacity="1"
-     org.inkscape.effect.filter.ImageBlur.blend="normal" />
+     org.inkscape.effect.filter.ImageBlur.blend="normal"
+     org.inkscape.web.slicer.create_group.width-unity="px"
+     org.inkscape.web.slicer.create_group.height-unity="px" />
   <group
      id="desktop"
      style="stroke:#1a1a1a;stroke-opacity:1;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none;stroke-linejoin:miter;-inkscape-font-specification:'Ubuntu Mono';font-family:'Ubuntu Mono';font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;font-size:29.33333333px;text-anchor:start;text-align:start;writing-mode:tb;line-height:134.00000334%;fill-opacity:1;opacity:1;stroke-dashoffset:0;stroke-linecap:round;fill:none">
