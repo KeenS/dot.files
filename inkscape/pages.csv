@@ -55,6 +55,7 @@ Banner 468x60,              468,     60, px
 Icon 16x16,                  16,     16, px
 Icon 32x32,                  32,     32, px
 Icon 48x48,                  48,     48, px
+Icon 512x512,               512,    512, px
 ID Card (ISO 7810),       85.60,  53.98, mm
 Business Card (US),         3.5,      2, in
 Business Card (Europe),      85,     55, mm
