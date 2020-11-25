@@ -360,3 +360,7 @@ export PATH=$HOME/.local/bin:$PATH
 
 export PYTHONPATH=$env:"/opt/movidius/caffe/python":$PYTHONPATH
 
+
+export WASMTIME_HOME="$HOME/.wasmtime"
+
+export PATH="$WASMTIME_HOME/bin:$PATH"
