@@ -118,6 +118,9 @@ colors:
   #
   indexed_colors: []
 
+font:
+  size: 16
+
 selection:
   #semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
 
