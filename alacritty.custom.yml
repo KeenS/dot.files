@@ -2,6 +2,7 @@ scrolling:
   history: 0
 
 font:
+  size: 16
   normal:
     family: Ubuntu Mono
   bold:
@@ -117,9 +118,6 @@ colors:
   #   `- { index: 16, color: '#ff00ff' }`
   #
   indexed_colors: []
-
-font:
-  size: 16
 
 selection:
   #semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
