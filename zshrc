@@ -299,7 +299,7 @@ rust() {
         toolchain="$1"
         shift
     fi
-    cargo "$toolchain" script "$@"
+    cargo "$toolchain" play "$@"
 }
 
 alias rusti="evcxr"
