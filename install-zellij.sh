@@ -55,9 +55,10 @@ main() {
     if [ "$(zellij_version)" != "${VERSION}" ]; then
         echo "start installing $VERSION"
 
-        wget https://github.com/zellij-org/zellij/releases/download/v${VERSION}/zellij-linux-musl-x86_64.tar.gz
+        wget https://github.com/zellij-org/zellij/releases/download/v${VERSION}/zellij-x86_64-unknown-linux-musl.tar.gz
+        tar xzf zellij-x86_64-unknown-linux-musl.tar.gz
         mv zellij ~/bin/
-        rm -rf zellij-linux-musl-x86_64.tar.gz
+        rm -rf zellij-x86_64-unknown-linux-musl.tar.gz
         echo "installation of zellij ${VERSION} done"
     else
         echo "zellij is up to date. do nothing."
