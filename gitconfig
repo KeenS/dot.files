@@ -2,8 +2,6 @@
     email = 3han5chou7@gmail.com
     name = κeen
     signingkey = 2F3944FD72D3F1BD590C7309F88CE432DCC5FCBC
-[credential]
-    helper = seahorse
 [commit]
     gpgsign = true
 [pull]
