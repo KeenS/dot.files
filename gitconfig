@@ -6,3 +6,5 @@
     gpgsign = true
 [pull]
     ff = only
+[credential]
+	helper = cache
