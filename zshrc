@@ -1,11 +1,26 @@
 #!/usr/bin/zsh
-if [ -z "$TMUX" ] && [ -z "$STY" ] ;then
-    if tmux list-sessions >& /dev/null; then
-        exec tmux a
-    else
-        exec tmux new -s main
+
+within_tmux() {
+    if [ -z "$TMUX" ] && [ -z "$STY" ] ;then
+       if tmux list-sessions >& /dev/null; then
+           exec tmux a
+       else
+           exec tmux new -s main
+       fi
     fi
-fi
+}
+
+within_zellij() {
+    if [ -z "$ZELLIJ" ] && [ -z "$STY" ] ;then
+       if zellij list-sessions | grep main >& /dev/null; then
+           exec zellij attach
+       else
+           exec zellij -s main
+       fi
+    fi
+}
+
+within_zellij
 
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
