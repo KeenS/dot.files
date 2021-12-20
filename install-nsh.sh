@@ -19,7 +19,7 @@ HELP
 }
 
 nsh_version() {
-    nsh --version | grep -Eo '[0-9]+\.[0-9]+\.[0-9]+'
+    nsh --version || echo 0.0.0 | grep -Eo '[0-9]+\.[0-9]+\.[0-9]+'
 }
 
 
@@ -55,7 +55,7 @@ main() {
     if [ "$(nsh_version)" != "${VERSION}" ]; then
         echo "start installing $VERSION"
 
-        cargo install -f --version="$version" nsh
+        cargo install -f --version="$VERSION" nsh
         echo "installation of nsh ${VERSION} done"
     else
         echo "nsh is up to date. do nothing."
