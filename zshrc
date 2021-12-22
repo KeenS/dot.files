@@ -12,10 +12,10 @@ within_tmux() {
 
 within_zellij() {
     if [ -z "$ZELLIJ" ] && [ -z "$STY" ] ;then
-       if zellij list-sessions | grep main >& /dev/null; then
-           exec zellij attach
+       if ~/bin/zellij list-sessions | grep main >& /dev/null; then
+           exec ~/bin/zellij attach
        else
-           exec zellij -s main
+           exec ~/bin/zellij -s main
        fi
     fi
 }
