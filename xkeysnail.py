@@ -51,7 +51,7 @@ define_keymap(lambda wm_class: wm_class not in ("Emacs", "Remacs", "URxvt", "Gno
     # Forward/Backward word
     # M-b
     K("M-n"): with_mark(K("C-left")),
-    # C-f
+    # M-f
     K("M-y"): with_mark(K("C-right")),
     # Beginning/End of line
     # C-a
