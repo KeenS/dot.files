@@ -1,0 +1,100 @@
+keymap:
+  - name: Browsers
+    application:
+      # GNOME name. If you are using wayland, its name is 'firefox'
+      only: [Firefox, Google-chrome]
+    remap:
+      # M-f
+      M-y: C-TAB
+      # M-b
+      M-n: C-Shift-TAB
+  - name: Usual Apps
+    application:
+      not: ["Emacs", "Remacs", "URxvt", "Gnome-terminal", "Alacritty", "Inkscape", "Blender", "Gimp", "Code"]
+    remap:
+      # Cursor
+      # C-b
+      C-n: left
+      # C-f
+      C-y: right
+      # C-p
+      C-r: up
+      # C-n
+      C-l: down
+      # C-h
+      C-j: backspace
+      # Forward/Backward word
+      # M-b
+      M-n: C-left
+      # M-f
+      M-y: C-right
+      # Beginning/End of line
+      # C-a
+      C-a: home
+      # C-e
+      C-d: end
+      # Page up/down
+      # M-v
+      M-dot: pageup
+      # C-v
+      C-dot: pagedown
+      # Beginning/End of file
+      # M-<
+      M-Shift-w: C-home
+      # M->
+      M-Shift-e: C-end
+      # Newline
+      # C-m
+      C-m: enter
+      # C-j
+      C-c: enter
+      # C-o
+      C-s: [enter, left]
+      # Copy
+      # C-w
+      C-comma: C-b
+      # M-w
+      M-comma: C-i # set_mark(False
+      # C-y
+      C-t: C-dot # set_mark(False)
+      # Delete
+      # C-d
+      C-h: delete # set_mark(False
+      # C-d
+      M-h: C-delete # set_mark(False)
+      # Kill line
+      # C-k
+      C-v: [Shift-end, backspace] # set_mark(False)
+      # Undo
+      # C-/
+      C-leftbrace: C-slash
+      # Mark
+      # C-SPC
+      # C-space: # set_mark(True)
+      # Search
+      # C-s
+      C-semicolon: F3
+      # C-r
+      C-o: Shift-F3
+      # M-%
+      M-Shift-key_5: C-j
+      # Cancel
+      # C-g
+      C-u: esc # set_mark(False)
+      # C-x YYY
+      C-b:
+        remap:
+          # C-x h (select all)
+          j: [C-home, C-a] # set_mark(True
+          # C-x C-f (open)
+          C-y: C-s
+          # C-x C-s (save)
+          C-semicolon: C-semicolon
+          # C-x k (kill tab)
+          v: C-f4
+          # C-x C-c (exit)
+          C-i: C-x
+          # cancel
+          # C-u: pass_through_key
+          # C-x u (undo)
+          f: C-slash # set_mark(False)
