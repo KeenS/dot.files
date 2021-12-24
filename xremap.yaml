@@ -54,13 +54,13 @@ keymap:
       # C-w
       C-comma: C-b
       # M-w
-      M-comma: C-i # set_mark(False
+      M-comma: C-i # set_mark(False)
       # C-y
       C-t: C-dot # set_mark(False)
       # Delete
       # C-d
-      C-h: delete # set_mark(False
-      # C-d
+      C-h: delete # set_mark(False)
+      # M-d
       M-h: C-delete # set_mark(False)
       # Kill line
       # C-k
@@ -85,7 +85,7 @@ keymap:
       C-b:
         remap:
           # C-x h (select all)
-          j: [C-home, C-a] # set_mark(True
+          j: [C-home, C-a] # set_mark(True)
           # C-x C-f (open)
           C-y: C-s
           # C-x C-s (save)
