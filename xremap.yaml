@@ -98,3 +98,6 @@ keymap:
           # C-u: pass_through_key
           # C-x u (undo)
           f: C-slash # set_mark(False)
+  - name: Mouse
+    remap:
+      BTN_FORWARD: f5
