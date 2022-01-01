@@ -14,35 +14,35 @@ keymap:
     remap:
       # Cursor
       # C-b
-      C-n: left
+      C-n: {with_mark: left}
       # C-f
-      C-y: right
+      C-y: {with_mark: right}
       # C-p
-      C-r: up
+      C-r: {with_mark: up}
       # C-n
-      C-l: down
+      C-l: {with_mark: down}
       # C-h
       C-j: backspace
       # Forward/Backward word
       # M-b
-      M-n: C-left
+      M-n: {with_mark: C-left}
       # M-f
-      M-y: C-right
+      M-y: {with_mark: C-right}
       # Beginning/End of line
       # C-a
-      C-a: home
+      C-a: {with_mark: home}
       # C-e
-      C-d: end
+      C-d: {with_mark: end}
       # Page up/down
       # M-v
-      M-dot: pageup
+      M-dot: {with_mark: pageup}
       # C-v
-      C-dot: pagedown
+      C-dot: {with_mark: pagedown}
       # Beginning/End of file
       # M-<
-      M-Shift-w: C-home
+      M-Shift-w: {with_mark: C-home}
       # M->
-      M-Shift-e: C-end
+      M-Shift-e: {with_mark: C-end}
       # Newline
       # C-m
       C-m: enter
@@ -52,25 +52,25 @@ keymap:
       C-s: [enter, left]
       # Copy
       # C-w
-      C-comma: C-b
+      C-comma: [C-b, {set_mark: false}]
       # M-w
-      M-comma: C-i # set_mark(False)
+      M-comma: [C-i, {set_mark: false}]
       # C-y
-      C-t: C-dot # set_mark(False)
+      C-t: [C-dot, {set_mark: false}]
       # Delete
       # C-d
-      C-h: delete # set_mark(False)
+      C-h: [delete, {set_mark: false}]
       # M-d
-      M-h: C-delete # set_mark(False)
+      M-h: [C-delete, {set_mark: false}]
       # Kill line
       # C-k
-      C-v: [Shift-end, backspace] # set_mark(False)
+      C-v: [Shift-end, backspace, {set_mark: false}]
       # Undo
       # C-/
       C-leftbrace: C-slash
       # Mark
       # C-SPC
-      # C-space: # set_mark(True)
+      C-space: {set_mark: true}
       # Search
       # C-s
       C-semicolon: F3
@@ -80,12 +80,12 @@ keymap:
       M-Shift-key_5: C-j
       # Cancel
       # C-g
-      C-u: esc # set_mark(False)
+      C-u: [esc, {set_mark: false}]
       # C-x YYY
       C-b:
         remap:
           # C-x h (select all)
-          j: [C-home, C-a] # set_mark(True)
+          j: [C-home, C-a, {set_mark: true}]
           # C-x C-f (open)
           C-y: C-s
           # C-x C-s (save)
@@ -97,7 +97,7 @@ keymap:
           # cancel
           # C-u: pass_through_key
           # C-x u (undo)
-          f: C-slash # set_mark(False)
+          f: [C-slash, {set_mark: false}]
   - name: Mouse
     remap:
       BTN_FORWARD: f5
