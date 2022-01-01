@@ -42,6 +42,7 @@ for f in preferences.xml pages.csv; do
     install_link "$(pwd)/inkscape/$f" "$HOME/.config/inkscape/$f"
 done
 
+install_link "$(pwd)/xremap.service" ~/.config/systemd/user/xremap.service
 
 mkdir -p ~/bin
 
