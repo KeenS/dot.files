@@ -64,7 +64,7 @@ keymap:
       M-h: [C-delete, {set_mark: false}]
       # Kill line
       # C-k
-      C-v: [Shift-end, backspace, {set_mark: false}]
+      C-v: [Shift-end, C-b, {set_mark: false}]
       # Undo
       # C-/
       C-leftbrace: C-slash
