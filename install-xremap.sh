@@ -58,7 +58,7 @@ main() {
         mkdir "xremap_${VERSION}"
         unzip "xremap-linux-x86_64-x11.zip" -d "xremap-linux-x86_64-x11"
         cp "xremap-linux-x86_64-x11/xremap" "$PREFIX"
-        rm -rf "xremap-linux-x86_64-x11" "xremap-linux-x86_64-x11"
+        rm -rf "xremap-linux-x86_64-x11" "xremap-linux-x86_64-x11.zip"
         echo "installation of xremap ${VERSION} done"
     else
         echo "xremap is up to date. do nothing."
