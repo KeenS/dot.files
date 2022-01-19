@@ -8,9 +8,10 @@ keymap:
       M-y: C-TAB
       # M-b
       M-n: C-Shift-TAB
+      BTN_FORWARD: f5
   - name: Usual Apps
     application:
-      not: ["Emacs", "Remacs", "URxvt", "Gnome-terminal", "Alacritty", "Inkscape", "Blender", "Gimp", "Code"]
+      not: ["Emacs", "Remacs", "URxvt", "Gnome-terminal", "Alacritty", "Inkscape", "Blender", "Gimp", "Krita", "Code"]
     remap:
       # Cursor
       # C-b
@@ -98,6 +99,8 @@ keymap:
           # C-u: pass_through_key
           # C-x u (undo)
           f: [C-slash, {set_mark: false}]
-  - name: Mouse
+  - name: Undo for WYSIWYG Apps
+    application:
+      only: [Inkscape, Gimp, Blender, Krita]
     remap:
-      BTN_FORWARD: f5
+      BTN_FORWARD: C-z
