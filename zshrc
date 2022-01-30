@@ -161,10 +161,8 @@ romaji() {
 
 open_in_emacs() {
     # try emacs client
-    emacsclient --no-wait "$1" 2> /dev/null ||
-        # fallback to start up emacs if emacs is down
-        setsid emacs "$1"
-
+    emacsclient --no-wait "$1" || setsid emacs "$1"
+    xdotool search --name --desktop 0 emacs windowactivate
 }
 
 new_post() {
