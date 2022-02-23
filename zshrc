@@ -334,6 +334,23 @@ c() {
     return "$st"
 }
 
+c++() {
+    local tmp st
+    tmp=$(mktemp)
+
+    g++ -o "$tmp" "$@"
+    st="$?"
+    if [ "$st" != 0 ]; then
+        rm "$tmp"
+        return "$st"
+    fi
+
+    "$tmp"
+    st="$?"
+    rm "$tmp"
+    return "$st"
+}
+
 aws_from_file() {
     export AWS_ACCESS_KEY_ID="$(cat "$1" | sed 1d | cut -d, -f1 )"
     export AWS_SECRET_ACCESS_KEY="$(cat "$1" | sed 1d | cut -d, -f2 )"
