@@ -55,7 +55,6 @@ main() {
     if [ "$(xremap_version)" != "${VERSION}" ]; then
         echo "start installing $VERSION"
         wget "https://github.com/k0kubun/xremap/releases/download/v${VERSION}/xremap-linux-x86_64-x11.zip"
-        mkdir "xremap_${VERSION}"
         unzip "xremap-linux-x86_64-x11.zip" -d "xremap-linux-x86_64-x11"
         cp "xremap-linux-x86_64-x11/xremap" "$PREFIX"
         rm -rf "xremap-linux-x86_64-x11" "xremap-linux-x86_64-x11.zip"
