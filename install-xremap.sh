@@ -19,7 +19,7 @@ HELP
 }
 
 xremap_version() {
-    xremap --version | grep 'xremap version' | grep -Eo '[0-9.]+'
+    xremap --version | grep -Eo '[0-9.]+'
 }
 
 
