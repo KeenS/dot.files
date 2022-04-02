@@ -321,7 +321,7 @@ c() {
     local tmp st
     tmp=$(mktemp)
 
-    gcc -o "$tmp" "$@"
+    gcc -Wall -Wextra -o "$tmp" "$@"
     st="$?"
     if [ "$st" != 0 ]; then
         rm "$tmp"
