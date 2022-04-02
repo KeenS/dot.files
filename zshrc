@@ -79,6 +79,8 @@ vcs-stuff() {
         echo "$(colorize red :vcs) git $(git-branch-status-check)$(git-stash-count)"
     elif is-hg-repo; then
         echo "$(colorize red :vcs) hg $(hg-branch-status-check)"
+    elif is-pijul-repo; then
+        echo "$(colorize red :vcs) pijul $(pijul-channel-status-check)"
     fi
 }
 
@@ -88,6 +90,10 @@ is-git-repo() {
 
 is-hg-repo() {
      hg root >& /dev/null
+}
+
+is-pijul-repo() {
+    pijul remote >& /dev/null
 }
 
 
@@ -142,10 +148,32 @@ hg-get-branch-status() {
     index="$(hg status -a -r | wc -l)"
     if [ "$workdir" = 0 ] && [ "$index" = 0 ]; then
         color='%{'${fg[white]}'%}'
-    elif [ "$workdir" = 1 ]; then
+    elif [ "$workdir" != 0 ]; then
         color='%{'${fg[red]}'%}'
-    else # implies $index = 1 
+    else # implies $index != 10
         color='%{'${fg[green]}'%}'
+    fi
+    echo ${color} # 色だけ返す
+}
+
+pijul-channel-status-check() {
+    local prefix channelname suffix
+    channelname="$(pijul channel | sed -n '/^\*/{s/^\* //;p;q}'  2> /dev/null)"
+    # ブランチ名が無いので除外
+    if [[ -z $channelname ]]; then
+        return
+    fi
+    prefix=`pijul-get-channel-status` #色だけ返ってくる
+    suffix='%{'${reset_color}'%}'
+    echo "$(colorize red :branch) ${prefix}${channelname}${suffix} "
+}
+pijul-get-channel-status() {
+    local res color workdir index
+    workdir="$(pijul diff -s | wc -l)"
+    if [ "$workdir" = 0 ] ; then
+        color='%{'${fg[white]}'%}'
+    else # implies workdir != 0
+        color='%{'${fg[red]}'%}'
     fi
     echo ${color} # 色だけ返す
 }
