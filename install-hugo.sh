@@ -6,13 +6,13 @@ NAME:
    $0 -- install hugo
 
 SYNOPSIS:
-  $0 VERSION
+  $0 [--force] [--verbose] VERSION
   $0 [-h|--help]
-  $0 [--verbose]
 
 DESCRIPTION:
    install the hugo
 
+      --force     Skip version check and force install
   -h  --help      Print this help.
       --verbose   Enables verbose mode.
 HELP
@@ -26,8 +26,10 @@ hugo_version() {
 main() {
     SCRIPT_DIR="$(cd $(dirname "$0"); pwd)"
 
+    force=false
     while [ $# -gt 0 ]; do
         case "$1" in
+            --force) force=true; shift ;;
             --help) usage; exit 0;;
             --verbose) set -x; shift;;
             --) shift; break;;
@@ -52,7 +54,7 @@ main() {
 
 
     echo "current version = $(hugo_version) , required version = ${VERSION}"
-    if [ "$(hugo_version)" != "${VERSION}" ]; then
+    if "$force" [ "$(hugo_version)" != "${VERSION}" ]; then
         echo "start installing $VERSION"
 
         wget https://github.com/gohugoio/hugo/releases/download/v${VERSION}/hugo_${VERSION}_Linux-64bit.deb

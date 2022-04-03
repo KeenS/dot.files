@@ -6,13 +6,13 @@ NAME:
    $0 -- install alacritty
 
 SYNOPSIS:
-  $0 VERSION
+  $0 [--force] [--verbose] VERSION
   $0 [-h|--help]
-  $0 [--verbose]
 
 DESCRIPTION:
    {description here}
 
+      --force     Skip version check and force install
   -h  --help      Print this help.
       --verbose   Enables verbose mode.
 HELP
@@ -26,8 +26,10 @@ main() {
     SCRIPT_DIR="$(cd $(dirname "$0"); pwd)"
     : ${PREFIX:=~/compile}
 
+    force=false
     while [ $# -gt 0 ]; do
         case "$1" in
+            --force) force=true; shift ;;
             --help) usage; exit 0;;
             --verbose) set -x; shift;;
             --) shift; break;;
@@ -51,7 +53,7 @@ main() {
     VERSION="$1"
 
     echo "current version = $(alacritty_version) , required version = ${VERSION}"
-    if [ "$(alacritty_version)" != "${VERSION}" ]; then
+    if "$force" || [ "$(alacritty_version)" != "${VERSION}" ]; then
         echo "start installing $VERSION"
         if ! [ -d "$PREFIX/alacritty/" ]; then
             (

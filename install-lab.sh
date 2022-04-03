@@ -6,13 +6,13 @@ NAME:
    $0 -- install lab
 
 SYNOPSIS:
-  $0 VERSION
+  $0 [--force] [--verbose] VERSION
   $0 [-h|--help]
-  $0 [--verbose]
 
 DESCRIPTION:
    install the hub
 
+      --force     Skip version check and force install
   -h  --help      Print this help.
       --verbose   Enables verbose mode.
 HELP
@@ -27,8 +27,10 @@ main() {
     SCRIPT_DIR="$(cd $(dirname "$0"); pwd)"
     : ${PREFIX=~/bin}
 
+    force=false
     while [ $# -gt 0 ]; do
         case "$1" in
+            --force) force=true; shift ;;
             --help) usage; exit 0;;
             --verbose) set -x; shift;;
             --) shift; break;;
@@ -52,7 +54,7 @@ main() {
     VERSION="$1"
 
     echo "current version = $(lab_version) , required version = ${VERSION}"
-    if [ "$(lab_version)" != "${VERSION}" ]; then
+    if "$force" || [ "$(lab_version)" != "${VERSION}" ]; then
         echo "start installing $VERSION"
         wget "https://github.com/zaquestion/lab/releases/download/v${VERSION}/lab_${VERSION}_linux_amd64.tar.gz"
         mkdir "lab_${VERSION}_linux_amd64"

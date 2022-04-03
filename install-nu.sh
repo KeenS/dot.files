@@ -27,8 +27,10 @@ nu_version() {
 main() {
     SCRIPT_DIR="$(cd $(dirname "$0"); pwd)"
 
+    force=false
     while [ $# -gt 0 ]; do
         case "$1" in
+            --force) force=true; shift ;;
             --help) usage; exit 0;;
             --verbose) set -x; shift;;
             --) shift; break;;
@@ -53,7 +55,7 @@ main() {
 
 
     echo "current version = $(nu_version) , required version = ${VERSION}"
-    if [ "$(nu_version)" != "${VERSION}" ]; then
+    if "$force" || [ "$(nu_version)" != "${VERSION}" ]; then
         echo "start installing $VERSION"
 
         cargo install -f --version="$VERSION" nu

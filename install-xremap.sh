@@ -6,13 +6,13 @@ NAME:
    $0 -- install xremap
 
 SYNOPSIS:
-  $0 VERSION
+  $0 [--force] [--verbose] VERSION
   $0 [-h|--help]
-  $0 [--verbose]
 
 DESCRIPTION:
    install the xremap
 
+      --force     Skip version check and force install
   -h  --help      Print this help.
       --verbose   Enables verbose mode.
 HELP
@@ -27,8 +27,10 @@ main() {
     SCRIPT_DIR="$(cd $(dirname "$0"); pwd)"
     : ${PREFIX=~/bin}
 
+    force=false
     while [ $# -gt 0 ]; do
         case "$1" in
+            --force) force=true; shift ;;
             --help) usage; exit 0;;
             --verbose) set -x; shift;;
             --) shift; break;;

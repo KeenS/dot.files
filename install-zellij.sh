@@ -6,13 +6,13 @@ NAME:
    $0 -- install zellij
 
 SYNOPSIS:
-  $0 VERSION
+  $0 [--force] [--verbose] VERSION
   $0 [-h|--help]
-  $0 [--verbose]
 
 DESCRIPTION:
    install the zellij
 
+      --force     Skip version check and force install
   -h  --help      Print this help.
       --verbose   Enables verbose mode.
 HELP
@@ -26,8 +26,10 @@ zellij_version() {
 main() {
     SCRIPT_DIR="$(cd $(dirname "$0"); pwd)"
 
+    force=false
     while [ $# -gt 0 ]; do
         case "$1" in
+            --force) force=true; shift ;;
             --help) usage; exit 0;;
             --verbose) set -x; shift;;
             --) shift; break;;
@@ -52,7 +54,7 @@ main() {
 
 
     echo "current version = $(zellij_version) , required version = ${VERSION}"
-    if [ "$(zellij_version)" != "${VERSION}" ]; then
+    if "$force" || [ "$(zellij_version)" != "${VERSION}" ]; then
         echo "start installing $VERSION"
 
         wget https://github.com/zellij-org/zellij/releases/download/v${VERSION}/zellij-x86_64-unknown-linux-musl.tar.gz

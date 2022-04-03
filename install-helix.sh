@@ -6,9 +6,8 @@ NAME:
    $0 -- install helix
 
 SYNOPSIS:
-  $0 VERSION
+  $0 [--force] [--verbose] VERSION
   $0 [-h|--help]
-  $0 [--verbose]
 
 DESCRIPTION:
    install the helix
