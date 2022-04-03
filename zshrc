@@ -384,6 +384,16 @@ aws_from_file() {
     export AWS_SECRET_ACCESS_KEY="$(cat "$1" | sed 1d | cut -d, -f2 )"
 }
 
+uutils() {
+    export PATH="/opt/uutils/bin:$PATH"
+    fpath+=/opt/uutils/share/zsh/site-functions
+}
+
+coreutils() {
+    export PATH="$(echo "$PATH" | sed 's|/opt/uutils/bin:||')"
+    fpath=("${(@)fpath:#/opt/uutils/share/zsh/site-functions}")
+}
+
 alias ec='open_in_emacs'
 alias ls='ls --color'
 alias smlsharp='rlwrap smlsharp'
