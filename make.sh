@@ -32,6 +32,9 @@ install_link "$(pwd)/docker_config.json" ~/.docker/config.json
 verbose mkdir -p ~/.config/zellij
 install_link "$(pwd)/zellij.yaml" ~/.config/zellij/config.yaml
 
+verbose mkdir -p ~/.config/
+install_link "$(pwd)/config.nu" ~/.config/nushell/config.nu
+
 firefox_home="$HOME/.mozilla/firefox"
 firefox_prefdir="$firefox_home/$(firefox_pref_relpath)"
 
