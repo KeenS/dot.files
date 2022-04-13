@@ -34,6 +34,7 @@ install_link "$(pwd)/zellij.yaml" ~/.config/zellij/config.yaml
 
 verbose mkdir -p ~/.config/
 install_link "$(pwd)/config.nu" ~/.config/nushell/config.nu
+install_link "$(pwd)/env.nu" ~/.config/nushell/env.nu
 
 firefox_home="$HOME/.mozilla/firefox"
 firefox_prefdir="$firefox_home/$(firefox_pref_relpath)"
