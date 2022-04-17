@@ -1,17 +1,144 @@
 # Nushell Environment Config File
 
-def create_left_prompt [] {
-    let path_segment = ($env.PWD)
+def colorize [color: string, str: string] {
+  echo [(ansi $color) $str (ansi reset)] | str collect
+}
 
-    $path_segment
+def check-status [] {
+    if $env.LAST_EXIT_CODE == 0 {
+        ""
+    } else {
+        [
+            (colorize red ":$?")
+            " "
+            $env.LAST_EXIT_CODE
+        ]
+    }  | str collect
+}
+
+def vcs-stuff [] {
+    if is-git-repo {
+        [
+            (colorize red ":vcs")
+            " "
+            "git"
+            (git-branch-status-check)
+            (git-stash-count)
+        ] | str collect
+    } else if is-hg-repo {
+         [
+             (colorize red :vcs)
+             " "
+             hg
+             " "
+             (hg-branch-status-check)
+         ] | str collect
+    } else if is-pijul-repo {
+        [
+            (colorize red :vcs)
+            " "
+            pijul
+            " "
+            (pijul-channel-status-check)
+        ] | str collect
+    }
+}
+
+def is-git-repo [] {
+    (do -i { git remote }  | complete | get exit_code) == 0
+}
+
+def is-hg-repo [] {
+    (do -i { hg root } | complete | get exit_code) == 0
+}
+
+def is-pijul-repo [] {
+    (do -i { pijul remote } | complete | get exit_code) == 0
+}
+
+def git-branch-status-check [] {
+    let branchname = (do -i {git rev-parse --abbrev-ref HEAD | str trim })
+    if $branchname == "" {
+        ""
+    } else {
+        let color = (git-get-branch-status)
+        echo [" " (colorize red :branch) " " (colorize $color $branchname)] | str collect
+    }
+}
+
+def git-get-branch-status [] {
+    let workdir = (git diff --quiet | complete | get exit_code) ;
+    let index = (git diff --cached --quiet | complete | get exit_code) ;
+    if $workdir == 0 && $index == 0 {
+        "white"
+    } else if $workdir == 1 {
+        "red"
+    } else {
+        # implies $index = 1
+        "green"
+    }
+}
+
+def git-stash-count [] {
+    let count = (do -i { git stash list | wc -l | str trim | into int })
+    if 0 < $count {
+        echo [" " (colorize red :stashes) " " $count] | str collect
+    } else {
+        ""
+    }
+}
+
+def hg-branch-status-check [] {
+    let branchname = (do -i { hg branch } | str trim)
+    if $branchname == "" {
+        ""
+    } else {
+        let prefix = (hg-get-branch-status)
+        [(colorize red :branch) " " $branchname] | str collect
+    }
+}
+
+def hg-get-branch-status [] {
+    let workdir = (hg status -m -d | wc -l)
+    let index = (hg status -a -r | wc -l)
+    if $workdir == 0 && $index == 0 {
+        "white"
+    } else if $workdir == 1 {
+        "red"
+    } else {
+        # implies $index = 1
+        "green"
+    }
+}
+
+def pijul-channel-status-check [] {
+    let channelname = (do -i { pijul channel } | sed -n '/^\*/{s/^\* //;p;q}' | str trim)
+    if $channelname == "" {
+        ""
+    } else {
+        let prefix = (pijul-get-channel-status)
+        [(colorize red :channel) " " $channelname] | str collect
+    }
+}
+
+def pijul-get-channel-status [] {
+    let workdir = (pijul diff -s | wc -l | into int)
+    if $workdir == 0 {
+        "white"
+    } else {
+        "red"
+    }
+}
+
+def create_left_prompt [] {
+    $""
 }
 
 def create_right_prompt [] {
-    let time_segment = ([
-        (date now | date format '%m/%d/%Y %r')
-    ] | str collect)
-
-    $time_segment
+    let status = (check-status)
+    let vcs = (vcs-stuff)
+    let cwd = ([(colorize red :cwd) " " $env.PWD] | str collect)
+    [(ansi reset) $status " " $vcs " " $cwd] | str collect
 }
 
 # Use nushell functions to define your right and left prompt
