@@ -331,4 +331,5 @@ let $config = {
     }
   ]
 }
+
 use git-completions.nu

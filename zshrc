@@ -115,6 +115,7 @@ git-branch-status-check() {
     suffix='%{'${reset_color}'%}'
     echo "$(colorize red :branch) ${prefix}${branchname}${suffix} "
 }
+
 git-get-branch-status() {
     local res color workdir index
     git diff --quiet
