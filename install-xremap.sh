@@ -54,7 +54,7 @@ main() {
     VERSION="$1"
 
     echo "current version = $(xremap_version) , required version = ${VERSION}"
-    if [ "$(xremap_version)" != "${VERSION}" ]; then
+    if $force || [ "$(xremap_version)" != "${VERSION}" ]; then
         echo "start installing $VERSION"
         wget "https://github.com/k0kubun/xremap/releases/download/v${VERSION}/xremap-linux-x86_64-x11.zip"
         unzip "xremap-linux-x86_64-x11.zip" -d "xremap-linux-x86_64-x11"
