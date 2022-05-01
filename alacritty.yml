@@ -1,6 +1,12 @@
 scrolling:
   history: 0
 
+shell:
+  program: /bin/zsh
+  args:
+    - -l
+    - -c
+    - "zellij -s main attach --create"
 font:
   size: 16
   normal:
