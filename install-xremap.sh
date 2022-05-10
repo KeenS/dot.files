@@ -56,10 +56,10 @@ main() {
     echo "current version = $(xremap_version) , required version = ${VERSION}"
     if $force || [ "$(xremap_version)" != "${VERSION}" ]; then
         echo "start installing $VERSION"
-        wget "https://github.com/k0kubun/xremap/releases/download/v${VERSION}/xremap-linux-x86_64-x11.zip"
-        unzip "xremap-linux-x86_64-x11.zip" -d "xremap-linux-x86_64-x11"
-        cp "xremap-linux-x86_64-x11/xremap" "$PREFIX"
-        rm -rf "xremap-linux-x86_64-x11" "xremap-linux-x86_64-x11.zip"
+        wget "https://github.com/k0kubun/xremap/releases/download/v${VERSION}/xremap-linux-x86_64-gnome.zip"
+        unzip "xremap-linux-x86_64-gnome.zip" -d "xremap-linux-x86_64-gnome"
+        cp "xremap-linux-x86_64-gnome/xremap" "$PREFIX"
+        rm -rf "xremap-linux-x86_64-gnome" "xremap-linux-x86_64-gnome.zip"
         echo "installation of xremap ${VERSION} done"
     else
         echo "xremap is up to date. do nothing."
