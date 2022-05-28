@@ -11,7 +11,7 @@ keymap:
       BTN_FORWARD: f5
   - name: Usual Apps
     application:
-      not: ["Emacs", "Remacs", "URxvt", "Gnome-terminal", "Alacritty", "Inkscape", "Blender", "Gimp", "Krita", "Code"]
+      not: ["Emacs", "emacs", "Remacs", "URxvt", "Gnome-terminal", "gnome-terminal-server","Alacritty", "Inkscape", "Blender", "Gimp", "Krita", "Code"]
     remap:
       # Cursor
       # C-b
