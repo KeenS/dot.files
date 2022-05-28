@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <inkscape
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   version="1"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   version="1">
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd">
   <group
      id="window">
     <group
        id="task"
-       taskset="2" />
+       taskset="0" />
     <group
        id="menu"
        state="1" />
@@ -110,11 +110,14 @@
     <sodipodi:namedview
        id="base"
        pagecolor="#ffffff"
+       pageopacity="0.0"
+       pagecheckerboard="0"
        bordercolor="#666666"
        borderopacity="1.0"
        objecttolerance="10.0"
        gridtolerance="10.0"
        guidetolerance="10.0"
+       pageshadow="2"
        inkscape:pageopacity="0.0"
        inkscape:pageshadow="2"
        inkscape:window-width="640"
@@ -133,8 +136,8 @@
          id="rect"
          style="fill:blue;"
          usecurrent="1"
-         width="115.157"
-         height="51.0127"
+         width="435.239"
+         height="192.804"
          rx="0"
          ry="0" />
       <eventcontext
@@ -174,8 +177,8 @@
          start="0"
          usecurrent="1"
          open="0"
-         rx="221.909"
-         ry="221.909" />
+         rx="838.711"
+         ry="838.711" />
       <eventcontext
          id="star"
          magnitude="3"
@@ -227,6 +230,8 @@
        usepressure="1"
        usetilt="0"
        keep_selected="1"
+       abs_width="0"
+       unit="px"
        tremor="0"
        wiggle="17.1053">
       <group
@@ -594,7 +599,7 @@
        h="480"
        state="1"
        panel_border="0"
-       page="2"
+       page="1"
        visible="0"
        placement="1" />
     <group
@@ -637,6 +642,8 @@
        placement="1" />
     <group
        id="xml"
+       h="266"
+       w="423"
        panel_size="1"
        panel_ratio="100"
        panel_mode="1"
@@ -644,8 +651,6 @@
        panel_border="0"
        x="0"
        y="0"
-       w="423"
-       h="266"
        visible="0"
        state="2"
        placement="1" />
@@ -683,7 +688,7 @@
     <group
        id="preferences"
        state="1"
-       page="48"
+       page="47"
        panel_size="1"
        panel_ratio="100"
        panel_mode="1"
@@ -826,6 +831,8 @@
     <group
        id="layers"
        maxDepth="20"
+       w="1416"
+       h="1238"
        panel_size="1"
        panel_ratio="100"
        panel_mode="1"
@@ -833,8 +840,6 @@
        panel_border="0"
        x="2424"
        y="0"
-       w="1416"
-       h="1238"
        visible="0"
        state="1"
        placement="1" />
@@ -934,6 +939,9 @@
        visible="1"
        state="2"
        placement="5" />
+    <group
+       id="selectors"
+       panedpos="757" />
   </group>
   <group
      id="printing">
@@ -1239,6 +1247,16 @@
     <group
        id="dash"
        scale="1" />
+    <group
+       id="middlemousezoom"
+       value="1" />
+    <group
+       id="boot"
+       enabled="1">
+      <group
+         id="shown"
+         ver1.1.2="1" />
+    </group>
   </group>
   <group
      id="extensions"
@@ -1266,13 +1284,13 @@
      id="desktop"
      style="stroke:#1a1a1a;stroke-opacity:1;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none;stroke-linejoin:miter;-inkscape-font-specification:'Ubuntu Mono';font-family:'Ubuntu Mono';font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;font-size:29.33333333px;text-anchor:start;text-align:start;writing-mode:tb;line-height:134.00000334%;fill-opacity:1;opacity:1;stroke-dashoffset:0;stroke-linecap:round;fill:none">
     <group
-       width="1920"
-       height="2096"
-       x="1920"
-       y="27"
+       width="2281"
+       height="1115"
+       x="953"
+       y="781"
+       maximized="1"
        fullscreen="0"
-       id="geometry"
-       maximized="0" />
+       id="geometry" />
     <group
        id="XYfront" />
     <group
@@ -1387,8 +1405,11 @@
      defaultTheme="Yaru"
      defaultIconTheme="Yaru"
      gtkTheme="Yaru"
-     iconTheme="Yaru"
      menuIcons_canvas="0"
      menuIcons_layers="0"
-     menuIcons_objects="0" />
+     menuIcons_objects="0"
+     defaultPreferDarkTheme="0"
+     defaultGtkTheme="Yaru"
+     preferDarkTheme="0"
+     darkTheme="0" />
 </inkscape>
