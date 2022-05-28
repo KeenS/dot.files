@@ -48,7 +48,7 @@ keymap:
       # C-m
       C-m: enter
       # C-j
-      C-c: enter
+      # C-c: enter
       # C-o
       C-s: [enter, left]
       # Copy
