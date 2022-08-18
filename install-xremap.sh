@@ -22,6 +22,19 @@ xremap_version() {
     xremap --version | grep -Eo '[0-9.]+'
 }
 
+stop_xremap() {
+    WAS_ACTIVE=$(systemctl --user is-active xremap)
+    if [ "$WAS_ACTIVE" = "active" ]; then
+        systemctl --user stop xremap
+    fi
+}
+
+restart_xremap() {
+    if [ "$WAS_ACTIVE" = "active" ]; then
+        systemctl --user start xremap
+    fi
+}
+
 
 main() {
     SCRIPT_DIR="$(cd $(dirname "$0"); pwd)"
@@ -58,7 +71,9 @@ main() {
         echo "start installing $VERSION"
         wget "https://github.com/k0kubun/xremap/releases/download/v${VERSION}/xremap-linux-x86_64-gnome.zip"
         unzip "xremap-linux-x86_64-gnome.zip" -d "xremap-linux-x86_64-gnome"
+        stop_xremap
         cp "xremap-linux-x86_64-gnome/xremap" "$PREFIX"
+        restart_xremap
         rm -rf "xremap-linux-x86_64-gnome" "xremap-linux-x86_64-gnome.zip"
         echo "installation of xremap ${VERSION} done"
     else
