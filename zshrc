@@ -411,3 +411,6 @@ export PATH=$HOME/.local/bin:$PATH
 export WASMTIME_HOME="$HOME/.wasmtime"
 
 export PATH="$WASMTIME_HOME/bin:$PATH"
+
+# idris2
+export PATH="$HOME/.pack/bin:$PATH"
