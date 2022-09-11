@@ -60,7 +60,7 @@ main() {
         mkdir "wakatime_${VERSION}_linux_amd64"
         unzip wakatime-cli-linux-amd64.zip -d "wakatime_${VERSION}_linux_amd64"
         cp "wakatime_${VERSION}_linux_amd64/wakatime-cli-linux-amd64" "$PREFIX/wakatime"
-        rm -rf "wakatime_${VERSION}_linux_amd64" "wakatime_cli_linux_amd64.zip"
+        rm -rf "wakatime_${VERSION}_linux_amd64" "wakatime-cli-linux-amd64.zip"
         echo "installation of wakatime ${VERSION} done"
     else
         echo "wakatime is up to date. do nothing."
