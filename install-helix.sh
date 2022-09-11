@@ -19,7 +19,7 @@ HELP
 }
 
 hx_version() {
-    hx --version | grep -Eo '[0-9]+\.[0-9]+'
+    hx --version | grep -Eo '[0-9]+\.[0-9]+(\.[0-9]+)'
 }
 
 

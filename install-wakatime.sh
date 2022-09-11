@@ -19,7 +19,7 @@ HELP
 }
 
 wakatime_version() {
-    wakatime version | grep 'wakatime version' | grep -Eo '[0-9.]+'
+    wakatime --version | grep -Eo '[0-9.]+'
 }
 
 
