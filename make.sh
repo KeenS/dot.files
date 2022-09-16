@@ -41,7 +41,7 @@ firefox_prefdir="$firefox_home/$(firefox_pref_relpath)"
 install_link "$(pwd)/user.js" "$firefox_prefdir"/user.js
 
 verbose mkdir -p ~/.config/inkscape/
-for f in preferences.xml pages.csv template; do
+for f in preferences.xml pages.csv templates; do
     install_link "$(pwd)/inkscape/$f" "$HOME/.config/inkscape/$f"
 done
 
