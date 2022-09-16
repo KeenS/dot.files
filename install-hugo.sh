@@ -54,12 +54,12 @@ main() {
 
 
     echo "current version = $(hugo_version) , required version = ${VERSION}"
-    if "$force" [ "$(hugo_version)" != "${VERSION}" ]; then
+    if "$force" || [ "$(hugo_version)" != "${VERSION}" ]; then
         echo "start installing $VERSION"
 
-        wget https://github.com/gohugoio/hugo/releases/download/v${VERSION}/hugo_${VERSION}_Linux-64bit.deb
-        sudo dpkg -i hugo_${VERSION}_Linux-64bit.deb
-        rm -rf hugo_${VERSION}_Linux-64bit.deb
+        wget https://github.com/gohugoio/hugo/releases/download/v${VERSION}/hugo_${VERSION}_Linux-amd64.deb
+        sudo dpkg -i hugo_${VERSION}_Linux-amd64.deb
+        rm -rf hugo_${VERSION}_Linux-amd64.deb
         echo "installation of hugo ${VERSION} done"
     else
         echo "hugo is up to date. do nothing."
