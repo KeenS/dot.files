@@ -136,10 +136,10 @@
          id="rect"
          style="fill:blue;"
          usecurrent="1"
-         width="435.239"
-         height="192.804"
+         width="250.270460294248"
+         height="1499.25744278303"
          rx="0"
-         ry="0" />
+         ry="10.5436680547442" />
       <eventcontext
          id="3dbox"
          style="stroke:none;stroke-linejoin:round;"
@@ -219,21 +219,21 @@
     <eventcontext
        id="calligraphic"
        style="fill:black;fill-opacity:1;fill-rule:nonzero;stroke:none;"
-       mass="56.5789"
-       angle="30"
+       mass="2"
+       angle="90"
        width="11.4211"
-       thinning="10"
-       flatness="90"
-       cap_rounding="0"
+       thinning="0"
+       flatness="0"
+       cap_rounding="1"
        usecurrent="1"
        tracebackground="0"
-       usepressure="1"
+       usepressure="0"
        usetilt="0"
        keep_selected="1"
        abs_width="0"
        unit="px"
        tremor="0"
-       wiggle="17.1053">
+       wiggle="0">
       <group
          id="preset">
         <group
@@ -370,8 +370,8 @@
        live_outline="1"
        live_objects="1"
        show_helperpath="0"
-       x="0"
-       y="0"
+       x="471.887987400399"
+       y="-39.5228604373157"
        edit_clipping_paths="0"
        edit_masks="0"
        highlight_color="4278190335" />
@@ -381,8 +381,8 @@
        gradientdrag="0"
        show_handles="0"
        width="0.2"
-       force="0.2"
-       fidelity="0.5"
+       force="0.47"
+       fidelity="0.77"
        usepressure="1"
        style="fill:red;stroke:none;"
        usecurrent="0"
@@ -390,7 +390,7 @@
        dos="1"
        dol="1"
        doo="1"
-       mode="0" />
+       mode="9" />
     <eventcontext
        id="spray"
        selcue="1"
@@ -578,7 +578,7 @@
   </group>
   <group
      id="colorselector"
-     page="3"
+     page="1"
      switcher="1" />
   <group
      id="embedded">
@@ -740,7 +740,8 @@
        h="502"
        visible="1"
        state="2"
-       placement="5">
+       placement="5"
+       defaultopts="0">
       <group
          id="exportarea"
          value="page" />
@@ -750,6 +751,9 @@
       <group
          id="batchexportarea"
          value="layer" />
+      <group
+         id="defaultdpi"
+         value="258.459991455078" />
     </group>
     <group
        id="save_as"
@@ -767,7 +771,7 @@
     <group
        id="open"
        enable_preview="1"
-       path="/home/shun/Dropbox/SVG/" />
+       path="/home/shun/Dropbox/SVG/profile_icon/" />
     <group
        id="import"
        enable_preview="1"
@@ -776,7 +780,8 @@
        ask_svg="1"
        link="embed"
        scale="auto"
-       forcexdpi="0" />
+       forcexdpi="0"
+       import_mode_svg="include" />
     <group
        id="debug"
        redirect="0" />
@@ -921,7 +926,8 @@
        h="230"
        visible="0"
        state="2"
-       placement="1" />
+       placement="1"
+       layers_only="0" />
     <group
        id="symbols"
        panel_size="1"
@@ -953,6 +959,9 @@
     <group
        id="selectors"
        panedpos="757" />
+    <group
+       id="layerProp"
+       addLayerPosition="0" />
   </group>
   <group
      id="printing">
@@ -966,7 +975,8 @@
      id="options"
      rotationlock="1"
      dpifixbackup="0"
-     dpiupdatemethod="0">
+     dpiupdatemethod="0"
+     onimport="0">
     <group
        id="renderingcache"
        size="64" />
@@ -1140,7 +1150,8 @@
     <group
        id="maskobject"
        topmost="1"
-       remove="1" />
+       remove="1"
+       grouping="0" />
     <group
        id="blurquality"
        value="0" />
@@ -1273,7 +1284,10 @@
     </group>
     <group
        id="font"
-       unitType="2" />
+       unitType="1" />
+    <group
+       id="snapping"
+       snap-global-toggle="0" />
   </group>
   <group
      id="extensions"
@@ -1299,15 +1313,16 @@
      org.inkscape.effect.filter.ImageBlur.opacity="1"
      org.inkscape.effect.filter.ImageBlur.blend="normal"
      org.inkscape.web.slicer.create_group.width-unity="px"
-     org.inkscape.web.slicer.create_group.height-unity="px" />
+     org.inkscape.web.slicer.create_group.height-unity="px"
+     org.inkscape.input.svg.scale="auto" />
   <group
      id="desktop"
-     style="stroke:#1a1a1a;stroke-opacity:1;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none;stroke-linejoin:miter;-inkscape-font-specification:'Ubuntu Mono';font-family:'Ubuntu Mono';font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;font-size:29.33333333px;text-anchor:start;text-align:start;writing-mode:tb;line-height:134.00000334%;fill-opacity:1;opacity:1;stroke-dashoffset:0;stroke-linecap:round;fill:none">
+     style="-inkscape-font-specification:'Ubuntu Mono';font-family:'Ubuntu Mono';font-size:250px;writing-mode:tb;line-height:134.00000334%;fill:#ffffff;stroke-width:8;stop-color:#000000">
     <group
-       width="1612"
-       height="1095"
-       x="354"
-       y="549"
+       width="2500"
+       height="1493"
+       x="584"
+       y="356"
        maximized="0"
        fullscreen="0"
        id="geometry" />
@@ -1325,7 +1340,28 @@
        id="YZright" />
   </group>
   <group
-     id="devices" />
+     id="devices">
+    <group
+       id="?:Wacom Intuos Pro M Pad pad"
+       mode="disabled"
+       axes="x;y;ignore;ignore;ignore;wheel"
+       keys="0x8;0x9;0xa;0xb;0xc;0xd;0xe;0xf;0x10;0x11;0x12;0x13;0x14;0x15;0x16;0x17;0x18;0x19;0x1a;0x1b;0x1c;0x1d;0x1e;0x1f;space;exclam;quotedbl;numbersign;dollar;percent;ampersand;apostrophe;parenleft;parenright;asterisk;plus;comma;minus;period;slash;0;1;2;3;4;5;6;7;8;9;colon;semicolon;less;equal;greater;question;at;a;b;c;d;e;u;v;w;x;y;z;bracketleft;backslash;bracketright;asciicircum;underscore;grave;a;b;c;d;e;f;g;h;i;j;k;l;m;n;o;p;q;r;s;t;u;v;w;x;y;z;braceleft;bar;braceright;asciitilde;0x7f;0x80;0x81;0x82;0x83;0x84;0x85;0x86;0x87;0x88;0x89;0x8a;0x8b;0x8c;0x8d;0x8e;0x8f;0x90;0x91;0x92;0x93;0x94;0x95;0x96;0x97;0x98;0x99;0x9a;0x9b;0x9c;0x9d;0x9e;0x9f;nobreakspace;exclamdown;cent;sterling;currency;yen;brokenbar;section;diaeresis;copyright;ordfeminine;guillemotleft;notsign;hyphen;registered;macron;degree;plusminus;twosuperior;threesuperior;acute;mu;paragraph;periodcentered;cedilla;onesuperior;masculine;guillemotright;onequarter;onehalf;threequarters;questiondown;agrave;aacute;acircumflex;atilde;adiaeresis;aring;ae;ccedilla;egrave;eacute;ecircumflex;ediaeresis;igrave;iacute;icircumflex;idiaeresis;eth;ntilde;ograve;oacute;ocircumflex;otilde;odiaeresis;multiply;ooblique;ugrave;uacute;ucircumflex;udiaeresis;yacute;thorn;ssharp;agrave;aacute;acircumflex;atilde;adiaeresis;aring;ae;ccedilla;egrave;eacute;ecircumflex;ediaeresis;igrave;iacute;icircumflex;idiaeresis;eth;ntilde;ograve;oacute;ocircumflex;otilde;odiaeresis;division;ooblique;ugrave;uacute;ucircumflex;udiaeresis;yacute;thorn;ydiaeresis;0x30012;0x70002;0x1000f;0x6d657278;0x70207061;0x343d6469;0x373833;0xf0001;0xc0012;0xc0012;brokenbar;section;diaeresis;copyright;ordfeminine" />
+    <group
+       id="?:Wacom Intuos Pro M Finger touch"
+       mode="disabled"
+       axes="x;y;pressure;ignore;ignore;ignore"
+       keys="0x8;0x9;0xa;0xb;0xc;0xd;0xe;0xf;0x10;0x11;0x12;0x13;0x14;0x15;0x16;0x17;0x18;0x19;0x1a;0x1b;0x1c;0x1d;0x1e;0x1f;space;exclam;quotedbl;numbersign;dollar;percent;ampersand;apostrophe;parenleft;parenright;asterisk;plus;comma;minus;period;slash;0;1;2;3;4;5;6;7;8;9;colon;semicolon;less;equal;greater;question;at;a;b;c;d;e;m;n;o;p;q;r;s;t;u;v;w;x;y;z;bracketleft;backslash;bracketright;asciicircum;underscore;grave;a;b;c;d;e;f;g;h;i;j;k;l;m;n;o;p;q;r;s;t;u;v;w;x;y;z;braceleft;bar;braceright;asciitilde;0x7f;0x80;0x81;0x82;0x83;0x84;0x85;0x86;0x87;0x88;0x89;0x8a;0x8b;0x8c;0x8d;0x8e;0x8f;0x90;0x91;0x92;0x93;0x94;0x95;0x96;0x97;0x98;0x99;0x9a;0x9b;0x9c;0x9d;0x9e;0x9f;nobreakspace;exclamdown;cent;sterling;currency;yen;brokenbar;section;diaeresis;copyright;ordfeminine;guillemotleft;notsign;hyphen;registered;macron;degree;plusminus;twosuperior;threesuperior;acute;mu;paragraph;periodcentered;cedilla;onesuperior;masculine;guillemotright;onequarter;onehalf;threequarters;questiondown;agrave;aacute;acircumflex;atilde;adiaeresis;aring;ae;ccedilla;egrave;eacute;ecircumflex;ediaeresis;igrave;iacute;icircumflex;idiaeresis;eth;ntilde;ograve;oacute;ocircumflex;otilde;odiaeresis;multiply;ooblique;ugrave;uacute;ucircumflex;udiaeresis;yacute;thorn;ssharp;agrave;aacute;acircumflex;atilde;adiaeresis;aring;ae;ccedilla;egrave;eacute;ecircumflex;ediaeresis;igrave;iacute;icircumflex;idiaeresis;eth;ntilde;ograve;oacute;ocircumflex;otilde;odiaeresis;division;ooblique;ugrave;uacute;ucircumflex;udiaeresis;yacute;thorn;ydiaeresis;0xb0002;0x15;lstroke;lstroke;lstroke;0xaf00;0xaf00" />
+    <group
+       id="P:Wacom Intuos Pro M Pen stylus"
+       mode="disabled"
+       axes="x;y;pressure;xtilt;ytilt;wheel"
+       keys="0x8;0x9;0xa;0xb;0xc;0xd;0xe;0xf;0x10;0x11;0x12;0x13;0x14;0x15;0x16;0x17;0x18;0x19;0x1a;0x1b;0x1c;0x1d;0x1e;0x1f;space;exclam;quotedbl;numbersign;dollar;percent;ampersand;apostrophe;parenleft;parenright;asterisk;plus;comma;minus;period;slash;0;1;2;3;4;5;6;7;8;9;colon;semicolon;less;equal;greater;question;at;a;b;c;d;e;0x94;0x95;0x96;0x97;0x98;0x99;0x9a;0x9b;0x9c;0x9d;0x9e;0x9f;nobreakspace;exclamdown;cent;sterling;currency;yen;brokenbar;section;diaeresis;copyright;ordfeminine;guillemotleft;notsign;hyphen;registered;macron;degree;plusminus;twosuperior;threesuperior;acute;mu;paragraph;periodcentered;cedilla;onesuperior;masculine;guillemotright;onequarter;onehalf;threequarters;questiondown;agrave;aacute;acircumflex;atilde;adiaeresis;aring;ae;ccedilla;egrave;eacute;ecircumflex;ediaeresis;igrave;iacute;icircumflex;idiaeresis;eth;ntilde;ograve;oacute;ocircumflex;otilde;odiaeresis;multiply;ooblique;ugrave;uacute;ucircumflex;udiaeresis;yacute;thorn;ssharp;agrave;aacute;acircumflex;atilde;adiaeresis;aring;ae;ccedilla;egrave;eacute;ecircumflex;ediaeresis;igrave;iacute;icircumflex;idiaeresis;eth;ntilde;ograve;oacute;ocircumflex;otilde;odiaeresis;division;ooblique;ugrave;uacute;ucircumflex;udiaeresis;yacute;thorn;ydiaeresis;0x4000b;0x10003;0x10015;0x6f525341;0x4c206b63;0x43204445;0x72746e6f;0x656c6c6f;r;0xfa0000;0xf8000b;0x8;0x9;0xa;0xb;0xc;0xd;0xe;0xf;0x10;0x11;0x12;0x13;0x14;0x15;0x16;0x17;0x18;0x19;0x1a;0x1b;0x1c;0x1d;0x1e;0x1f;space;exclam;quotedbl;numbersign;dollar;percent;ampersand;apostrophe;parenleft;parenright;asterisk;plus;comma;minus;period;slash;0;1;2;3;4;5;6;7;8;9;colon;semicolon;less;equal;greater;question;at;a;b;c;d;e;f;g;h;i;j" />
+    <group
+       id="E:Wacom Intuos Pro M Pen eraser"
+       mode="disabled"
+       axes="x;y;pressure;xtilt;ytilt;ignore"
+       keys="0x8;0x9;0xa;0xb;0xc;0xd;0xe;0xf;0x10;0x11;0x12;0x13;0x14;0x15;0x16;0x17;0x18;0x19;0x1a;0x1b;0x1c;0x1d;0x1e;0x1f;space;exclam;quotedbl;numbersign;dollar;percent;ampersand;apostrophe;parenleft;parenright;asterisk;plus;comma;minus;period;slash;0;1;2;3;4;5;6;7;8;9;colon;semicolon;less;equal;greater;question;at;a;b;c;d;e;0xd;0xe;0xf;0x10;0x11;0x12;0x13;0x14;0x15;0x16;0x17;0x18;0x19;0x1a;0x1b;0x1c;0x1d;0x1e;0x1f;space;exclam;quotedbl;numbersign;dollar;percent;ampersand;apostrophe;parenleft;parenright;asterisk;plus;comma;minus;period;slash;0;1;2;3;4;5;6;7;8;9;colon;semicolon;less;equal;greater;question;at;a;b;c;d;e;f;g;h;i;j;k;l;m;n;o;p;q;r;s;t;u;v;w;x;y;z;bracketleft;backslash;bracketright;asciicircum;underscore;grave;a;b;c;d;e;f;g;h;i;j;k;l;m;n;o;p;q;r;s;t;u;v;w;x;y;z;braceleft;bar;braceright;asciitilde;0x7f;0x80;0x81;0x82;0x83;0x84;0x85;0x86;0x87;0x88;0x89;0x8a;0x8b;0x8c;0x8d;0x8e;0x8f;0x90;0x91;0x92;0x93;0x94;0x95;0x96;0x97;0x98;0x99;0x9a;0x9b;0x9c;0x9d;0x9e;0x9f;nobreakspace;exclamdown;cent;sterling;currency;yen;brokenbar;section;diaeresis;copyright;ordfeminine;guillemotleft;notsign;hyphen;registered;macron;degree;plusminus;twosuperior;threesuperior;acute;mu;paragraph;periodcentered;cedilla;onesuperior;masculine;guillemotright;onequarter;onehalf;threequarters;questiondown;agrave;aacute;acircumflex;atilde;adiaeresis;aring;ae" />
+  </group>
   <group
      id="toolbox"
      icononly="1"
@@ -1461,4 +1497,8 @@
   <group
      id="live_effects"
      flattening="0" />
+  <group
+     id="color_scales"
+     wheel_vis_hsluv="1"
+     wheel_vis_hsv="1" />
 </inkscape>
