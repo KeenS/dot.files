@@ -190,6 +190,18 @@ new_slide() {
     open_in_emacs "content/$file"
 }
 
+import_pdf() {
+    local title="$1"
+    local title_roman="$(romaji "$title")"
+    local file="slide/${title_roman}/index.md"
+    local pdf_file="slide/${title_roman}/$(basename $2)"
+    hugo new -k pdf "$file"
+    cp "$2" "content/$pdf_file"
+    sed -i "s/TITLE/$title/" "content/$file"
+    sed -i "s|PDF_PATH|$(basename $2)|" "content/$file"
+    open_in_emacs "content/$file"
+}
+
 drill-start() {
     sudo ~/compile/zookeeper-3.4.8/bin/zkServer.sh start
     drillbit.sh start
