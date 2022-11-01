@@ -15,7 +15,6 @@ font:
     family: Ubuntu Mono
   italic:
     family: Ubuntu Mono
-  use_thin_strokes: true
 
 draw_bold_text_with_bright_colors: true
 
