@@ -30,7 +30,7 @@ verbose mkdir -p ~/.docker
 install_link "$(pwd)/docker_config.json" ~/.docker/config.json
 
 verbose mkdir -p ~/.config/zellij
-install_link "$(pwd)/zellij.yaml" ~/.config/zellij/config.yaml
+install_link "$(pwd)/zellij.kdl" ~/.config/zellij/config.kdl
 
 verbose mkdir -p ~/.config/
 install_link "$(pwd)/nushell" ~/.config/nushell
