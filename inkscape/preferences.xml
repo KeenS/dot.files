@@ -136,10 +136,10 @@
          id="rect"
          style="fill:blue;"
          usecurrent="1"
-         width="250.270460294248"
-         height="1499.25744278303"
+         width="1620.05444143702"
+         height="796.13006351502"
          rx="0"
-         ry="10.5436680547442" />
+         ry="7.20887672244104e-06" />
       <eventcontext
          id="3dbox"
          style="stroke:none;stroke-linejoin:round;"
@@ -177,8 +177,8 @@
          start="0"
          usecurrent="1"
          open="0"
-         rx="838.711"
-         ry="838.711" />
+         rx="12.3548657875361"
+         ry="12.3548657875333" />
       <eventcontext
          id="star"
          magnitude="3"
@@ -348,7 +348,7 @@
        font_sample="AaBbCcIiPpQq12369$€¢?.;/()"
        show_sample_in_list="1"
        use_svg2="1"
-       style="fill:black;fill-opacity:1;stroke:none;font-family:'源ノ角ゴシック JP';font-style:normal;font-weight:normal;font-size:64px;line-height:134.00000334%;letter-spacing:0px;word-spacing:0px;-inkscape-font-specification:'源ノ角ゴシック JP';font-stretch:normal;font-variant:normal;text-anchor:middle;text-align:center"
+       style="font-family:'Ubuntu Mono';font-size:72px;line-height:134.00000334%;letter-spacing:0px;word-spacing:0px;-inkscape-font-specification:'Ubuntu Mono'"
        selcue="1"
        align_mode="0">
       <group
@@ -370,8 +370,8 @@
        live_outline="1"
        live_objects="1"
        show_helperpath="0"
-       x="471.887987400399"
-       y="-39.5228604373157"
+       x="1281.64109647939"
+       y="37683.0287396622"
        edit_clipping_paths="0"
        edit_masks="0"
        highlight_color="4278190335" />
@@ -588,7 +588,7 @@
        panel_mode="1"
        panel_ratio="100"
        panel_wrap="0"
-       palette="Inkscape default"
+       palette="Tango icons"
        panel_border="0" />
   </group>
   <group
@@ -750,7 +750,7 @@
          value="258.46" />
       <group
          id="batchexportarea"
-         value="layer" />
+         value="page" />
       <group
          id="defaultdpi"
          value="258.459991455078" />
@@ -764,14 +764,14 @@
        use_current_dir="1" />
     <group
        id="save_copy"
-       default="org.inkscape.output.svg.inkscape"
+       default="org.inkscape.output.pdf.cairorenderer"
        append_extension="1"
        enable_preview="1"
-       path="/home/kim/SVG" />
+       path="/home/shun/SVG/slide" />
     <group
        id="open"
        enable_preview="1"
-       path="/home/shun/Dropbox/SVG/profile_icon/" />
+       path="/home/shun/Dropbox/SVG/slide/" />
     <group
        id="import"
        enable_preview="1"
@@ -1284,10 +1284,12 @@
     </group>
     <group
        id="font"
-       unitType="1" />
+       unitType="1"
+       scaleLineHeightFromFontSIze="1" />
     <group
        id="snapping"
-       snap-global-toggle="0" />
+       snap-global-toggle="1"
+       snap-bbox-center="1" />
   </group>
   <group
      id="extensions"
@@ -1314,15 +1316,16 @@
      org.inkscape.effect.filter.ImageBlur.blend="normal"
      org.inkscape.web.slicer.create_group.width-unity="px"
      org.inkscape.web.slicer.create_group.height-unity="px"
-     org.inkscape.input.svg.scale="auto" />
+     org.inkscape.input.svg.scale="auto"
+     org.inkscape.output.pdf.cairorenderer.PDFversion="PDF-1.5" />
   <group
      id="desktop"
-     style="-inkscape-font-specification:'Ubuntu Mono';font-family:'Ubuntu Mono';font-size:250px;writing-mode:tb;line-height:134.00000334%;fill:#ffffff;stroke-width:8;stop-color:#000000">
+     style="-inkscape-font-specification:Ubuntu;font-family:Ubuntu;font-size:240px;writing-mode:tb;line-height:134.00000334%;fill:#ce5c00;stop-color:#000000;stroke-width:10">
     <group
-       width="2500"
-       height="1493"
-       x="584"
-       y="356"
+       width="2313"
+       height="1345"
+       x="851"
+       y="379"
        maximized="0"
        fullscreen="0"
        id="geometry" />
@@ -1366,7 +1369,7 @@
      id="toolbox"
      icononly="1"
      secondary="1"
-     simplesnap="1"
+     simplesnap="0"
      small="1">
     <group
        id="tools"
