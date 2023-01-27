@@ -385,6 +385,10 @@ coreutils() {
     fpath=("${(@)fpath:#/opt/uutils/share/zsh/site-functions}")
 }
 
+highlight() {
+    grep --color=always -e ^ -e "$@"
+}
+
 alias ec='open_in_emacs'
 alias ls='ls --color'
 alias smlsharp='rlwrap smlsharp'
