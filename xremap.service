@@ -9,7 +9,6 @@ Description=xremap
 [Service]
 KillMode=process
 ExecStart=/home/shun/bin/xremap --watch --device HHKB --device Mouse  /home/shun/dot.files/xremap.yaml
-ExecStartPre=/usr/bin/xhost +SI:localuser:root
 Type=simple
 Restart=always
 
