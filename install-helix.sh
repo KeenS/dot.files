@@ -59,7 +59,7 @@ main() {
         cd ~/Rust/helix/
         git fetch -a
         git checkout "${VERSION}"
-        cargo install -f --path helix-term
+        cargo install -f --locked --path helix-term
         hx --grammar fetch
         hx --grammar build
         echo "installation of helix ${VERSION} done"
