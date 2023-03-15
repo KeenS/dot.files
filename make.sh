@@ -1,7 +1,7 @@
 #!/bin/sh
 set -e
 
-files="Xmodmap Xresources alacritty.yml stumpwmrc tmux.conf xinitrc zshrc xprofile hgrc gdbinit gdb-dashboard gemrc gitconfig keysnail.js uim.d"
+files="Xmodmap Xresources alacritty.yml stumpwmrc tmux.conf xinitrc zshrc profile xprofile hgrc gdbinit gdb-dashboard gemrc gitconfig keysnail.js uim.d"
 
 verbose(){
 	echo "$@"

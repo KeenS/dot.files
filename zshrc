@@ -396,26 +396,30 @@ alias sml='rlwrap sml'
 alias bat=batcat
 alias fd=fdfind
 export MANPAGER="sh -c 'col -bx | batcat -l man -p'"
-export PATH=/usr/local/bin:~/bin:~/.cabal/bin:$PATH
 export XDG_CONFIG_DIRS=$HOME/.config
 export XDG_DATA_DIRS=/usr/local/share/:/usr/share/
 export EDITOR=hx
-# { CIM_HOME=$HOME/.cim; [ -s "$CIM_HOME/init.sh" ] && . "$CIM_HOME/init.sh" } || true
 
+# Haskell
+export PATH=~/.cabal/bin:$PATH
+
+# SML
 export PATH=$HOME/.smackage/bin:$PATH
 
+# ATS
 ATS_VERSION=0.2.5
 
 export PATSHOME=~/compile/ATS2-Postiats-$ATS_VERSION/
 export PATH=$PATSHOME/bin:$PATH
 export PATSHOMERELOC=~/compile/ATS2-Postiats-contrib-$ATS_VERSION
 
+# Rust
 source $HOME/.cargo/env
 
-# OPAM configuration
+# OCaml
 . $HOME/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
 
-
+# Go
 export GOPATH=~/Go
 export PATH=$GOPATH/bin:$PATH
 export PATH=$HOME/.local/bin:$PATH
@@ -424,13 +428,14 @@ export PATH=$HOME/.local/bin:$PATH
 # export PATH=/opt/uutils/bin:$PATH
 # export MAHTPATH=/opt/uutils/man:$(manpath)
 
+# WASM
 export WASMTIME_HOME="$HOME/.wasmtime"
-
 export PATH="$WASMTIME_HOME/bin:$PATH"
 
+# Node.js
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-# idris2
+# Idris2
 export PATH="$HOME/.pack/bin:$PATH"
