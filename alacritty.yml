@@ -2,11 +2,13 @@ scrolling:
   history: 0
 
 shell:
-  program: /bin/zsh
+  program: /home/shun/bin/zellij
   args:
-    - -l
-    - -c
-    - "zellij -s main attach --create"
+    - -s
+    - main
+    - attach
+    - --create
+
 font:
   size: 16
   normal:
