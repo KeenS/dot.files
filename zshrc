@@ -400,6 +400,9 @@ export XDG_CONFIG_DIRS=$HOME/.config
 export XDG_DATA_DIRS=/usr/local/share/:/usr/share/
 export EDITOR=hx
 
+# locals
+export PATH=~/bin:$PATH
+
 # Haskell
 export PATH=~/.cabal/bin:$PATH
 
@@ -439,3 +442,4 @@ export NVM_DIR="$HOME/.nvm"
 
 # Idris2
 export PATH="$HOME/.pack/bin:$PATH"
+
