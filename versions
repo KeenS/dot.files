@@ -1,10 +1,9 @@
 hub	2.14.2
 lab	0.25.1
 alacritty	0.12.2
-hugo	0.111.0
+hugo	0.119.0
 zellij	0.38.0
 xremap	0.8.1
-helix	23.5
 nu	0.82.0
 gh	2.23.0
 wakatime	1.76.0
