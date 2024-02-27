@@ -1,0 +1,68 @@
+[colors]
+draw_bold_text_with_bright_colors = true
+
+[colors.bright]
+black = "#555753"
+blue = "#729fcf"
+cyan = "#34e2e2"
+green = "#8ae234"
+magenta = "#ad7fa8"
+red = "#ef2929"
+white = "#eeeeec"
+yellow = "#fce94f"
+
+[colors.dim]
+black = "#333333"
+blue = "#6699cc"
+cyan = "#66cccc"
+green = "#99cc99"
+magenta = "#cc99cc"
+red = "#f2777a"
+white = "#dddddd"
+yellow = "#ffcc66"
+
+[colors.normal]
+black = "#2e3436"
+blue = "#3465a4"
+cyan = "#06989a"
+green = "#4e9a06"
+magenta = "#c397d8"
+red = "#cc0000"
+white = "#d3d7cf"
+yellow = "#c4a000"
+
+[colors.primary]
+background = "#1a1a1a"
+foreground = "#ffffff"
+
+[font]
+size = 16
+
+[font.bold]
+family = "Ubuntu Mono"
+
+[font.italic]
+family = "Ubuntu Mono"
+
+[font.normal]
+family = "Ubuntu Mono"
+
+[[keyboard.bindings]]
+action = "Paste"
+key = "Y"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "Copy"
+key = "W"
+mods = "Alt"
+
+[scrolling]
+history = 0
+
+[selection]
+save_to_clipboard = false
+
+[shell]
+args = ["-s", "main", "attach", "--create"]
+program = "/home/shun/bin/zellij"
