@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <inkscape
    version="1"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd">
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape">
   <group
      id="window">
     <group
@@ -107,9 +106,10 @@
   </group>
   <group
      id="template">
-    <sodipodi:namedview
+    <group
        id="base"
        pagecolor="#ffffff"
+       deskcolor="#d1d1d1"
        pageopacity="0.0"
        pagecheckerboard="0"
        bordercolor="#666666"
@@ -136,10 +136,10 @@
          id="rect"
          style="fill:blue;"
          usecurrent="1"
-         width="1620.05444143702"
-         height="796.13006351502"
+         width="80.8780623869813"
+         height="86.8347934128371"
          rx="0"
-         ry="7.20887672244104e-06" />
+         ry="32.5902907767241" />
       <eventcontext
          id="3dbox"
          style="stroke:none;stroke-linejoin:round;"
@@ -177,8 +177,8 @@
          start="0"
          usecurrent="1"
          open="0"
-         rx="12.3548657875361"
-         ry="12.3548657875333" />
+         rx="103.573293741572"
+         ry="133.392510260592" />
       <eventcontext
          id="star"
          magnitude="3"
@@ -348,7 +348,7 @@
        font_sample="AaBbCcIiPpQq12369$€¢?.;/()"
        show_sample_in_list="1"
        use_svg2="1"
-       style="font-family:'Ubuntu Mono';font-size:72px;line-height:134.00000334%;letter-spacing:0px;word-spacing:0px;-inkscape-font-specification:'Ubuntu Mono'"
+       style="font-family:'Ubuntu Mono';font-size:20px;line-height:134.00000334%;letter-spacing:0px;word-spacing:0px;-inkscape-font-specification:'Ubuntu Mono'"
        selcue="1"
        align_mode="0">
       <group
@@ -370,8 +370,8 @@
        live_outline="1"
        live_objects="1"
        show_helperpath="0"
-       x="1281.64109647939"
-       y="37683.0287396622"
+       x="520.050535644891"
+       y="458.065436325364"
        edit_clipping_paths="0"
        edit_masks="0"
        highlight_color="4278190335" />
@@ -415,6 +415,10 @@
        mesh_rows="1"
        mesh_cols="1" />
     <eventcontext
+       id="marker"
+       selcue="1"
+       gradientdrag="1" />
+    <eventcontext
        id="zoom"
        selcue="1"
        gradientdrag="0" />
@@ -424,10 +428,6 @@
        gradientdrag="1"
        pick="1"
        setalpha="1" />
-    <eventcontext
-       id="select"
-       selcue="1"
-       gradientdrag="0" />
     <eventcontext
        id="connector"
        style="fill:none;fill-rule:evenodd;stroke:black;stroke-opacity:1;stroke-linejoin:miter;stroke-width:1px;stroke-linecap:butt;"
@@ -452,9 +452,9 @@
        measure-start="0,0"
        measure-end="0,0" />
     <eventcontext
-       id="marker"
+       id="select"
        selcue="1"
-       gradientdrag="1" />
+       gradientdrag="0" />
     <group
        id="geometric"
        mode="drag" />
@@ -579,7 +579,31 @@
   <group
      id="colorselector"
      page="1"
-     switcher="1" />
+     switcher="1">
+    <group
+       id="RGB"
+       visible="1" />
+    <group
+       id="HSL"
+       visible="1" />
+    <group
+       id="CMYK"
+       visible="1" />
+    <group
+       id="HSV"
+       visible="1" />
+    <group
+       id="HSLuv"
+       visible="1" />
+    <group
+       id="OKLAB"
+       visible="1" />
+    <group
+       id="CMS"
+       visible="1" />
+    <group
+       id="OKHSL" />
+  </group>
   <group
      id="embedded">
     <group
@@ -589,7 +613,17 @@
        panel_ratio="100"
        panel_wrap="0"
        palette="Tango icons"
-       panel_border="0" />
+       panel_border="0">
+      <group
+         id="pinned"
+         none="1"
+         rgb000000="1"
+         black="1"
+         rgb808080="1"
+         gray-50="1"
+         rgbffffff="1"
+         white="1" />
+    </group>
   </group>
   <group
      id="dialogs">
@@ -607,7 +641,7 @@
        h="480"
        state="1"
        panel_border="0"
-       page="1"
+       page="2"
        visible="0"
        placement="1" />
     <group
@@ -696,7 +730,7 @@
     <group
        id="preferences"
        state="1"
-       page="30"
+       page="9"
        panel_size="1"
        panel_ratio="100"
        panel_mode="1"
@@ -760,7 +794,7 @@
        default="org.inkscape.output.svg.inkscape"
        append_extension="1"
        enable_preview="1"
-       path="/home/shun/Dropbox/SVG"
+       path="/home/shun/SVG/slide"
        use_current_dir="1" />
     <group
        id="save_copy"
@@ -771,11 +805,11 @@
     <group
        id="open"
        enable_preview="1"
-       path="/home/shun/Dropbox/SVG/slide/" />
+       path="/home/shun/Dropbox/SVG/profile_icon/" />
     <group
        id="import"
        enable_preview="1"
-       path="/home/shun/Dropbox/SVG/"
+       path="/home/shun/SVG/profile_icon/"
        ask="1"
        ask_svg="1"
        link="embed"
@@ -826,6 +860,7 @@
        id="messages" />
     <group
        id="swatches"
+       palette="Auto"
        panel_size="1"
        panel_ratio="100"
        panel_mode="1"
@@ -927,7 +962,8 @@
        visible="0"
        state="2"
        placement="1"
-       layers_only="0" />
+       layers_only="0"
+       expand_to_layer="1" />
     <group
        id="symbols"
        panel_size="1"
@@ -976,7 +1012,8 @@
      rotationlock="1"
      dpifixbackup="0"
      dpiupdatemethod="0"
-     onimport="0">
+     onimport="0"
+     onungroup="0">
     <group
        id="renderingcache"
        size="64" />
@@ -1029,8 +1066,8 @@
        gamutcolor="#808080"
        gamutwarn="0"
        bpc="0"
-       preserveblack="0"
-       uri="" />
+       uri=""
+       preserveblack="0" />
     <group
        id="savewindowgeometry"
        value="2" />
@@ -1094,10 +1131,10 @@
        value="0"
        choices="gimp,krita,gpaint,kolourpaint,mtpaint,cinepaint" />
     <group
-       id="bitmapautoreload"
-       value="1" />
+       id="svgeditor"
+       value="inkscape" />
     <group
-       id="dialogtype"
+       id="bitmapautoreload"
        value="1" />
     <group
        id="dock"
@@ -1105,10 +1142,13 @@
        dockbarstyle="2"
        switcherstyle="2" />
     <group
-       id="dialogsskiptaskbar"
+       id="dialogtype"
        value="1" />
     <group
        id="defaultwindowsize"
+       value="1" />
+    <group
+       id="dialogsskiptaskbar"
        value="1" />
     <group
        id="arenatilescachesize"
@@ -1135,6 +1175,9 @@
        pattern="1"
        gradient="1" />
     <group
+       id="dash"
+       scale="1" />
+    <group
        id="kbselection"
        inlayer="1"
        onlyvisible="1"
@@ -1143,29 +1186,23 @@
        id="selection"
        layerdeselect="1" />
     <group
-       id="createbitmap" />
-    <group
-       id="compassangledisplay"
-       value="0" />
-    <group
        id="maskobject"
        topmost="1"
        remove="1"
        grouping="0" />
     <group
-       id="blurquality"
-       value="0" />
+       id="createbitmap" />
     <group
-       id="filterquality"
-       value="1" />
+       id="compassangledisplay"
+       value="0" />
     <group
        id="showfiltersinfobox"
        value="1" />
     <group
-       id="startmode"
-       outline="0" />
+       id="middlemousezoom"
+       value="1" />
     <group
-       id="outlinemode"
+       id="blurquality"
        value="0" />
     <group
        id="ocalurl"
@@ -1177,12 +1214,8 @@
        id="ocalpassword"
        str="" />
     <group
-       id="wireframecolors"
-       onlight="255"
-       ondark="4294967295"
-       images="4278190335"
-       clips="16711935"
-       masks="65535" />
+       id="filterquality"
+       value="1" />
     <group
        id="svgoutput"
        disable_optimizations="0"
@@ -1205,14 +1238,11 @@
        sort_attributes="0"
        allowrelativecoordinates="1" />
     <group
-       id="externalresources">
-      <group
-         id="xml"
-         allow_net_access="0" />
-    </group>
+       id="startmode"
+       outline="0" />
     <group
-       id="forkgradientvectors"
-       value="1" />
+       id="outlinemode"
+       value="0" />
     <group
        id="iconrender"
        named_nodelay="0" />
@@ -1227,13 +1257,13 @@
        no_emphasize_when_zoomedout="0">
       <group
          id="xy"
-         units="px"
          origin_x="0.0"
          origin_y="0.0"
          spacing_x="1.0"
          spacing_y="1.0"
          empspacing="5"
          dotted="0"
+         units="px"
          color="65312"
          empcolor="65344" />
       <group
@@ -1265,13 +1295,20 @@
     <group
        id="rendering" />
     <group
-       id="svgeditor"
-       value="inkscape" />
+       id="wireframecolors"
+       onlight="255"
+       ondark="4294967295"
+       images="4278190335"
+       clips="16711935"
+       masks="65535" />
     <group
-       id="dash"
-       scale="1" />
+       id="externalresources">
+      <group
+         id="xml"
+         allow_net_access="0" />
+    </group>
     <group
-       id="middlemousezoom"
+       id="forkgradientvectors"
        value="1" />
     <group
        id="boot"
@@ -1288,8 +1325,26 @@
        scaleLineHeightFromFontSIze="1" />
     <group
        id="snapping"
-       snap-global-toggle="1"
-       snap-bbox-center="1" />
+       snap-global-toggle="0"
+       snap-bbox-center="1"
+       snap-rotation-center="1"
+       snap-path-clip="0"
+       snap-path-mask="0"
+       snap-text-baseline="1"
+       snap-alignment="0"
+       snap-guide="1"
+       snap-grid="0"
+       snap-page-border="0"
+       snap-node-category="1"
+       snap-bbox="1"
+       snap-bbox-corner="1"
+       snap-bbox-edge="1"
+       snap-object-midpoint="1"
+       snap-bbox-edge-midpoint="1"
+       snap-line-perpendicular="1"
+       snap-line-tangential="1" />
+    <group
+       id="ruler" />
   </group>
   <group
      id="extensions"
@@ -1320,10 +1375,10 @@
      org.inkscape.output.pdf.cairorenderer.PDFversion="PDF-1.5" />
   <group
      id="desktop"
-     style="-inkscape-font-specification:Ubuntu;font-family:Ubuntu;font-size:240px;writing-mode:tb;line-height:134.00000334%;fill:#ce5c00;stop-color:#000000;stroke-width:10">
+     style="-inkscape-font-specification:Gubbi;font-family:Gubbi;font-size:72px;writing-mode:tb;line-height:134.00000334%;fill:#000000;stop-color:#000000;stroke-width:3;stroke:#cbb79b;fill-opacity:0">
     <group
-       width="2313"
-       height="1345"
+       width="1776"
+       height="1426"
        x="0"
        y="0"
        maximized="0"
@@ -1383,6 +1438,17 @@
     <group
        id="controlbars"
        iconsize="16" />
+  </group>
+  <group
+     id="statusbar">
+    <group
+       id="visibility" />
+  </group>
+  <group
+     id="debug">
+    <group
+       id="latency"
+       skew="1" />
   </group>
   <group
      id="iconpreview"
@@ -1447,15 +1513,6 @@
     </group>
   </group>
   <group
-     id="debug">
-    <group
-       id="latency"
-       skew="1" />
-  </group>
-  <group
-     id="ui"
-     language="" />
-  <group
      id="whiteboard">
     <group
        id="server"
@@ -1484,7 +1541,8 @@
      menuIcons_canvas="0"
      menuIcons_layers="0"
      menuIcons_objects="0"
-     iconTheme="multicolor">
+     iconTheme="multicolor"
+     syntax-color-theme="inkscape-light">
     <group
        id="multicolor"
        symbolicBaseColor="255"
@@ -1493,15 +1551,14 @@
        symbolicErrorColor="10086143" />
   </group>
   <group
-     id="statusbar">
-    <group
-       id="visibility" />
-  </group>
+     id="ui"
+     language="" />
   <group
      id="live_effects"
      flattening="0" />
   <group
      id="color_scales"
      wheel_vis_hsluv="1"
-     wheel_vis_hsv="1" />
+     wheel_vis_hsv="1"
+     wheel_vis_hsl="1" />
 </inkscape>
