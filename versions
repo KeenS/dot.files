@@ -1,9 +1,9 @@
 hub	2.14.2
 lab	0.25.1
-alacritty	0.12.2
+alacritty	0.13.1
 hugo	0.119.0
-zellij	0.38.0
-xremap	0.8.1
+zellij	0.39.2
+xremap	0.8.15
 nu	0.82.0
-gh	2.23.0
-wakatime	1.76.0
+gh	2.27.0
+wakatime	1.90.0
