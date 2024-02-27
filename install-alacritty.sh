@@ -65,8 +65,8 @@ main() {
         cd "$PREFIX/alacritty/"
         git fetch -a
         git checkout "v${VERSION}"
-        cargo install cargo-deb
-        cargo deb --install --manifest-path=alacritty/Cargo.toml
+        cargo install -f cargo-deb
+        cargo deb --install --manifest-path=alacritty/Cargo.toml -- --no-default-features --features=wayland
         echo "installation of alacritty ${VERSION} done"
     else
         echo "alacritty is up to date. do nothing."
