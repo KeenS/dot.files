@@ -47,6 +47,8 @@ done
 
 install_link "$(pwd)/xremap.service" ~/.config/systemd/user/xremap.service
 
+sudo cp usr/share/libskk/rules/default/keymap/* /usr/share/libskk/rules/default/keymap/
+
 mkdir -p ~/bin
 
 cat versions | while read name version; do
