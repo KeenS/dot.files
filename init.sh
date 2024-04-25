@@ -14,7 +14,7 @@ sudo apt install \
   xdotool \
   exa ripgrep fd-find bat helix \
   yubico-piv-tool yubioath-desktop scdaemon \
-  inkscape \
+  inkscape gnome-calendar \
   gnome-extension-manager
 sudo snap install bitwarden blender discord gimp obs-studio slack spotify
 
