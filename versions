@@ -1,8 +1,8 @@
 hub	2.14.2
 lab	0.25.1
-alacritty	0.13.2-rc1
-hugo	0.119.0
-zellij	0.39.2
+alacritty	0.13.2
+hugo	0.125.2
+zellij	0.40.0
 xremap	0.8.1
 nu	0.82.0
 gh	2.27.0
