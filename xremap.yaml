@@ -9,6 +9,11 @@ keymap:
       # M-b
       M-n: C-Shift-TAB
       BTN_FORWARD: f5
+  - name: C-m
+    application:
+      only: ["Emacs", "emacs"]
+    remap:
+      C-m: enter
   - name: Usual Apps
     application:
       not: ["Emacs", "emacs", "Remacs", "URxvt", "Gnome-terminal", "gnome-terminal-server","Alacritty", "Inkscape", "Blender", "Gimp", "Krita", "Code", "steam_app_2262080"]
