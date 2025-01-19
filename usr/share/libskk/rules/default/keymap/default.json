@@ -4,7 +4,6 @@
             "C-g": "abort",
             "Escape": "abort",
             "\n": "commit-unhandled",
-            "C-m": "commit-unhandled",
             "\b": "delete",
             "C-h": "delete",
             "/": "abbrev",
@@ -20,7 +19,9 @@
             "Right": "expand-preedit",
             "Left": "shrink-preedit",
             "Henkan": "set-input-mode-hiragana",
-            "Muhenkan": "set-input-mode-latin"
+            "Muhenkan": "set-input-mode-latin",
+            "henkan": "set-input-mode-hiragana",
+            "muhenkan": "set-input-mode-latin"
         }
     }
 }

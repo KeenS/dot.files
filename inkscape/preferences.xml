@@ -136,10 +136,10 @@
          id="rect"
          style="fill:blue;"
          usecurrent="1"
-         width="80.8780623869813"
-         height="86.8347934128371"
+         width="142.175530697707"
+         height="94.683615906527"
          rx="0"
-         ry="32.5902907767241" />
+         ry="9.2511966990761" />
       <eventcontext
          id="3dbox"
          style="stroke:none;stroke-linejoin:round;"
@@ -173,12 +173,13 @@
       <eventcontext
          id="arc"
          style="fill:red;"
-         end="0"
+         end="181.24408310841"
          start="0"
          usecurrent="1"
          open="0"
-         rx="103.573293741572"
-         ry="133.392510260592" />
+         rx="30.6665115980638"
+         ry="30.6665115980643"
+         arc_type="0" />
       <eventcontext
          id="star"
          magnitude="3"
@@ -370,8 +371,8 @@
        live_outline="1"
        live_objects="1"
        show_helperpath="0"
-       x="520.050535644891"
-       y="458.065436325364"
+       x="546.481781412755"
+       y="339.294719673933"
        edit_clipping_paths="0"
        edit_masks="0"
        highlight_color="4278190335" />
@@ -641,7 +642,7 @@
        h="480"
        state="1"
        panel_border="0"
-       page="2"
+       page="1"
        visible="0"
        placement="1" />
     <group
@@ -778,7 +779,7 @@
        defaultopts="0">
       <group
          id="exportarea"
-         value="page" />
+         value="drawing" />
       <group
          id="defaultxdpi"
          value="258.46" />
@@ -787,7 +788,7 @@
          value="page" />
       <group
          id="defaultdpi"
-         value="258.459991455078" />
+         value="96" />
     </group>
     <group
        id="save_as"
@@ -805,11 +806,11 @@
     <group
        id="open"
        enable_preview="1"
-       path="/home/shun/Dropbox/SVG/profile_icon/" />
+       path="/home/shun/Dropbox/SVG/slide/" />
     <group
        id="import"
        enable_preview="1"
-       path="/home/shun/SVG/profile_icon/"
+       path="/home/shun/SVG/slide/"
        ask="1"
        ask_svg="1"
        link="embed"
@@ -1325,7 +1326,7 @@
        scaleLineHeightFromFontSIze="1" />
     <group
        id="snapping"
-       snap-global-toggle="0"
+       snap-global-toggle="1"
        snap-bbox-center="1"
        snap-rotation-center="1"
        snap-path-clip="0"
@@ -1372,13 +1373,28 @@
      org.inkscape.web.slicer.create_group.width-unity="px"
      org.inkscape.web.slicer.create_group.height-unity="px"
      org.inkscape.input.svg.scale="auto"
-     org.inkscape.output.pdf.cairorenderer.PDFversion="PDF-1.5" />
+     org.inkscape.output.pdf.cairorenderer.PDFversion="PDF-1.5"
+     org.inkscape.template.paper.max="42.0"
+     org.inkscape.template.paper.min="30.0"
+     org.inkscape.template.paper.unit="in"
+     org.inkscape.template.paper.orientation="land"
+     org.inkscape.template.video.height="4320.0"
+     org.inkscape.template.video.unit="px"
+     org.inkscape.template.video.width="7680.0"
+     org.inkscape.template.social.height="720.0"
+     org.inkscape.template.social.unit="px"
+     org.inkscape.template.social.width="720.0"
+     org.inkscape.template.digital.height="768.0"
+     org.inkscape.template.digital.unit="px"
+     org.inkscape.template.digital.width="1024.0"
+     org.inkscape.template.other.size="512.0"
+     org.inkscape.template.other.unit="px" />
   <group
      id="desktop"
-     style="-inkscape-font-specification:Gubbi;font-family:Gubbi;font-size:72px;writing-mode:tb;line-height:134.00000334%;fill:#000000;stop-color:#000000;stroke-width:3;stroke:#cbb79b;fill-opacity:0">
+     style="-inkscape-font-specification:'Ubuntu Mono';font-family:'Ubuntu Mono';font-size:20.00000006px;line-height:134%;fill:#000000;stop-color:#000000;stroke-width:1px;text-decoration-color:#000000;letter-spacing:0px;word-spacing:0px;white-space:pre;-inkscape-stroke:none">
     <group
-       width="1776"
-       height="1426"
+       width="2367"
+       height="1005"
        x="0"
        y="0"
        maximized="0"
