@@ -67,6 +67,17 @@ main() {
         git checkout "v${VERSION}"
         cargo install -f cargo-deb
         cargo deb --install --manifest-path=alacritty/Cargo.toml -- --no-default-features --features=wayland
+        sudo cp extra/logo/alacritty-term.svg /usr/share/pixmaps/Alacritty.svg
+        sudo desktop-file-install extra/linux/Alacritty.desktop
+        sudo update-desktop-database
+        sudo mkdir -p /usr/local/share/man/man1
+        sudo mkdir -p /usr/local/share/man/man5
+        scdoc < extra/man/alacritty.1.scd | gzip -c | sudo tee /usr/local/share/man/man1/alacritty.1.gz > /dev/null
+        scdoc < extra/man/alacritty-msg.1.scd | gzip -c | sudo tee /usr/local/share/man/man1/alacritty-msg.1.gz > /dev/null
+        scdoc < extra/man/alacritty.5.scd | gzip -c | sudo tee /usr/local/share/man/man5/alacritty.5.gz > /dev/null
+        scdoc < extra/man/alacritty-bindings.5.scd | gzip -c | sudo tee /usr/local/share/man/man5/alacritty-bindings.5.gz > /dev/null
+        cp extra/completions/_alacritty ${ZDOTDIR:-~}/.zfunc/_alacritty
+
         echo "installation of alacritty ${VERSION} done"
     else
         echo "alacritty is up to date. do nothing."
