@@ -1,0 +1,7 @@
+/var/log/backup-home.log {
+        weekly
+        missingok
+        rotate 7
+        notifempty
+        copytruncate
+}
