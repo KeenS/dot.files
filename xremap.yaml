@@ -2,7 +2,7 @@ keymap:
   - name: Browsers
     application:
       # GNOME name. If you are using wayland, its name is 'firefox'
-      only: [firefox, Google-chrome]
+      only: [firefox_firefox, firefox, Google-chrome]
     remap:
       # M-f
       M-y: C-TAB
