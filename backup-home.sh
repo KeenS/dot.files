@@ -49,6 +49,7 @@ main() {
         -p --xattrs \
         --exclude=./Dropbox \
         --exclude=./.cache \
+        --exclude=./.steam \
         -C "/home/${NAME}/.zfs/snapshot/$latest_snapshot/" \
         .
     sha1sum /home/${NAME}/Dropbox/backup/home.tar.xz > /home/${NAME}/Dropbox/backup/home.tar.xz.sha1
