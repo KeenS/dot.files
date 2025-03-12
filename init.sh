@@ -29,6 +29,8 @@ do
   sudo flatpak install flathub $p
 done
 
+wget -O - https://raw.githubusercontent.com/laurent22/joplin/dev/Joplin_install_and_update.sh | bash
+
 # TODO: install discord slack dropbox keybase from the official site
 
 chsh -s /usr/bin/zsh
