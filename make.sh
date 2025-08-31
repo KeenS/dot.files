@@ -48,6 +48,8 @@ done
 install_link "$(pwd)/xremap.service" ~/.config/systemd/user/xremap.service
 
 sudo cp usr/share/libskk/rules/default/keymap/* /usr/share/libskk/rules/default/keymap/
+sudo install -o root -g root backup-home.sh /etc/cron.weekly/backup-home
+sudo install -o root -g root -m644 backup-home.logrotate /etc/logrotate.d/backup-home
 sudo install -o root -g root cron/zfs-auto-snapshot.freequent /etc/cron.d/
 sudo install -o root -g root cron/zfs-auto-snapshot.hourly /etc/cron.hourly/
 sudo install -o root -g root cron/zfs-auto-snapshot.daily /etc/cron.daily/

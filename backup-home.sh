@@ -39,10 +39,12 @@ main() {
     done
 
     NAME=shun
+    latest_snapshot="$(ls --color=never -t /home/${NAME}/.zfs/snapshot | head -n1)"
+    echo "Taking backup of $latest_snapshot"
+    ls -l /home/${NAME}/.zfs/snapshot | grep "$latest_snapshot"
     mv -f /home/${NAME}/Dropbox/backup/home.tar.xz /home/${NAME}/Dropbox/backup/home.old.tar.xz
     mv -f /home/${NAME}/Dropbox/backup/home.tar.xz.sha1 /home/${NAME}/Dropbox/backup/home.old.tar.xz.sha1
     chown -f ${NAME}:${NAME} /home/${NAME}/Dropbox/backup/home.old.tar.xz /home/${NAME}/Dropbox/backup/home.old.tar.xz.sha1
-    latest_snapshot="$(zfs list -S creation -o name -tsnapshot | grep -m1 "rpool/USERDATA/${NAME}_.*@autozsys_.*" | grep -o 'autozsys.*')"
     nice tar cvf /home/${NAME}/Dropbox/backup/home.tar.xz \
         --sparse \
         --use-compress-prog=pixz  \
