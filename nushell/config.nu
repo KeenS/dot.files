@@ -333,3 +333,4 @@ let $config = {
 }
 
 use git-completions.nu
+source $"($nu.home-path)/.cargo/env.nu"
