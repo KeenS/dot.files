@@ -2,23 +2,23 @@ set -e
 LANG=C xdg-user-dirs-gtk-update
 gsettings set org.gnome.desktop.input-sources xkb-options "['ctrl:nocaps']"
 
-sudo add-apt-repository ppa:inkscape.dev/stable
-sudo add-apt-repository ppa:maveonair/helix-editor
+#sudo add-apt-repository ppa:inkscape.dev/stable
+#sudo add-apt-repository ppa:maveonair/helix-editor
 
 sudo apt install \
-  zsh git curl \
+  zsh git curl pixz \
   fcitx5 fcitx5-skk skkdic skkdic-extra skktools \
   python3-pip python3-venv \
   ruby \
   build-essential cmake pkg-config libtree-sitter-dev libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev autoconf texinfo libgif-dev libtiff-dev libjpeg-dev libpng-dev libxpm-dev libgtk-3-dev libgnutls28-dev libtinfo-dev kakasi libcurl4-openssl-dev \
   xdotool \
-  ripgrep fd-find bat helix \
-  yubico-piv-tool yubioath-desktop scdaemon \
-  inkscape gnome-calendar digikam \
+  ripgrep fd-find bat  \
+  yubico-piv-tool yubioath-desktop scdaemon pcscd \
+  inkscape gnome-calendar digikam libimage-exiftool-perl \
   gnome-shell-extension-manager \
-  flatpak
+  flatpak libfuse2
 
-for p in bitwarden gimp spotify
+for p in bitwarden gimp 
 do
   sudo snap install $p
 done
