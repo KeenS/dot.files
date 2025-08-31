@@ -16,7 +16,7 @@ keymap:
       C-m: enter
   - name: Usual Apps
     application:
-      not: ["Emacs", "emacs", "Remacs", "URxvt", "Gnome-terminal", "gnome-terminal-server","Alacritty", "Inkscape", "Blender", "Gimp", "Krita", "Code", "steam_app_2262080"]
+      not: ["Emacs", "emacs", "Remacs", "URxvt", "Gnome-terminal", "gnome-terminal-server","Alacritty", "Inkscape", "Blender", "Gimp", "Krita", "Code", "steam_app_2262080", "vlc"]
     remap:
       # Cursor
       # C-b
