@@ -67,6 +67,6 @@ history = 0
 [selection]
 save_to_clipboard = false
 
-[shell]
+[terminal.shell]
 args = ["-s", "main", "attach", "--create"]
 program = "/home/shun/bin/zellij"
