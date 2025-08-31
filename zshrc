@@ -444,3 +444,13 @@ export NVM_DIR="$HOME/.nvm"
 # Idris2
 export PATH="$HOME/.pack/bin:$PATH"
 
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/shun/google-cloud-sdk/path.zsh.inc' ]; then . '/home/shun/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/home/shun/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/shun/google-cloud-sdk/completion.zsh.inc'; fi
+
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init - zsh)"
