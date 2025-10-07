@@ -45,7 +45,7 @@ for f in preferences.xml pages.csv templates; do
     install_link "$(pwd)/inkscape/$f" "$HOME/.config/inkscape/$f"
 done
 
-install_link "$(pwd)/xremap.service" ~/.config/systemd/user/xremap.service
+install_link "$(pwd)/systemd/xremap.service" ~/.config/systemd/user/xremap.service
 
 sudo cp usr/share/libskk/rules/default/keymap/* /usr/share/libskk/rules/default/keymap/
 sudo install -o root -g root backup-home.sh /etc/cron.weekly/backup-home
