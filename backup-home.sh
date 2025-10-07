@@ -45,9 +45,8 @@ main() {
     mv -f /home/${NAME}/Dropbox/backup/home.tar.xz /home/${NAME}/Dropbox/backup/home.old.tar.xz
     mv -f /home/${NAME}/Dropbox/backup/home.tar.xz.sha1 /home/${NAME}/Dropbox/backup/home.old.tar.xz.sha1
     chown -f ${NAME}:${NAME} /home/${NAME}/Dropbox/backup/home.old.tar.xz /home/${NAME}/Dropbox/backup/home.old.tar.xz.sha1
-    nice tar cvf /home/${NAME}/Dropbox/backup/home.tar.xz \
+    nice tar cJvf /home/${NAME}/Dropbox/backup/home.tar.xz \
         --sparse \
-        --use-compress-prog=pixz  \
         -p --xattrs \
         --exclude=./Dropbox \
         --exclude=./.cache \
