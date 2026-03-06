@@ -42,9 +42,9 @@ main() {
     latest_snapshot="$(ls --color=never -t /home/${NAME}/.zfs/snapshot | head -n1)"
     echo "Taking backup of $latest_snapshot"
     ls -l /home/${NAME}/.zfs/snapshot | grep "$latest_snapshot"
-    mv -f /home/${NAME}/Dropbox/backup/home.tar.xz /home/${NAME}/Dropbox/backup/home.old.tar.xz
-    mv -f /home/${NAME}/Dropbox/backup/home.tar.xz.sha1 /home/${NAME}/Dropbox/backup/home.old.tar.xz.sha1
-    chown -f ${NAME}:${NAME} /home/${NAME}/Dropbox/backup/home.old.tar.xz /home/${NAME}/Dropbox/backup/home.old.tar.xz.sha1
+    mv -f /home/${NAME}/Dropbox/backup/home.tar.xz /home/${NAME}/Dropbox/backup/home.old.tar.xz || true
+    mv -f /home/${NAME}/Dropbox/backup/home.tar.xz.sha1 /home/${NAME}/Dropbox/backup/home.old.tar.xz.sha1 || true
+    chown -f ${NAME}:${NAME} /home/${NAME}/Dropbox/backup/home.old.tar.xz /home/${NAME}/Dropbox/backup/home.old.tar.xz.sha1 || true
     nice tar cJvf /home/${NAME}/Dropbox/backup/home.tar.xz \
         --sparse \
         -p --xattrs \
