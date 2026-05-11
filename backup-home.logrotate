@@ -1,7 +1,0 @@
-/var/log/backup-home.log {
-	weekly
-	rotate 7
-	compress
-	delaycompress
-	missingok
-}
