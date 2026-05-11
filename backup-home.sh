@@ -40,12 +40,12 @@ main() {
 
     latest_snapshot="$(ls --color=never -t .zfs/snapshot | head -n1)"
     echo "Taking backup of $latest_snapshot"
-        --sparse \
     ls -l .zfs/snapshot | grep "$latest_snapshot"
     rm -f Dropbox/backup/home.old.tar.xz Dropbox/backup/home.old.tar.xz.sha1
     mv -f Dropbox/backup/home.tar.xz Dropbox/backup/home.old.tar.xz || true
     mv -f Dropbox/backup/home.tar.xz.sha1 Dropbox/backup/home.old.tar.xz.sha1 || true
     nice tar cJvf Dropbox/backup/home.tar.xz \
+        --sparse --ignore-failed-read \
         -p --xattrs \
         --exclude=./Dropbox \
         --exclude=./.cache \
