@@ -1,0 +1,5 @@
+[Unit]
+Description="Backup home"
+
+[Service]
+ExecStart=/home/shun/dot.files/backup-home.sh

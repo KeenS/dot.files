@@ -46,6 +46,9 @@ for f in preferences.xml pages.csv templates; do
 done
 
 install_link "$(pwd)/systemd/xremap.service" ~/.config/systemd/user/xremap.service
+install_link "$(pwd)/systemd/backuphome.service" ~/.config/systemd/user/backuphome.service
+install_link "$(pwd)/systemd/backuphome.timer" ~/.config/systemd/user/backuphome.timer
+
 
 sudo cp usr/share/libskk/rules/default/keymap/* /usr/share/libskk/rules/default/keymap/
 sudo install -o root -g root backup-home.sh /etc/cron.weekly/backup-home

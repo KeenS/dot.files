@@ -38,29 +38,27 @@ main() {
         esac
     done
 
-    NAME=shun
-    latest_snapshot="$(ls --color=never -t /home/${NAME}/.zfs/snapshot | head -n1)"
+    latest_snapshot="$(ls --color=never -t .zfs/snapshot | head -n1)"
     echo "Taking backup of $latest_snapshot"
-    ls -l /home/${NAME}/.zfs/snapshot | grep "$latest_snapshot"
-    mv -f /home/${NAME}/Dropbox/backup/home.tar.xz /home/${NAME}/Dropbox/backup/home.old.tar.xz || true
-    mv -f /home/${NAME}/Dropbox/backup/home.tar.xz.sha1 /home/${NAME}/Dropbox/backup/home.old.tar.xz.sha1 || true
-    chown -f ${NAME}:${NAME} /home/${NAME}/Dropbox/backup/home.old.tar.xz /home/${NAME}/Dropbox/backup/home.old.tar.xz.sha1 || true
-    nice tar cJvf /home/${NAME}/Dropbox/backup/home.tar.xz \
         --sparse \
+    ls -l .zfs/snapshot | grep "$latest_snapshot"
+    rm -f Dropbox/backup/home.old.tar.xz Dropbox/backup/home.old.tar.xz.sha1
+    mv -f Dropbox/backup/home.tar.xz Dropbox/backup/home.old.tar.xz || true
+    mv -f Dropbox/backup/home.tar.xz.sha1 Dropbox/backup/home.old.tar.xz.sha1 || true
+    nice tar cJvf Dropbox/backup/home.tar.xz \
         -p --xattrs \
         --exclude=./Dropbox \
         --exclude=./.cache \
         --exclude=./.steam \
-        -C "/home/${NAME}/.zfs/snapshot/$latest_snapshot/" \
+        -C ".zfs/snapshot/$latest_snapshot/" \
         .
-    sha1sum /home/${NAME}/Dropbox/backup/home.tar.xz > /home/${NAME}/Dropbox/backup/home.tar.xz.sha1
-    chown ${NAME}:${NAME} /home/${NAME}/Dropbox/backup/home.tar.xz /home/${NAME}/Dropbox/backup/home.tar.xz.sha1
+    sha1sum Dropbox/backup/home.tar.xz > Dropbox/backup/home.tar.xz.sha1
 }
 set -e
+cd $HOME
 export PATH=/usr/bin:/usr/sbin
-LOG_FILE=/var/log/backup-home.log
 start_time="$(date +%s)"
-main "$@" > $LOG_FILE 2>&1
+main "$@"
 end_time="$(date +%s)"
-echo "$(($end_time - $start_time)) seconds" >> $LOG_FILE
-date >> $LOG_FILE
+echo "$(($end_time - $start_time)) seconds"
+date
