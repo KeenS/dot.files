@@ -1,0 +1,8 @@
+{
+    "include": [
+        "hankaku-katakana"
+    ],
+    "define": {
+        "keymap": {}
+    }
+}
