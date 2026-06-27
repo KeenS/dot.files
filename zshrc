@@ -454,3 +454,11 @@ if [ -f '/home/shun/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/shun/g
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init - zsh)"
+
+# Added by LM Studio CLI tool (lms)
+export PATH="$PATH:/home/shun/.cache/lm-studio/bin"
+export PATH="$HOME/.npm-global/bin:$PATH"
+
+# >>> Codex installer >>>
+export PATH="/home/shun/.local/bin:$PATH"
+# <<< Codex installer <<<
