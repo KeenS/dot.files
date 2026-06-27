@@ -1,8 +1,7 @@
 keymap:
   - name: Browsers
     application:
-      # GNOME name. If you are using wayland, its name is 'firefox'
-      only: [firefox_firefox, firefox, Google-chrome]
+      only: [firefox_firefox, chromium]
     remap:
       # M-f
       M-y: C-TAB
@@ -16,7 +15,7 @@ keymap:
       C-m: enter
   - name: Usual Apps
     application:
-      not: ["Emacs", "emacs", "Remacs", "URxvt", "Gnome-terminal", "gnome-terminal-server","Alacritty", "Inkscape", "Blender", "Gimp", "Krita", "Code", "steam_app_2262080", "vlc"]
+      not: ["Emacs", "emacs", "Remacs", "URxvt", "Gnome-terminal", "gnome-terminal-server","Alacritty", "Inkscape", "Blender", "Gimp", "Krita", "Code", "steam_app_2262080", "vlc", "steam_app_4704690"]
     remap:
       # Cursor
       # C-b
