@@ -3,6 +3,9 @@
         "hankaku-katakana"
     ],
     "define": {
-        "keymap": {}
+        "keymap": {
+            "q": "set-input-mode-katakana",
+            "C-q": "set-input-mode-hankaku-katakana"
+        }
     }
 }
