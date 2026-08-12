@@ -49,10 +49,10 @@ echo 'KERNEL=="uinput", GROUP="input", TAG+="uaccess"' | sudo tee /etc/udev/rule
         echo "converting $f"
         sudo iconv -f EUC-JP -t UTF-8 -o "$f.utf8" "$f" || sudo rm "$f.utf8"
     done
-    sudo cp ~/compile/skk-emoji-jisyo/SKK-JISYO.emoji.utf8 /usr/share/skk/
-    sudo cp ~/compile/SKK-JISYO.emoji-ja/SKK-JISYO.emoji-ja.utf8 /usr/share/skk/
-    sudo cp ~/Rust/SKK_JISYO.wiktionary/SKK_JISYO.seikana /usr/share/skk/SKK_JISYO.seikana.utf8
-    sudo cp ~/Rust/SKK_JISYO.wiktionary/SKK_JISYO.shikakugoma /usr/share/skk/SKK_JISYO.shikakugoma.utf8
+    # sudo cp ~/compile/skk-emoji-jisyo/SKK-JISYO.emoji.utf8 /usr/share/skk/
+    # sudo cp ~/compile/SKK-JISYO.emoji-ja/SKK-JISYO.emoji-ja.utf8 /usr/share/skk/
+    # sudo cp ~/Rust/SKK_JISYO.wiktionary/SKK_JISYO.seikana /usr/share/skk/SKK_JISYO.seikana.utf8
+    # sudo cp ~/Rust/SKK_JISYO.wiktionary/SKK_JISYO.shikakugoma /usr/share/skk/SKK_JISYO.shikakugoma.utf8
     sudo sed -i 's/euc-jis-2004/utf-8/' /usr/share/skktools/filters/*.rb
 
     echo ';;; -*- coding: utf-8 -*-' | sudo tee SKK-JISYO.all.utf8 > /dev/null
