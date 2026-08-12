@@ -5,10 +5,12 @@ function fish_greeting
 end
 
 # Environment Variables
-set -gx MANPAGER "sh -c 'col -bx | batcat -l man -p'"
+if which batcat > /dev/null 2>&1
+    set -gx MANPAGER "sh -c 'col -bx | batcat -l man -p'"
+end
 set -gx MANROFFOPT "-c"
-set -gx XDG_CONFIG_DIRS $HOME/.config
-set -gx XDG_DATA_DIRS /usr/local/share/:/usr/share/
+#set -gx XDG_CONFIG_DIRS $HOME/.config
+# set -gx XDG_DATA_DIRS /usr/local/share/:/usr/share/
 set -gx EDITOR hx
 set -gx GOPATH ~/Go
 set -gx WASMTIME_HOME "$HOME/.wasmtime"
@@ -115,7 +117,56 @@ function route
 end
 
 function new-script
-    printf "#!/bin/sh\n# templated by http://qiita.com/blackenedgold/items/c9e60e089974392878c8\nusage() {\n    cat <<HELP\nNAME:\n   \$0 -- {one sentence description}\n\nSYNOPSIS:\n  \$0 [-h|--help]\n  \$0 [--verbose]\n\nDESCRIPTION:\n   {description here}\n\n  -h  --help      Print this help.\n      --verbose   Enables verbose mode.\n\nEXAMPLE:\n  {examples if any}\n\nHELP\n}\n\nmain() {\n    SCRIPT_DIR=\"\$(cd \$(dirname \"\$0\"); pwd)\"\n\n    while [ \$# -gt 0 ]; do\n        case \"\$1\" in\n            --help) usage; exit 0;;\n            --verbose) set -x; shift;;\n            --) shift; break;;\n            -*)\n                OPTIND=1\n                while getopts h OPT \"\$1\"; do\n                    case \"\$OPT\" in\n                        h) usage; exit 0;;\n                    esac\n                done\n                shift\n                ;;\n            *) break;;\n        esac\n    done\n\n    # do something\n}\n\nmain \"\$@\"\n" > $argv[1]
+    printf "\
+#!/bin/sh
+# templated by http://qiita.com/blackenedgold/items/c9e60e089974392878c8
+usage() {
+    cat <<HELP
+NAME:
+   \$0 -- {one sentence description}
+
+SYNOPSIS:
+  \$0 [-h|--help]
+  \$0 [--verbose]
+
+DESCRIPTION:
+   {description here}
+
+  -h  --help      Print this help.
+      --verbose   Enables verbose mode.
+
+EXAMPLE:
+  {examples if any}
+
+HELP
+}
+
+main() {
+    SCRIPT_DIR=\"\$(cd \$(dirname \"\$0\"); pwd)\"
+
+    while [ \$# -gt 0 ]; do
+        case \"\$1\" in
+            --help) usage; exit 0;;
+            --verbose) set -x; shift;;
+            --) shift; break;;
+            -*)
+                OPTIND=1
+                while getopts h OPT \"\$1\"; do
+                    case \"\$OPT\" in
+                        h) usage; exit 0;;
+                    esac
+                done
+                shift
+                ;;
+            *) break;;
+        esac
+    done
+
+    # do something
+}
+
+main \"\$@\"
+" > $argv[1]
     chmod +x $argv[1]
 end
 
@@ -170,8 +221,10 @@ end
 alias rusti='evcxr'
 alias ec='open_in_emacs'
 alias ls='ls --color'
-alias smlsharp='rlwrap smlsharp'
-alias sml='rlwrap sml'
+if which rlwrap > /dev/null 2>&1
+   alias smlsharp='rlwrap smlsharp'
+   alias sml='rlwrap sml'
+end
 alias bat=batcat
 alias fd=fdfind
 
