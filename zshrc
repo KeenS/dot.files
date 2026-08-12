@@ -397,8 +397,9 @@ alias bat=batcat
 alias fd=fdfind
 export MANPAGER="sh -c 'col -bx | batcat -l man -p'"
 export MANROFFOPT="-c"
-export XDG_CONFIG_DIRS=$HOME/.config
-export XDG_DATA_DIRS=/usr/local/share/:/usr/share/
+# export XDG_CONFIG_DIRS=$HOME/.config
+# Keep Snap's desktop-entry directory so GNOME can discover Snap applications.
+# export XDG_DATA_DIRS=/usr/local/share/:/usr/share/:/var/lib/snapd/desktop
 export EDITOR=hx
 
 # locals
