@@ -6,7 +6,7 @@ gsettings set org.gnome.desktop.input-sources xkb-options "['ctrl:nocaps']"
 #sudo add-apt-repository ppa:maveonair/helix-editor
 
 sudo apt install \
-  zsh git curl pixz \
+  fish zsh git curl pixz \
   fcitx5 fcitx5-skk skkdic skkdic-extra skktools \
   python3-pip python3-venv \
   ruby \
@@ -33,7 +33,7 @@ wget -O - https://raw.githubusercontent.com/laurent22/joplin/dev/Joplin_install_
 
 # TODO: install discord slack dropbox keybase from the official site
 
-chsh -s /usr/bin/zsh
+chsh -s /usr/bin/fish
 
 # for xremap
 sudo groupadd -f uinput
