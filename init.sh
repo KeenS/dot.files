@@ -41,6 +41,8 @@ sudo usermod -aG uinput "$USER"
 sudo gpasswd -a "$USER" input
 echo 'KERNEL=="uinput", GROUP="input", TAG+="uaccess"' | sudo tee /etc/udev/rules.d/input.rules
 
+# TODO: install gnome extension of xremap
+
 
 # for SKK
 (
