@@ -367,3 +367,7 @@ function fish_right_prompt
     echo -n (pwd | sed "s,^$HOME,~,")
     echo -n ")"
 end
+
+if status is-interactive
+    eval (zellij setup --generate-auto-start fish | string collect)
+end
