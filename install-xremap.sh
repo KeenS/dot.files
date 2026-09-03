@@ -35,6 +35,17 @@ restart_xremap() {
     fi
 }
 
+target_arch() {
+    case "$(uname -m)" in
+        x86_64) echo x86_64 ;;
+        aarch64|arm64) echo aarch64 ;;
+        *)
+            echo "warning: xremap does not support architecture $(uname -m); skipping installation." >&2
+            return 1
+            ;;
+    esac
+}
+
 
 main() {
     SCRIPT_DIR="$(cd $(dirname "$0"); pwd)"
@@ -65,16 +76,20 @@ main() {
         exit 1
     fi
     VERSION="$1"
+    if ! ARCH="$(target_arch)"; then
+        return 0
+    fi
+    ASSET="xremap-linux-${ARCH}-gnome"
 
     echo "current version = $(xremap_version) , required version = ${VERSION}"
     if $force || [ "$(xremap_version)" != "${VERSION}" ]; then
         echo "start installing $VERSION"
-        wget "https://github.com/k0kubun/xremap/releases/download/v${VERSION}/xremap-linux-x86_64-gnome.zip"
-        unzip "xremap-linux-x86_64-gnome.zip" -d "xremap-linux-x86_64-gnome"
+        wget "https://github.com/k0kubun/xremap/releases/download/v${VERSION}/${ASSET}.zip"
+        unzip "${ASSET}.zip" -d "${ASSET}"
         stop_xremap
-        cp "xremap-linux-x86_64-gnome/xremap" "$PREFIX"
+        cp "${ASSET}/xremap" "$PREFIX"
         restart_xremap
-        rm -rf "xremap-linux-x86_64-gnome" "xremap-linux-x86_64-gnome.zip"
+        rm -rf "${ASSET}" "${ASSET}.zip"
         echo "installation of xremap ${VERSION} done"
     else
         echo "xremap is up to date. do nothing."
@@ -83,4 +98,3 @@ main() {
 }
 
 main "$@"
-

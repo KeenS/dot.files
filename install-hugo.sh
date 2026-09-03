@@ -22,6 +22,17 @@ hugo_version() {
     hugo version | grep -Eo 'v[0-9]+\.[0-9]+\.[0-9]+' | sed 's/v//'
 }
 
+target_arch() {
+    case "$(uname -m)" in
+        x86_64) echo amd64 ;;
+        aarch64|arm64) echo arm64 ;;
+        *)
+            echo "warning: hugo does not support architecture $(uname -m); skipping installation." >&2
+            return 1
+            ;;
+    esac
+}
+
 
 main() {
     SCRIPT_DIR="$(cd $(dirname "$0"); pwd)"
@@ -51,15 +62,19 @@ main() {
         exit 1
     fi
     VERSION="$1"
+    if ! ARCH="$(target_arch)"; then
+        return 0
+    fi
 
 
     echo "current version = $(hugo_version) , required version = ${VERSION}"
     if "$force" || [ "$(hugo_version)" != "${VERSION}" ]; then
         echo "start installing $VERSION"
 
-        wget https://github.com/gohugoio/hugo/releases/download/v${VERSION}/hugo_${VERSION}_Linux-amd64.deb
-        sudo dpkg -i hugo_${VERSION}_Linux-amd64.deb
-        rm -rf hugo_${VERSION}_Linux-amd64.deb
+        PACKAGE="hugo_${VERSION}_linux-${ARCH}.deb"
+        wget "https://github.com/gohugoio/hugo/releases/download/v${VERSION}/${PACKAGE}"
+        sudo dpkg -i "${PACKAGE}"
+        rm -rf "${PACKAGE}"
         echo "installation of hugo ${VERSION} done"
     else
         echo "hugo is up to date. do nothing."
@@ -68,4 +83,3 @@ main() {
 }
 
 main "$@"
-

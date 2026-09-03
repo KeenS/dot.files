@@ -22,6 +22,17 @@ lab_version() {
     lab version | grep 'lab version' | grep -Eo '[0-9.]+'
 }
 
+target_arch() {
+    case "$(uname -m)" in
+        x86_64) echo amd64 ;;
+        aarch64|arm64) echo arm64 ;;
+        *)
+            echo "warning: lab does not support architecture $(uname -m); skipping installation." >&2
+            return 1
+            ;;
+    esac
+}
+
 
 main() {
     SCRIPT_DIR="$(cd $(dirname "$0"); pwd)"
@@ -52,15 +63,19 @@ main() {
         exit 1
     fi
     VERSION="$1"
+    if ! ARCH="$(target_arch)"; then
+        return 0
+    fi
+    ASSET="lab_${VERSION}_linux_${ARCH}"
 
     echo "current version = $(lab_version) , required version = ${VERSION}"
     if "$force" || [ "$(lab_version)" != "${VERSION}" ]; then
         echo "start installing $VERSION"
-        wget "https://github.com/zaquestion/lab/releases/download/v${VERSION}/lab_${VERSION}_linux_amd64.tar.gz"
-        mkdir "lab_${VERSION}_linux_amd64"
-        tar xzf "lab_${VERSION}_linux_amd64.tar.gz" -C "lab_${VERSION}_linux_amd64"
-        cp "lab_${VERSION}_linux_amd64/lab" "$PREFIX"
-        rm -rf "lab_${VERSION}_linux_amd64" "lab_${VERSION}_linux_amd64.tar.gz"
+        wget "https://github.com/zaquestion/lab/releases/download/v${VERSION}/${ASSET}.tar.gz"
+        mkdir "${ASSET}"
+        tar xzf "${ASSET}.tar.gz" -C "${ASSET}"
+        cp "${ASSET}/lab" "$PREFIX"
+        rm -rf "${ASSET}" "${ASSET}.tar.gz"
         echo "installation of lab ${VERSION} done"
     else
         echo "lab is up to date. do nothing."
@@ -69,4 +84,3 @@ main() {
 }
 
 main "$@"
-

@@ -22,6 +22,20 @@ wakatime_version() {
     wakatime --version | grep -Eo '[0-9.]+'
 }
 
+target_arch() {
+    case "$(uname -m)" in
+        x86_64) echo amd64 ;;
+        aarch64|arm64)
+            echo "warning: wakatime-cli does not provide a Linux arm64 binary; skipping installation." >&2
+            return 1
+            ;;
+        *)
+            echo "warning: wakatime-cli does not support architecture $(uname -m); skipping installation." >&2
+            return 1
+            ;;
+    esac
+}
+
 
 main() {
     SCRIPT_DIR="$(cd $(dirname "$0"); pwd)"
@@ -52,15 +66,19 @@ main() {
         exit 1
     fi
     VERSION="$1"
+    if ! ARCH="$(target_arch)"; then
+        return 0
+    fi
 
     echo "current version = $(wakatime_version) , required version = ${VERSION}"
     if "$force" || [ "$(wakatime_version)" != "${VERSION}" ]; then
         echo "start installing $VERSION"
-        wget "https://github.com/wakatime/wakatime-cli/releases/download/v$VERSION/wakatime-cli-linux-amd64.zip"
-        mkdir "wakatime_${VERSION}_linux_amd64"
-        unzip wakatime-cli-linux-amd64.zip -d "wakatime_${VERSION}_linux_amd64"
-        cp "wakatime_${VERSION}_linux_amd64/wakatime-cli-linux-amd64" "$PREFIX/wakatime"
-        rm -rf "wakatime_${VERSION}_linux_amd64" "wakatime-cli-linux-amd64.zip"
+        ASSET="wakatime-cli-linux-${ARCH}"
+        wget "https://github.com/wakatime/wakatime-cli/releases/download/v$VERSION/${ASSET}.zip"
+        mkdir "wakatime_${VERSION}_linux_${ARCH}"
+        unzip "${ASSET}.zip" -d "wakatime_${VERSION}_linux_${ARCH}"
+        cp "wakatime_${VERSION}_linux_${ARCH}/${ASSET}" "$PREFIX/wakatime"
+        rm -rf "wakatime_${VERSION}_linux_${ARCH}" "${ASSET}.zip"
         echo "installation of wakatime ${VERSION} done"
     else
         echo "wakatime is up to date. do nothing."
@@ -69,4 +87,3 @@ main() {
 }
 
 main "$@"
-

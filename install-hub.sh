@@ -22,6 +22,17 @@ hub_version() {
     hub version | grep 'hub version' | grep -Eo '[0-9.]+'
 }
 
+target_arch() {
+    case "$(uname -m)" in
+        x86_64) echo amd64 ;;
+        aarch64|arm64) echo arm64 ;;
+        *)
+            echo "warning: hub does not support architecture $(uname -m); skipping installation." >&2
+            return 1
+            ;;
+    esac
+}
+
 
 main() {
     SCRIPT_DIR="$(cd $(dirname "$0"); pwd)"
@@ -51,15 +62,19 @@ main() {
         exit 1
     fi
     VERSION="$1"
+    if ! ARCH="$(target_arch)"; then
+        return 0
+    fi
+    ASSET="hub-linux-${ARCH}-${VERSION}"
 
 
     echo "current version = $(hub_version) , required version = ${VERSION}"
     if "$force" || [ "$(hub_version)" != "${VERSION}" ]; then
         echo "start installing $VERSION"
-        wget https://github.com/github/hub/releases/download/v${VERSION}/hub-linux-amd64-${VERSION}.tgz
-        tar xzf hub-linux-amd64-${VERSION}.tgz
-        (cd hub-linux-amd64-${VERSION} && sudo ./install)
-        rm -rf hub-linux-amd64-${VERSION}.tgz hub-linux-amd64-${VERSION}
+        wget "https://github.com/github/hub/releases/download/v${VERSION}/${ASSET}.tgz"
+        tar xzf "${ASSET}.tgz"
+        (cd "${ASSET}" && sudo ./install)
+        rm -rf "${ASSET}.tgz" "${ASSET}"
         echo "installation of hub ${VERSION} done"
     else
         echo "hub is up to date. do nothing."
@@ -68,4 +83,3 @@ main() {
 }
 
 main "$@"
-
