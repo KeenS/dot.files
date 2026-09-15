@@ -5,10 +5,10 @@ function fish_greeting
 end
 
 # Environment Variables
-if which batcat > /dev/null 2>&1
+if which batcat >/dev/null 2>&1
     set -gx MANPAGER "sh -c 'col -bx | batcat -l man -p'"
 end
-set -gx MANROFFOPT "-c"
+set -gx MANROFFOPT -c
 #set -gx XDG_CONFIG_DIRS $HOME/.config
 # set -gx XDG_DATA_DIRS /usr/local/share/:/usr/share/
 set -gx EDITOR hx
@@ -166,7 +166,7 @@ main() {
 }
 
 main \"\$@\"
-" > $argv[1]
+" >$argv[1]
     chmod +x $argv[1]
 end
 
@@ -221,9 +221,9 @@ end
 alias rusti='evcxr'
 alias ec='open_in_emacs'
 alias ls='ls --color'
-if which rlwrap > /dev/null 2>&1
-   alias smlsharp='rlwrap smlsharp'
-   alias sml='rlwrap sml'
+if which rlwrap >/dev/null 2>&1
+    alias smlsharp='rlwrap smlsharp'
+    alias sml='rlwrap sml'
 end
 alias bat=batcat
 alias fd=fdfind
