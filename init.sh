@@ -7,7 +7,7 @@ gsettings set org.gnome.desktop.input-sources xkb-options "['ctrl:nocaps']"
 
 sudo apt install \
   fish zsh git curl pixz \
-  fcitx5 fcitx5-skk skkdic skkdic-extra skktools \
+  fcitx5 fcitx5-skk skktools \
   python3-pip python3-venv \
   ruby \
   build-essential cmake pkg-config libtree-sitter-dev libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev autoconf texinfo libgif-dev libtiff-dev libjpeg-dev libpng-dev libxpm-dev libgtk-3-dev libgnutls28-dev libtinfo-dev kakasi libcurl4-openssl-dev \
@@ -45,33 +45,26 @@ echo 'KERNEL=="uinput", GROUP="input", TAG+="uaccess"' | sudo tee /etc/udev/rule
 
 
 # for SKK
-mkdir ~/compile
-(
-    cd ~/compile
-    git clone  git@github.com:ymrl/SKK-JISYO.emoji-ja.git
-    git clone git@github.com:uasi/skk-emoji-jisyo.gi
-)
-mkdir ~/Rust
+mkdir -p ~/Rust
 (
     cd ~/Rust
     git clone git@github.com:KeenS/SKK_JISYO.wiktionary.git
 )
 (
-    cd /usr/share/skk
-    for f in SKK-JISYO.*; do
-        echo "converting $f"
-        sudo iconv -f EUC-JP -t UTF-8 -o "$f.utf8" "$f" || sudo rm "$f.utf8"
-    done
-    sudo cp ~/compile/skk-emoji-jisyo/SKK-JISYO.emoji.utf8 /usr/share/skk/
-    sudo cp ~/compile/SKK-JISYO.emoji-ja/SKK-JISYO.emoji-ja.utf8 /usr/share/skk/
-    sudo cp ~/Rust/SKK_JISYO.wiktionary/SKK_JISYO.seikana /usr/share/skk/SKK_JISYO.seikana.utf8
-    sudo cp ~/Rust/SKK_JISYO.wiktionary/SKK_JISYO.shikakugoma /usr/share/skk/SKK_JISYO.shikakugoma.utf8
-    sudo sed -i 's/euc-jis-2004/utf-8/' /usr/share/skktools/filters/*.rb
-
-    echo ';;; -*- coding: utf-8 -*-' | sudo tee SKK-JISYO.all.utf8 > /dev/null
-    skkdic-expr2 SKK-JISYO.L.utf8 *.utf8 utf8/* | \
-        ruby -I /usr/share/skktools/filters /usr/share/skktools/filters/annotation-filter.rb | \
-        skkdic-expr2 | \
-        sudo tee -a SKK-JISYO.all.utf8 > /dev/null
-    sudo ln -sf /usr/share/skk/SKK-JISYO.all.utf8 /etc/alternatives/SKK-JISYO
+    cd ~/Rust/SKK_JISYO.wiktionary
+    {
+        echo ';;; -*- coding: utf-8 -*-'
+        skkdic-expr2 \
+            SKK-JISYO.wiktionary \
+            + SKK-JISYO.jmdict \
+            + SKK-JISYO.jmnedict \
+            + SKK-JISYO.gsi \
+            + SKK-JISYO.post \
+            + SKK-JISYO.kanjidic \
+            + SKK-JISYO.unihan \
+            + SKK-JISYO.emoji \
+            + SKK-JISYO.shikakugoma \
+            + SKK-JISYO.jion
+    } | sudo tee /usr/share/skk/SKK-JISYO.all > /dev/null
+    sudo ln -sf /usr/share/skk/SKK-JISYO.all /etc/alternatives/SKK-JISYO
 )
