@@ -29,6 +29,7 @@ fish_add_path $PYENV_ROOT/bin
 fish_add_path $HOME/.npm-global/bin
 fish_add_path /home/shun/.cache/lm-studio/bin
 fish_add_path ~/.cargo/bin
+fish_add_path $HOME/.opencode/bin
 
 # Tool Initializations
 if test -d $PYENV_ROOT
