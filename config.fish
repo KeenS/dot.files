@@ -368,3 +368,10 @@ function fish_right_prompt
     echo -n (pwd | sed "s,^$HOME,~,")
     echo -n ")"
 end
+
+# >>> grok installer >>>
+fish_add_path $HOME/.grok/bin
+# <<< grok installer <<<
+
+# opencode
+fish_add_path /home/shun/.opencode/bin
