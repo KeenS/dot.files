@@ -1,0 +1,3 @@
+encoding=UTF-8,file=$FCITX_CONFIG_DIR/skk/user.dict,mode=readwrite,type=file
+encoding=UTF-8,file=~/.config/skk/user.dict,mode=readonly,type=file
+encoding=UTF-8,file=/usr/share/skk/SKK-JISYO,mode=readonly,type=file

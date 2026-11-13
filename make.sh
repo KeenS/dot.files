@@ -50,6 +50,7 @@ install_link "$(pwd)/systemd/backuphome.service" ~/.config/systemd/user/backupho
 install_link "$(pwd)/systemd/backuphome.timer" ~/.config/systemd/user/backuphome.timer
 install_link "$(pwd)/fcitx5/conf/skk.conf" ~/.config/fcitx5/conf/skk.conf
 install_link "$(pwd)/libskk/rules/user" ~/.config/libskk/rules/user
+install_link "$(pwd)/dictionary_list" ~/.local/share/fcitx5/skk/dictionary_list
 
 sudo install -o root -g root -m644 cron/zfs-auto-snapshot.freequent /etc/cron.d/zfs-auto-snapshot
 sudo install -o root -g root cron/zfs-auto-snapshot.hourly /etc/cron.hourly/zfs-auto-snapshot
